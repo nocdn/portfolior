@@ -32,7 +32,7 @@ export function DesktopSection({
   return (
     <div
       style={{
-        fontFamily: "PP Neue Montreal",
+        fontFamily: "PP Neue Montreal, Inter, sans-serif",
         fontWeight: 500,
         lineHeight: "30px",
         fontSize: "19px",
