@@ -79,6 +79,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${ibmPlexMono.variable} ${openRunde.variable} ${jetBrainsMono.variable} antialiased`}
       >
         {children}
+        <div
+          className="bottom-scroll-mask pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="top-scroll-mask pointer-events-none"
+          aria-hidden="true"
+        />
       </body>
     </html>
   )

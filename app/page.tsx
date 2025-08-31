@@ -6,6 +6,7 @@ import { TimeZoneName } from "@/components/desktop/TimeZoneName"
 import { Project } from "@/components/desktop/Project"
 import { ArrowRightIcon } from "lucide-react"
 import { ComponentCarousel } from "@/components/ComponentCarousel"
+import { Article } from "@/components/Article"
 
 export default function Home() {
   const isMobile = useIsMobile()
@@ -77,9 +78,10 @@ export default function Home() {
             className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[7%]"
           >
             <div>
-              Good morning, I'm <TimeZoneName />. I am a front-end developer
-              based in England, studying computer science at the University of
-              York. I love to craft tools and experiences for other developers.
+              Hey there, I'm <TimeZoneName />. I am a front-end developer based
+              in the UK, studying computer science at the University of York. I
+              love to craft tools and experiences for myself and other
+              developers.
             </div>
           </DesktopSection>
           <DesktopSection
@@ -111,6 +113,24 @@ export default function Home() {
             className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[3.75%] motion-delay-200"
           >
             <ComponentCarousel cardTick={componentCardTick} />
+          </DesktopSection>
+          <DesktopSection
+            title="WRITING"
+            className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[3.75%] motion-delay-300"
+          >
+            <div className="grid grid-cols-2 gap-2 mr-6">
+              <Article
+                title="My take on the Family Drawer"
+                date="August 2025"
+                href="/writing/family-drawer"
+              />
+              <Article
+                title="Coming soon....."
+                date="September 2025"
+                disabled={true}
+                href="/writing/"
+              />
+            </div>
           </DesktopSection>
         </main>
       )}

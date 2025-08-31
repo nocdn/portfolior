@@ -53,6 +53,7 @@ export function DesktopSection({
         <AnimatePresence>
           {subtitle && isHovering && (
             <motion.div
+              tabIndex={0}
               className="text-[16px] font-semibold font-mono ml-2 text-blue-700/40 cursor-pointer"
               initial={{ opacity: 0, filter: "blur(2px)" }}
               animate={{ opacity: 1, filter: "blur(0px)" }}
