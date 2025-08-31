@@ -1,5 +1,11 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Inter, IBM_Plex_Mono } from "next/font/google"
+import {
+  Geist,
+  Geist_Mono,
+  Inter,
+  IBM_Plex_Mono,
+  JetBrains_Mono,
+} from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
 
@@ -51,6 +57,12 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600", "700"],
 })
 
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+})
+
 export const metadata: Metadata = {
   title: "Bartosz Bak",
   description: "Portfolio by Bartosz",
@@ -64,7 +76,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${ibmPlexMono.variable} ${openRunde.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${ibmPlexMono.variable} ${openRunde.variable} ${jetBrainsMono.variable} antialiased`}
       >
         {children}
       </body>

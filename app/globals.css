@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "tailwindcss-motion";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -10,6 +11,7 @@
   --font-mono: var(--font-geist-mono);
   --font-inter: var(--font-inter);
   --font-ibm-plex-mono: var(--font-ibm-plex-mono);
+  --font-jetbrains-mono: var(--font-jetbrains-mono);
   --font-neue-montreal: var(--font-neue-montreal);
   --font-open-runde: var(--font-open-runde);
   --color-sidebar-ring: var(--sidebar-ring);
