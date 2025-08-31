@@ -72,7 +72,8 @@ export default function Home() {
       {isMobile ? (
         <p>Mobile</p>
       ) : (
-        <main className="w-[546px] mb-24 mx-auto pt-26 flex flex-col gap-12">
+        // <main className="w-[546px] mb-24 mx-auto pt-26 flex flex-col gap-12">
+        <main className="w-[586px] mb-24 mx-auto pt-26 flex flex-col gap-12">
           <DesktopSection
             title="ABOUT"
             className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[7%]"
