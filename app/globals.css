@@ -182,3 +182,7 @@
     overflow-x: hidden;
   }
 }
+
+.article-link {
+  @apply text-blue-700;
+}

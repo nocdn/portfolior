@@ -15,10 +15,12 @@ export default function FamilyDrawer() {
         Recreating the Family Drawer
       </h1>
       <p className="leading-relaxed text-gray-800 text-[17px]">
-        I've been using the Family Drawer for a while now, and I've always
-        wanted to recreate it. I've been using the Family Drawer for a while
-        now, and I've always wanted to recreate it. I've been using the Family
-        Drawer for a while now, and I've always wanted to recreate it.
+        It feels like whenever the topic of animations (whether that is web or
+        otherwise) comes up, the{" "}
+        <a href="https://family.co/" target="_blank" className="article-link">
+          Family App
+        </a>{" "}
+        is front and center of all the examples. And for good reason.
       </p>
     </>
   )
