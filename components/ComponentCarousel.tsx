@@ -35,7 +35,7 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
       exit={{ opacity: 0, x: 40, filter: "blur(3px)" }}
     >
       <img
-        src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/oklch-colors-new.png"
+        src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/outline-orbit.png"
         alt="Animated spinners"
         className="max-w-[200px] max-h-[300px] rounded-xl border border-gray-200"
       />
