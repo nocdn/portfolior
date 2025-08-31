@@ -1,13 +1,11 @@
 "use client"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import { DesktopSection } from "@/components/desktop/Section"
-import { AnimatePresence } from "motion/react"
-import { useRef, useState } from "react"
+import { useState } from "react"
 import { TimeZoneName } from "@/components/desktop/TimeZoneName"
 import { Project } from "@/components/desktop/Project"
-import { Component } from "@/components/Component"
-import { ArrowLeftIcon } from "@/components/ui/arrow-left"
 import { ArrowRightIcon } from "lucide-react"
+import { ComponentCarousel } from "@/components/ComponentCarousel"
 
 export default function Home() {
   const isMobile = useIsMobile()
@@ -65,20 +63,8 @@ export default function Home() {
     <Project key={index} {...project} />
   ))
 
-  const componentCards = [
-    <Component
-      title="Animated spinners"
-      description="A library for working with oklch colors"
-      imgURL="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/oklch-colors-new.png"
-    />,
-    <Component
-      title="Corner bordered buttons"
-      description="Inspired by Tailwind CSS documentation page, I loved the look of it."
-      imgURL="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/oklch-colors-new.png"
-    />,
-  ]
-
-  const [currentCard, setCurrentCard] = useState(0)
+  // this will be used to tick the component card carousel
+  const [componentCardTick, setComponentCardTick] = useState(0)
 
   return (
     <div className="">
@@ -108,16 +94,23 @@ export default function Home() {
             subtitleURL="/registry"
             secondaryChildren={
               <div className="flex items-center gap-2">
-                <button onClick={() => setCurrentCard(currentCard + 1)}>
-                  <ArrowRightIcon className="opacity-100" size={18} />
+                <button
+                  onClick={() =>
+                    setComponentCardTick(
+                      (componentCardTick) => componentCardTick + 1
+                    )
+                  }
+                >
+                  <ArrowRightIcon
+                    className="opacity-100 cursor-pointer"
+                    size={18}
+                  />
                 </button>
               </div>
             }
             className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[3.75%] motion-delay-200"
           >
-            <AnimatePresence mode="popLayout" initial={false}>
-              {componentCards[currentCard]}
-            </AnimatePresence>
+            <ComponentCarousel cardTick={componentCardTick} />
           </DesktopSection>
         </main>
       )}
