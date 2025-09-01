@@ -17,10 +17,18 @@ export default function NotFound() {
           <p className="font-mono motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[20%] motion-delay-200">
             PAGE NOT FOUND
           </p>
-          <Star
-            className="w-4 h-4 motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[20%] motion-delay-250"
-            strokeWidth={2.35}
-          />
+          <motion.div
+            whileHover={{ rotate: 135 }}
+            transition={{
+              duration: 1,
+              ease: [0.175, 0.885, 0.32, 1],
+            }}
+          >
+            <Star
+              className="w-4 h-4 motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[20%] motion-delay-250"
+              strokeWidth={2.35}
+            />
+          </motion.div>
           <Link
             href="/"
             className="font-mono text-[16px] font-semibold text-blue-700 cursor-pointer motion-blur-in-[1px] motion-opacity-in-0 motion-translate-y-in-[15%] motion-delay-300 hover:text-blue-800 active:scale-[0.98] transition-all duration-100 ease-out active:opacity-80"
