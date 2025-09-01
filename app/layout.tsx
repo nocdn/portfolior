@@ -31,6 +31,12 @@ const openRunde = localFont({
   display: "swap",
 })
 
+const switzer = localFont({
+  src: "../public/fonts/Switzer-Medium.woff2",
+  variable: "--font-switzer",
+  display: "swap",
+})
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -74,7 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${ibmPlexMono.variable} ${openRunde.variable} ${jetBrainsMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${ibmPlexMono.variable} ${openRunde.variable} ${jetBrainsMono.variable} ${switzer.variable} antialiased`}
       >
         {children}
         <div

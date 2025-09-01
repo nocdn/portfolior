@@ -5,7 +5,7 @@ export function DesktopSection({
   children,
   className,
   title,
-  subtitle,
+  subtitleChildren,
   onOrbLoad,
   secondaryChildren,
   subtitleURL,
@@ -13,7 +13,7 @@ export function DesktopSection({
   children: React.ReactNode
   className?: string
   title: string
-  subtitle?: string
+  subtitleChildren?: React.ReactNode
   onOrbLoad?: (x: number, y: number) => void
   secondaryChildren?: React.ReactNode
   subtitleURL?: string
@@ -51,10 +51,10 @@ export function DesktopSection({
       >
         {title}
         <AnimatePresence>
-          {subtitle && isHovering && (
+          {subtitleChildren && isHovering && (
             <motion.div
               tabIndex={0}
-              className="text-[16px] font-semibold font-mono ml-2 text-blue-700/40 cursor-pointer"
+              className="text-[16px] font-semibold font-mono ml-2 text-blue-700/40 cursor-pointer flex items-center"
               initial={{ opacity: 0, filter: "blur(2px)" }}
               animate={{ opacity: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, filter: "blur(1.5px)" }}
@@ -65,7 +65,7 @@ export function DesktopSection({
                 window.open(subtitleURL, "_blank")
               }}
             >
-              [{subtitle.toUpperCase()}]
+              [{subtitleChildren}]
             </motion.div>
           )}
         </AnimatePresence>

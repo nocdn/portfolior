@@ -4,7 +4,13 @@ import { DesktopSection } from "@/components/desktop/Section"
 import { useState } from "react"
 import { TimeZoneName } from "@/components/desktop/TimeZoneName"
 import { Project } from "@/components/desktop/Project"
-import { ArrowRightIcon } from "lucide-react"
+import {
+  ArrowRightIcon,
+  ArrowUpRight,
+  ArrowUpRightFromCircle,
+  ExternalLink,
+  LinkIcon,
+} from "lucide-react"
 import { ComponentCarousel } from "@/components/ComponentCarousel"
 import { Article } from "@/components/Article"
 
@@ -114,7 +120,16 @@ export default function Home() {
           </DesktopSection>
           <DesktopSection
             title="COMPONENTS"
-            subtitle="shadcn registry"
+            subtitleChildren={
+              <div className="flex items-center gap-1">
+                SHADCN REGISTRY{" "}
+                <ArrowUpRight
+                  size={16}
+                  strokeWidth={2.75}
+                  className="mr-0.5 text-blue-700 opacity-40"
+                />
+              </div>
+            }
             subtitleURL="/registry"
             secondaryChildren={
               <div className="flex items-center gap-2">
