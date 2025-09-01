@@ -132,7 +132,16 @@ export function Project({
                   transition: "all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1)",
                 }}
               >
-                <p className={"text-gray-500"}>{description}</p>
+                <p
+                  className={"text-gray-500/90"}
+                  style={{
+                    fontFamily: "Switzer",
+                    fontSize: "17px",
+                    fontWeight: 500,
+                  }}
+                >
+                  {description}
+                </p>
               </div>
               <AnimatePresence>
                 {showingChips && (

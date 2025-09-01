@@ -26,11 +26,6 @@ const openRunde = localFont({
       weight: "600",
       style: "normal",
     },
-    {
-      path: "../public/fonts/OpenRunde-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
   ],
   variable: "--font-open-runde",
   display: "swap",
@@ -66,6 +61,9 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Bartosz Bak",
   description: "Portfolio by Bartosz",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({

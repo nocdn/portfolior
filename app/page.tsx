@@ -21,8 +21,7 @@ export default function Home() {
   const projects: Project[] = [
     {
       title: "Shifts",
-      description:
-        "Full stack rota and shift management system with authentication",
+      description: "Full stack rota and shift management system with auth",
       demoURL: "https://github.com/nocdn/shifts",
       chips: ["react", "supabase", "nextjs", "betterAuth"],
     },
@@ -72,7 +71,7 @@ export default function Home() {
       {isMobile ? (
         <p>Mobile</p>
       ) : (
-        <main className="w-[566px] mb-24 mx-auto pt-26 flex flex-col gap-12">
+        <main className="w-[565px] mb-24 mx-auto pt-26 flex flex-col gap-12">
           <DesktopSection
             title="ABOUT"
             className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[7%]"
