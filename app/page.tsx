@@ -72,7 +72,7 @@ export default function Home() {
       {isMobile ? (
         <p>Mobile</p>
       ) : (
-        <main className="w-[546px] mb-24 mx-auto pt-26 flex flex-col gap-12">
+        <main className="w-[566px] mb-24 mx-auto pt-26 flex flex-col gap-12">
           <DesktopSection
             title="ABOUT"
             className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[7%]"
@@ -84,7 +84,7 @@ export default function Home() {
               developers.
             </div>
           </DesktopSection>
-          <p
+          {/* <p
             style={{
               fontFamily: "PP",
               fontWeight: 500,
@@ -106,7 +106,7 @@ export default function Home() {
             . I am a front-end developer based in the UK, studying computer
             science at the University of York. I love to craft tools and
             experiences for myself and other developers.
-          </p>
+          </p> */}
           <DesktopSection
             title="PROJECTS"
             className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[2.5%] motion-delay-100"
