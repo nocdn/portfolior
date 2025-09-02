@@ -5,13 +5,15 @@ import { useEffect, useState, useRef } from "react"
 
 export function ComponentCarousel({ cardTick }: { cardTick: number }) {
   const componentCards = [
-    <motion.div
+    <motion.a
       key={0}
-      className="flex items-center gap-3 mr-6"
+      className="flex items-center gap-3 mr-6 cursor-pointer"
       initial={{ opacity: 0, x: -40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: "spring", stiffness: 220, damping: 20 }}
       exit={{ opacity: 0, x: 40, filter: "blur(3px)" }}
+      href="/registry/animated-spinners"
+      target="_blank"
     >
       <img
         src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/oklch-colors-new.png"
@@ -25,14 +27,16 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
           React.
         </p>
       </div>
-    </motion.div>,
-    <motion.div
+    </motion.a>,
+    <motion.a
       key={1}
-      className="flex items-center gap-3 mr-6"
+      className="flex items-center gap-3 mr-6 cursor-pointer"
       initial={{ opacity: 0, x: -40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: "spring", stiffness: 220, damping: 20 }}
       exit={{ opacity: 0, x: 40, filter: "blur(3px)" }}
+      href="/registry/corner-bordered-buttons"
+      target="_blank"
     >
       <img
         src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/outline-orbit.png"
@@ -47,7 +51,7 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
           Inspired by Tailwind CSS documentation page, I loved the look of it.
         </p>
       </div>
-    </motion.div>,
+    </motion.a>,
   ]
 
   const [currentCard, setCurrentCard] = useState(0)

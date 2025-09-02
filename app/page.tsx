@@ -70,6 +70,13 @@ export default function Home() {
       demoURL: "https://whisper.bartoszbak.org/",
       chips: ["python"],
     },
+    {
+      title: "Votes",
+      description:
+        "Voting platform for university society elections, in SvelteKit",
+      sourceURL: "https://github.com/nocdn/votes",
+      chips: ["sveltekit", "tailwindcss", "supabase"],
+    },
   ]
 
   const projectsElements = projects.map((project, index) => (

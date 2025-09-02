@@ -23,6 +23,16 @@ export function Project({
       textColor: "#EC6A5B",
       label: "Svelte",
     },
+    sveltekit: {
+      bgColor: "#FEEEEE",
+      textColor: "#EC6A5B",
+      label: "SvelteKit",
+    },
+    tailwindcss: {
+      bgColor: "#F8F8F8",
+      textColor: "#008DFF",
+      label: "Tailwind",
+    },
     react: {
       bgColor: "#E5F3FE",
       textColor: "#008DFF",
