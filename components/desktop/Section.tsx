@@ -54,7 +54,7 @@ export function DesktopSection({
           {subtitleChildren && isHovering && (
             <motion.div
               tabIndex={0}
-              className="text-[16px] font-semibold font-mono ml-2 text-blue-700/40 cursor-pointer flex items-center"
+              className="text-[16px] font-semibold font-mono ml-2 text-blue-700/40 hover:text-blue-700/60 transition-colors duration-200 group cursor-pointer flex items-center"
               initial={{ opacity: 0, filter: "blur(2px)" }}
               animate={{ opacity: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, filter: "blur(1.5px)" }}
