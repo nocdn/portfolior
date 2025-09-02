@@ -35,7 +35,7 @@ export default function Home() {
     {
       title: "Shifts",
       description: "Full stack rota and shift management system with auth",
-      demoURL: "https://github.com/nocdn/shifts",
+      sourceURL: "https://github.com/nocdn/shiftsauth",
       chips: ["react", "supabase", "nextjs", "betterAuth"],
     },
     {
@@ -299,7 +299,10 @@ export default function Home() {
                     className="size-3.5 text-gray-500 opacity-70"
                     strokeWidth={2.65}
                   />
-                  <p className="text-[16.5px] font-mono text-gray-500 opacity-70">
+                  <p
+                    className="text-[16.5px] font-mono text-gray-500 opacity-70"
+                    style={{ lineHeight: "1.4" }}
+                  >
                     contact@bartoszbak.org
                   </p>
                 </div>
