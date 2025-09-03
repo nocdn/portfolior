@@ -99,11 +99,17 @@ export default function Home() {
             title="ABOUT"
             className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[7%]"
           >
-            <div>
+            {/* <div>
               Hey there, I'm <TimeZoneName />. I am a front-end developer based
               in the UK, studying computer science at the University of York. I
               love to craft tools and experiences for myself and other
               developers.
+            </div> */}
+            <div>
+              Hey there, I'm <TimeZoneName />. I am a front-end developer based
+              in the UK, studying computer science at the University of York.
+              I'm currently exploring typography, web animations and crafting
+              interactions.
             </div>
           </DesktopSection>
           <DesktopSection

@@ -2,6 +2,8 @@
 
 import { AnimatePresence, motion } from "motion/react"
 import { useEffect, useState, useRef } from "react"
+import Image from "next/image"
+import cornerComponentImage from "../public/images/corner-buttons.png"
 
 export function ComponentCarousel({ cardTick }: { cardTick: number }) {
   const componentCards = [
@@ -17,8 +19,8 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
     >
       <img
         src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/oklch-colors-new.png"
-        alt="Animated spinners"
-        className="max-w-[200px] max-h-[300px] rounded-xl border border-gray-200"
+        alt="OKLCH colors"
+        className="w-[200px] h-[100px] rounded-xl border border-gray-200"
       />
       <div className="flex flex-col gap-1 mb-auto">
         <p className="self-start font-inter text-[16.5px]">Animated spinners</p>
@@ -28,30 +30,39 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
         </p>
       </div>
     </motion.a>,
-    <motion.a
+    <motion.div
       key={1}
       className="flex items-center gap-3 mr-6 cursor-pointer"
       initial={{ opacity: 0, x: -40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: "spring", stiffness: 220, damping: 20 }}
       exit={{ opacity: 0, x: 40, filter: "blur(3px)" }}
-      href="/registry/corner-bordered-buttons"
-      target="_blank"
+      onClick={() => window.open("/registry/corner-bordered-buttons", "_blank")}
     >
-      <img
-        src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/outline-orbit.png"
-        alt="Animated spinners"
-        className="max-w-[200px] max-h-[300px] rounded-xl border border-gray-200"
+      <Image
+        src={cornerComponentImage.src}
+        alt="Corner bordered buttons"
+        width={200}
+        height={100}
+        className="w-[200px] h-[100px] rounded-xl border border-gray-200 px-8 py-4 object-contain"
       />
       <div className="flex flex-col gap-1 mb-auto">
         <p className="self-start font-inter text-[16.5px]">
           Corner bordered buttons
         </p>
         <p className="mb-auto text-[15.5px] font-inter font-[450] text-gray-700 leading-normal">
-          Inspired by Tailwind CSS documentation page, I loved the look of it.
+          Inspired by{" "}
+          <a
+            href="https://www.twitter.com/aliszu"
+            target="_blank"
+            className="text-blue-700"
+          >
+            @aliszu
+          </a>{" "}
+          and Tailwind CSS docs page. Heavily customizeable with props.
         </p>
       </div>
-    </motion.a>,
+    </motion.div>,
   ]
 
   const [currentCard, setCurrentCard] = useState(0)
