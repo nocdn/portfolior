@@ -130,7 +130,7 @@ export default function Home() {
                 />
               </div>
             }
-            subtitleURL="/registry"
+            subtitleURL="https://ui.shadcn.com/docs/components"
             secondaryChildren={
               <div className="flex items-center gap-2 mr-2">
                 <button

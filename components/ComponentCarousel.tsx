@@ -14,7 +14,7 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: "spring", stiffness: 220, damping: 20 }}
       exit={{ opacity: 0, x: 40, filter: "blur(3px)" }}
-      href="/registry/animated-spinners"
+      href="https://ui.shadcn.com/docs/components/animated-spinner"
       target="_blank"
     >
       <img
@@ -37,7 +37,9 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: "spring", stiffness: 220, damping: 20 }}
       exit={{ opacity: 0, x: 40, filter: "blur(3px)" }}
-      onClick={() => window.open("/registry/corner-bordered-buttons", "_blank")}
+      onClick={() =>
+        window.open("https://ui.bartoszbak.org/docs/cornered-button", "_blank")
+      }
     >
       <Image
         src={cornerComponentImage.src}
