@@ -1,35 +1,28 @@
 "use client"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import { DesktopSection } from "@/components/desktop/Section"
+import { MobileSection } from "@/components/mobile/Section"
 import { useState } from "react"
 import { TimeZoneName } from "@/components/desktop/TimeZoneName"
 import { Project } from "@/components/desktop/Project"
-import Star from "@/components/icons/star"
-import Signature from "@/components/Signature"
-import {
-  ArrowDownRight,
-  ArrowRightIcon,
-  ArrowUpRight,
-  ArrowUpRightFromCircle,
-  CornerDownRight,
-  ExternalLink,
-  LinkIcon,
-} from "lucide-react"
+import { ArrowRightIcon, ArrowUpRight, CornerDownRight } from "lucide-react"
 import { ComponentCarousel } from "@/components/ComponentCarousel"
 import { Article } from "@/components/Article"
-import { Twitter } from "@/components/icons/twitter"
 import { MaterialSymbolsArrowRightAlt } from "@/components/icons/arrowRight"
-import { MaterialSymbolsArrowLeftAlt } from "@/components/icons/arrowLeft"
 import { AnimatePresence, motion } from "motion/react"
+import { ExtraButton } from "@/components/ExtraButton"
+import HomeTitle from "@/components/mobile/HomeTitle"
+
 export default function Home() {
   const isMobile = useIsMobile()
-
   type Project = {
     title: string
+    mobileTitle?: string
     description: string
     sourceURL?: string
     demoURL?: string
     chips?: string[]
+    year?: number
   }
   const projects: Project[] = [
     {
@@ -37,19 +30,23 @@ export default function Home() {
       description: "Full stack rota and shift management system with auth",
       sourceURL: "https://github.com/nocdn/shiftsauth",
       chips: ["react", "supabase", "nextjs", "betterAuth"],
+      year: 2025,
     },
     {
       title: "Vanish",
       description: "Temporary emails through Cloudflare, with frontend and API",
       sourceURL: "https://github.com/nocdn/vanish",
       chips: ["react", "flask"],
+      year: 2025,
     },
     {
       title: "Books",
+      mobileTitle: "Books (r)",
       description:
         "Recreation of (Basic) Bookmarks in Next.js with extra features",
       sourceURL: "https://github.com/nocdn/booksr",
       chips: ["react", "postgres", "nextjs"],
+      year: 2025,
     },
     {
       title: "MCQs",
@@ -57,18 +54,21 @@ export default function Home() {
         "Interactive psychology practice questions built for my friends",
       demoURL: "https://mcqs.bartoszbak.org/",
       chips: ["react", "supabase", "lambda"],
+      year: 2024,
     },
     {
       title: "Quiet Watch",
       description: "Intelligent ad segment remover powered by LLMs",
       sourceURL: "https://github.com/nocdn/ad-segment-trimmer",
       chips: ["python"],
+      year: 2024,
     },
     {
       title: "Echoes",
       description: "Full stack, self-hostable video/audio transcription app",
       demoURL: "https://whisper.bartoszbak.org/",
       chips: ["python"],
+      year: 2023,
     },
     {
       title: "Votes",
@@ -76,6 +76,7 @@ export default function Home() {
         "Voting platform for university society elections, in SvelteKit",
       sourceURL: "https://github.com/nocdn/votes",
       chips: ["sveltekit", "tailwindcss", "supabase"],
+      year: 2025,
     },
   ]
 
@@ -89,22 +90,91 @@ export default function Home() {
   const [hoveringTwitter, setHoveringTwitter] = useState(false)
   const [showingCopied, setShowCopied] = useState(false)
 
+  const onClickMobileIndex = (index: number) => {
+    setActiveMobileIndex(index)
+  }
+
+  const [activeMobileIndex, setActiveMobileIndex] = useState(0)
+
   return (
     <div className="">
       {isMobile ? (
-        <p>Mobile</p>
+        <div
+          className="flex flex-col h-dvh w-screen overflow-y-scroll snap-y snap-mandatory *:flex-none *:snap-start *:h-screen *:w-screen"
+          style={{
+            scrollbarWidth: "none",
+          }}
+        >
+          <div className="flex flex-col h-dvh w-screen overflow-y-scroll snap-y snap-mandatory">
+            <div className="flex flex-col gap-6 mt-auto p-8 text-[28px] font-sans font-medium">
+              <HomeTitle
+                index={1}
+                onClick={onClickMobileIndex}
+                title="About"
+                motionDelay={200}
+              />
+              <HomeTitle
+                index={2}
+                onClick={onClickMobileIndex}
+                title="Projects"
+                count={7}
+                motionDelay={150}
+              />
+              <HomeTitle
+                index={3}
+                onClick={onClickMobileIndex}
+                title="Components"
+                count={2}
+                motionDelay={100}
+              />
+              <HomeTitle
+                index={4}
+                onClick={onClickMobileIndex}
+                title="Writing"
+                count={2}
+                motionDelay={50}
+              />
+              <HomeTitle
+                index={5}
+                onClick={onClickMobileIndex}
+                title="Contact"
+                motionDelay={0}
+              />
+            </div>
+          </div>
+          <MobileSection title="ABOUT">
+            <p className="leading-relaxed">
+              Hey there, I'm Bartek. I am a front-end developer based in the UK,
+              studying computer science at the University of York. I'm currently
+              exploring typography, web animations and crafting interactions. I
+              love to build with Next.js, TypeScript and Motion.
+            </p>
+          </MobileSection>
+          <MobileSection title="PROJECTS">
+            <div className="flex flex-col gap-4">
+              {projects.map((project, index) => {
+                return (
+                  <div
+                    className="flex justify-between items-center gap-4"
+                    key={index}
+                  >
+                    <p className="text-[17px] flex-nowrap whitespace-nowrap">
+                      {project.mobileTitle || project.title}
+                    </p>
+                    <div className="w-full h-0.25 bg-gray-200"></div>
+                    <p className="text-gray-500/90 text-sm">{project.year}</p>
+                  </div>
+                )
+              })}
+            </div>
+          </MobileSection>
+        </div>
       ) : (
         <main className="w-[565px] mb-24 mx-auto pt-26 flex flex-col gap-12">
           <DesktopSection
             title="ABOUT"
-            className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[7%]"
+            className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[7%] group"
           >
-            {/* <div>
-              Hey there, I'm <TimeZoneName />. I am a front-end developer based
-              in the UK, studying computer science at the University of York. I
-              love to craft tools and experiences for myself and other
-              developers.
-            </div> */}
             <div>
               Hey there, I'm <TimeZoneName />. I am a front-end developer based
               in the UK, studying computer science at the University of York.
@@ -315,6 +385,7 @@ export default function Home() {
               </div>
             </div>
           </DesktopSection>
+          <ExtraButton />
         </main>
       )}
     </div>

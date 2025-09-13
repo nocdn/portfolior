@@ -12,8 +12,6 @@ export function TimeZoneName() {
     timeZone: "Europe/London",
   })
 
-  console.log(bstTimeString.split(":")[0])
-
   const [hoveringName, setHoveringName] = useState<boolean>(false)
 
   return (
