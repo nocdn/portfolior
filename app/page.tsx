@@ -96,6 +96,7 @@ export default function Home() {
   }
 
   const [activeMobileIndex, setActiveMobileIndex] = useState(0)
+  const [mobileComponentsIndex, setMobileComponentsIndex] = useState(0)
 
   return (
     <div>
@@ -125,7 +126,7 @@ export default function Home() {
                 index={3}
                 onClick={onClickMobileIndex}
                 title="Components"
-                count={2}
+                count={3}
                 motionDelay={100}
               />
               <HomeTitle
@@ -175,13 +176,26 @@ export default function Home() {
             title="COMPONENTS"
             secondaryChildren={
               <div className="rounded-full bg-gray-100/75 flex items-center gap-1.5 p-1.5 px-2">
-                <div className="rounded-full bg-gray-400 size-1.5"></div>
-                <div className="rounded-full bg-gray-200 size-1.5"></div>
-                <div className="rounded-full bg-gray-200 size-1.5"></div>
+                {[0, 1, 2].map((i) => (
+                  <button
+                    key={i}
+                    aria-label={`Go to slide ${i + 1}`}
+                    onClick={() => setMobileComponentsIndex(i)}
+                    className={
+                      `rounded-full size-1.5 transition-colors ` +
+                      (mobileComponentsIndex === i
+                        ? "bg-gray-500"
+                        : "bg-gray-200")
+                    }
+                  />
+                ))}
               </div>
             }
           >
-            <MobileComponentCarousel />
+            <MobileComponentCarousel
+              activeIndex={mobileComponentsIndex}
+              onActiveIndexChange={setMobileComponentsIndex}
+            />
           </MobileSection>
           <MobileSection title="WRITING">
             <div className="flex flex-col gap-3">
