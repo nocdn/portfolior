@@ -12,6 +12,7 @@ import { MaterialSymbolsArrowRightAlt } from "@/components/icons/arrowRight"
 import { AnimatePresence, motion } from "motion/react"
 import { ExtraButton } from "@/components/ExtraButton"
 import HomeTitle from "@/components/mobile/HomeTitle"
+import { MobileComponentCarousel } from "@/components/mobile/ComponentCarousel"
 
 export default function Home() {
   const isMobile = useIsMobile()
@@ -97,15 +98,15 @@ export default function Home() {
   const [activeMobileIndex, setActiveMobileIndex] = useState(0)
 
   return (
-    <div className="">
+    <div>
       {isMobile ? (
         <div
-          className="flex flex-col h-dvh w-screen overflow-y-scroll snap-y snap-mandatory *:flex-none *:snap-start *:h-screen *:w-screen"
+          className="flex flex-col h-[100svh] w-screen overflow-y-scroll snap-y snap-mandatory *:flex-none *:snap-start *:h-[100svh] *:w-screen"
           style={{
             scrollbarWidth: "none",
           }}
         >
-          <div className="flex flex-col h-dvh w-screen overflow-y-scroll snap-y snap-mandatory">
+          <div className="flex flex-col w-screen overflow-y-scroll snap-y snap-mandatory">
             <div className="flex flex-col gap-6 mt-auto p-8 text-[28px] font-sans font-medium">
               <HomeTitle
                 index={1}
@@ -143,7 +144,7 @@ export default function Home() {
             </div>
           </div>
           <MobileSection title="ABOUT">
-            <p className="leading-relaxed">
+            <p className="leading-relaxed text-[18.5px]">
               Hey there, I'm Bartek. I am a front-end developer based in the UK,
               studying computer science at the University of York. I'm currently
               exploring typography, web animations and crafting interactions. I
@@ -154,18 +155,47 @@ export default function Home() {
             <div className="flex flex-col gap-4">
               {projects.map((project, index) => {
                 return (
-                  <div
+                  <a
                     className="flex justify-between items-center gap-4"
                     key={index}
+                    href={project.demoURL || project.sourceURL || ""}
+                    target="_blank"
                   >
                     <p className="text-[17px] flex-nowrap whitespace-nowrap">
                       {project.mobileTitle || project.title}
                     </p>
                     <div className="w-full h-0.25 bg-gray-200"></div>
                     <p className="text-gray-500/90 text-sm">{project.year}</p>
-                  </div>
+                  </a>
                 )
               })}
+            </div>
+          </MobileSection>
+          <MobileSection
+            title="COMPONENTS"
+            secondaryChildren={
+              <div className="rounded-full bg-gray-100/75 flex items-center gap-1.5 p-1.5 px-2">
+                <div className="rounded-full bg-gray-400 size-1.5"></div>
+                <div className="rounded-full bg-gray-200 size-1.5"></div>
+                <div className="rounded-full bg-gray-200 size-1.5"></div>
+              </div>
+            }
+          >
+            <MobileComponentCarousel />
+          </MobileSection>
+          <MobileSection title="WRITING">
+            <div className="flex flex-col gap-3">
+              <Article
+                title="My take on the Family Drawer"
+                date="August 2025"
+                href="/writing/family-drawer"
+              />
+              <Article
+                title="Coming soon....."
+                date="September 2025"
+                disabled={true}
+                href="/writing/"
+              />
             </div>
           </MobileSection>
         </div>

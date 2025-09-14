@@ -1,13 +1,15 @@
 export function MobileSection({
   title,
   children,
+  secondaryChildren,
 }: {
   title: string
   children: React.ReactNode
+  secondaryChildren?: React.ReactNode
 }) {
   return (
     <div
-      className="flex flex-col gap-2 p-8 text-[24px] font-medium h-screen justify-end"
+      className="flex flex-col gap-2 p-8 pb-[calc(env(safe-area-inset-bottom)+2rem)] text-[24px] font-medium h-[100svh] justify-end"
       style={{
         fontFamily: "PP, Inter, sans-serif",
         fontWeight: 500,
@@ -15,9 +17,12 @@ export function MobileSection({
         fontSize: "20px",
       }}
     >
-      <span className="font-mono text-gray-500/60 text-[17px] font-semibold relative mb-1 flex items-center">
+      <div className="font-mono text-gray-500/60 text-[17px] font-semibold relative mb-1 flex items-center">
         {title}
-      </span>
+        <div className="flex items-center gap-2 ml-auto">
+          {secondaryChildren}
+        </div>
+      </div>
       {children}
     </div>
   )
