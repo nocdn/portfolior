@@ -22,7 +22,10 @@ export default function HomeTitle({
         opacity: 0.5,
       }}
       onClick={() => onClick(index)}
-      className={`relative flex items-center w-fit motion-opacity-in-0 motion-translate-y-in-[15%] motion-delay-${motionDelay} motion-blur-in-[2px]`}
+      style={{
+        animationDelay: `${motionDelay}ms`,
+      }}
+      className={`relative flex items-center w-fit motion-opacity-in-0 motion-translate-y-in-[15%] motion-blur-in-[2px]`}
     >
       <motion.p>{title}</motion.p>
       {count && (
