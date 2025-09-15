@@ -1,14 +1,17 @@
 export function MobileSection({
+  id,
   title,
   children,
   secondaryChildren,
 }: {
+  id?: string
   title: string
   children: React.ReactNode
   secondaryChildren?: React.ReactNode
 }) {
   return (
     <div
+      id={id}
       className="flex flex-col gap-2 p-8 pb-[calc(env(safe-area-inset-bottom)+2rem)] text-[24px] font-medium h-[100svh] justify-end"
       style={{
         fontFamily: "PP, Inter, sans-serif",

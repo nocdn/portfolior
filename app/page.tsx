@@ -5,7 +5,13 @@ import { MobileSection } from "@/components/mobile/Section"
 import { useState } from "react"
 import { TimeZoneName } from "@/components/desktop/TimeZoneName"
 import { Project } from "@/components/desktop/Project"
-import { ArrowRightIcon, ArrowUpRight, CornerDownRight } from "lucide-react"
+import {
+  ArrowRightIcon,
+  ArrowUpRight,
+  CornerDownRight,
+  Copy,
+  Check,
+} from "lucide-react"
 import { ComponentCarousel } from "@/components/ComponentCarousel"
 import { Article } from "@/components/Article"
 import { MaterialSymbolsArrowRightAlt } from "@/components/icons/arrowRight"
@@ -93,6 +99,18 @@ export default function Home() {
 
   const onClickMobileIndex = (index: number) => {
     setActiveMobileIndex(index)
+    const mapping: Record<number, string> = {
+      1: "about",
+      2: "projects",
+      3: "components",
+      4: "writing",
+      5: "contact",
+    }
+    const id = mapping[index]
+    if (!id) return
+    const el =
+      typeof document !== "undefined" ? document.getElementById(id) : null
+    el?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
   const [activeMobileIndex, setActiveMobileIndex] = useState(0)
@@ -144,7 +162,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <MobileSection title="ABOUT">
+          <MobileSection id="about" title="ABOUT">
             <p className="leading-relaxed text-[18.5px]">
               Hey there, I'm Bartek. I am a front-end developer based in the UK,
               studying computer science at the University of York. I'm currently
@@ -152,7 +170,7 @@ export default function Home() {
               love to build with Next.js, TypeScript and Motion.
             </p>
           </MobileSection>
-          <MobileSection title="PROJECTS">
+          <MobileSection id="projects" title="PROJECTS">
             <div className="flex flex-col gap-4">
               {projects.map((project, index) => {
                 return (
@@ -173,6 +191,7 @@ export default function Home() {
             </div>
           </MobileSection>
           <MobileSection
+            id="components"
             title="COMPONENTS"
             secondaryChildren={
               <div className="rounded-full bg-gray-100/75 flex items-center gap-1.5 p-1.5 px-2">
@@ -197,7 +216,7 @@ export default function Home() {
               onActiveIndexChange={setMobileComponentsIndex}
             />
           </MobileSection>
-          <MobileSection title="WRITING">
+          <MobileSection id="writing" title="WRITING">
             <div className="flex flex-col gap-3">
               <Article
                 title="My take on the Family Drawer"
@@ -210,6 +229,81 @@ export default function Home() {
                 disabled={true}
                 href="/writing/"
               />
+            </div>
+          </MobileSection>
+          <MobileSection id="contact" title="CONTACT">
+            <div className="flex flex-col gap-3 mt-3">
+              <a
+                href="https://twitter.com/nocdns"
+                target="_blank"
+                className="flex items-center gap-3 text-[23px]"
+              >
+                <p>Twitter</p>
+                <MaterialSymbolsArrowRightAlt
+                  className="size-7 text-blue-700"
+                  strokeWidth={2.85}
+                />
+                <p className="text-gray-500 text-[21px]">@nocdns</p>
+              </a>
+              <a
+                href="https://github.com/nocdn"
+                target="_blank"
+                className="flex items-center gap-3 text-[23px]"
+              >
+                <p>Github</p>
+                <MaterialSymbolsArrowRightAlt
+                  className="size-7 text-gray-500"
+                  strokeWidth={2.85}
+                />
+                <p className="text-gray-500 text-[21px]">@nocdn</p>
+              </a>
+              <a
+                href="mailto:contact@bartoszbak.org"
+                target="_blank"
+                className="flex items-center gap-3 text-[23px]"
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigator.clipboard.writeText("contact@bartoszbak.org")
+                  setShowCopied(true)
+                  setTimeout(() => setShowCopied(false), 900)
+                }}
+              >
+                <p>Email</p>
+                <MaterialSymbolsArrowRightAlt
+                  className="size-7 text-pink-800"
+                  strokeWidth={2.85}
+                />
+                <div className="text-gray-500 text-[21px]">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={showingCopied ? "copied" : "copy"}
+                      initial={{ opacity: 0.5, y: -1, filter: "blur(1px)" }}
+                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, y: 1, filter: "blur(1px)" }}
+                      transition={{ duration: 0.12, ease: "easeInOut" }}
+                      className="inline-flex items-center gap-1"
+                    >
+                      {showingCopied ? (
+                        <>
+                          <Check
+                            className="size-4.5 translate-y-0.5 mx-1"
+                            strokeWidth={2.55}
+                          />
+                          copied
+                        </>
+                      ) : (
+                        <>
+                          <Copy
+                            className="size-4 mt-0.5 mx-1"
+                            strokeWidth={2.55}
+                          />
+                          copy
+                        </>
+                      )}
+                    </motion.span>
+                  </AnimatePresence>
+                </div>
+              </a>
             </div>
           </MobileSection>
         </div>
