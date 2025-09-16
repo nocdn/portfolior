@@ -49,14 +49,15 @@ body {
 
 .page {
   min-height: 100vh;
-  padding: 32px 76px;
+  padding: 50px 76px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .wrapper {
-  max-width: 720px;
+  width: 20rem;
 }
 
 .stack {
