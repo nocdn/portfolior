@@ -15,8 +15,8 @@ export default function WritingLayout({
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="w-full max-w-2xl px-6 md:py-16 py-12 font-inter">
-        <div className="flex justify-between mb-16">
+      <div className="w-full px-6 md:py-16 py-12 font-inter">
+        <div className="flex justify-between mb-16 max-w-2xl mx-auto">
           <AnimatedCircularButton
             ariaLabel="Go back"
             onClick={() => {
@@ -24,8 +24,8 @@ export default function WritingLayout({
             }}
           >
             <ArrowLeftIcon
-              className="opacity-50 group-hover:opacity-100"
-              size={18}
+              className="opacity-35 group-hover:opacity-100"
+              size={17}
             />
           </AnimatedCircularButton>
           <AnimatedCircularButton
@@ -38,16 +38,12 @@ export default function WritingLayout({
             }}
           >
             <LinkIcon
-              className="h-4 w-4 opacity-50 group-hover:opacity-100"
+              className="h-4 w-4 opacity-35 group-hover:opacity-100"
               size={16}
             />
           </AnimatedCircularButton>
         </div>
         {children}
-        <div
-          className="bottom-scroll-mask pointer-events-none"
-          aria-hidden="true"
-        />
       </div>
     </div>
   )

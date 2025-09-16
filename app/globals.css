@@ -195,3 +195,17 @@
   font-weight: 500;
   font-style: normal;
 }
+
+/* globals.css */
+.shiki {
+  border-radius: 12px;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 14px;
+  max-height: 24rem;
+  overflow-y: scroll;
+}
+
+.sandpack-margin {
+  margin: 16px 0;
+}
