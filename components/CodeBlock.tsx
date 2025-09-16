@@ -18,7 +18,19 @@ export function CodeInline({ code, lang = "tsx", className }: Props) {
       CodeTag="code"
       wrapLongLines
       className={["rounded-sm", className].filter(Boolean).join(" ")}
-      customStyle={{ padding: 0, margin: "0 auto" }}
+      customStyle={{
+        padding: "12px",
+        margin: "0 auto",
+        borderRadius: "12px",
+        fontSize: "14px",
+      }}
+      codeTagProps={{
+        style: {
+          whiteSpace: "pre-wrap",
+          overflowWrap: "anywhere",
+          wordBreak: "break-word",
+        },
+      }}
     >
       {code}
     </SyntaxHighlighter>
