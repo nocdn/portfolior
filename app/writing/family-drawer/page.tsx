@@ -9,6 +9,10 @@ const DrawerSandpack0 = dynamic(() => import("./components/DrawerSandpack0"), {
   ssr: false,
 })
 
+const DrawerSandpack1 = dynamic(() => import("./components/DrawerSandpack1"), {
+  ssr: false,
+})
+
 export default function FamilyDrawer() {
   return (
     <div className="flex flex-col gap-4 *:leading-relaxed *:text-gray-800 *:text-[17px]">
@@ -221,6 +225,9 @@ const [elementRef, bounds] = useMeasure();`}
         are to replace the filler text with actual recreations of the private
         key and recovery phrase screens taken from the app.
       </p>
+      <div className="w-9/10 mx-auto my-6">
+        <DrawerSandpack1 />
+      </div>
     </div>
   )
 }
