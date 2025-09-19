@@ -4,6 +4,7 @@ import { Metadata } from "next"
 import { Sandpack } from "@codesandbox/sandpack-react"
 import dynamic from "next/dynamic"
 import { CodeInline } from "@/components/CodeBlock"
+import { HoverExplain } from "./components/HoverExplain"
 
 const DrawerSandpack0 = dynamic(() => import("./components/DrawerSandpack0"), {
   ssr: false,
@@ -70,8 +71,11 @@ export default function FamilyDrawer() {
         <DrawerSandpack0 />
       </div>
       <p className="max-w-2xl mx-auto">
-        Now, let's break down each part of this initial component, starting with
-        all of those imports, and why they are needed.
+        Now, let's break down each part of this initial{" "}
+        <HoverExplain description="A component is a self-contained piece of code that performs a specific function or displays a specific UI element. In this case, the component is the entire drawer, and later on, will have other components inside it.">
+          component
+        </HoverExplain>
+        , starting with all of those imports, and why they are needed.
       </p>
       <CodeInline
         code={`import { AnimatePresence, motion } from "motion/react"
@@ -228,6 +232,73 @@ const [elementRef, bounds] = useMeasure();`}
       <div className="w-9/10 mx-auto my-6">
         <DrawerSandpack1 />
       </div>
+      <p className="max-w-2xl mx-auto">
+        Now, with this version, the only meaningful code change that was made,
+        was adding the{" "}
+        <a
+          href="https://github.com/lauridskern/open-runde"
+          target="_blank"
+          className="article-link"
+        >
+          "open runde" font
+        </a>{" "}
+        (which is an alternative to the "SF Pro Rounded" font that I presume is
+        used in the original app) as well as the icon library{" "}
+        <span className="code-font">lucide-react</span>.
+      </p>
+      <p className="max-w-2xl mx-auto">
+        The options array is now populated with the actual views, which are
+        imported from the{" "}
+        <span
+          className="code-font"
+          style={{ paddingRight: "8px", paddingLeft: "4px" }}
+        >
+          ./InitialView
+        </span>
+        ,{" "}
+        <span
+          className="code-font"
+          style={{ paddingRight: "8px", paddingLeft: "4px" }}
+        >
+          ./KeyView
+        </span>{" "}
+        and{" "}
+        <span
+          className="code-font"
+          style={{ paddingRight: "8px", paddingLeft: "4px" }}
+        >
+          ./RecoveryView
+        </span>{" "}
+        files.
+      </p>
+      <CodeInline
+        code={`const options = [
+  <InitialView
+    key="initial"
+    onViewKey={() => setView(1)}
+    onViewRecovery={() => setView(2)}
+    onRemoveWallet={() => {}}
+  />,
+  <KeyView key="key" ... />,
+  <RecoveryView key="recovery" ... />,
+];`}
+        className="max-w-2xl mx-auto md:w-2xl overflow-x-scroll text-xs"
+      />
+      <p className="max-w-2xl mx-auto">
+        Inside every view is a{" "}
+        <span className="hover-explain">callback function</span> that instructs
+        the <span className="hover-explain">parent component</span> to change
+        the view to the chosen index.
+      </p>
+      <p className="max-w-2xl mx-auto">
+        Since in the beginning, the code for the parent component included lines
+        to automatically resize itself, no other changes need to be made to the
+        parent, since we could place anything in the views and it would fit.{" "}
+        <span className="font-semibold">
+          And with that, the component is finished!
+        </span>
+      </p>
+      <p className="max-w-2xl mx-auto mt-8">Thank you for reading!</p>
     </div>
   )
 }
