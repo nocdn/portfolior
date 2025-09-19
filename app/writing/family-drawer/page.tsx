@@ -72,7 +72,7 @@ export default function FamilyDrawer() {
       </div>
       <p className="max-w-2xl mx-auto">
         Now, let's break down each part of this initial{" "}
-        <HoverExplain description="A component is a self-contained piece of code that performs a specific function or displays a specific UI element. In this case, the component is the entire drawer, and later on, will have other components inside it.">
+        <HoverExplain description="A component is a self-contained piece of code that performs a specific function or displays a specific UI element. In this case, the component is the entire drawer, and later on, will have other components inside it. For this component, it holds the HTML structure, styling, and the logic.">
           component
         </HoverExplain>
         , starting with all of those imports, and why they are needed.
@@ -97,25 +97,30 @@ import useMeasure from "react-use-measure"
         <span className="code-font">exit</span> properties of the element in the
         drawer. The <span className="code-font">initial</span> property is the
         state that the element will be in when it is first added to the{" "}
-        <span className="hover-explain">DOM</span>. The{" "}
-        <span className="code-font">animate</span> property describes the
+        <HoverExplain description="The Document Object Model - a tree-like structure that represents all the HTML elements on a web page in the browser's memory, allowing JavaScript to interact with and modify the page content.">
+          DOM
+        </HoverExplain>
+        . The <span className="code-font">animate</span> property describes the
         animation that occurs as soon as the element is mounted, while{" "}
         <span className="code-font">exit</span> defines how the element animates
         out when it's removed.
       </p>
       <p className="max-w-2xl mx-auto">
-        <span className="code-font">AnimatePresence</span> is crucial here—it
-        allows components to animate out before being removed from the DOM,
+        <span className="code-font">AnimatePresence</span> is crucial here since
+        it allows components to animate out before being removed from the DOM,
         rather than disappearing instantly. Without it, the{" "}
         <span className="code-font">exit</span> animation would never play.
       </p>
       <p className="max-w-2xl mx-auto">
         <span className="code-font">react-use-measure</span> provides the{" "}
         <span className="code-font">useMeasure</span>{" "}
-        <span className="hover-explain">hook</span>, which tracks the dimensions
-        of DOM elements in real-time. This is essential for creating smooth
-        height transitions as the drawer content changes—we can animate to the
-        actual measured height rather than guessing or using fixed values.
+        <HoverExplain description="A special React (the frontend framework I am using here) function that lets you 'hook into' React features like state and lifecycle events from functional components, similar to how plugins extend software functionality.">
+          hook
+        </HoverExplain>{" "}
+        , which tracks the dimensions of DOM elements in real-time. This is
+        essential for creating smooth height transitions as the drawer content
+        changes—we can animate to the actual measured height rather than
+        guessing or using fixed values.
       </p>
       <CodeInline
         code={`const [view, setView] = useState(0);
@@ -124,19 +129,26 @@ const [elementRef, bounds] = useMeasure();`}
       />
       <p className="max-w-2xl mx-auto">
         The <span className="code-font">view</span>{" "}
-        <span className="hover-explain">state</span> tracks which content is
-        currently displayed, starting at index 0. The{" "}
+        <HoverExplain description="Data stored in a component that can change over time. When state changes, React automatically updates the user interface to reflect the new data, like a variable that triggers UI updates.">
+          state
+        </HoverExplain>{" "}
+        tracks which content is currently displayed, starting at index 0. The{" "}
         <span className="code-font">useMeasure</span> hook returns two things:{" "}
         <span className="code-font">elementRef</span> (a{" "}
-        <span className="hover-explain">ref</span> to attach to the element we
-        want to measure) and <span className="code-font">bounds</span> (an
-        object containing the element's dimensions, including height, width, and
-        position).
+        <HoverExplain description="A reference that provides direct access to a DOM element from React code, like getting a pointer to a specific HTML element so you can measure or manipulate it directly. Here, it is used to attach to the element we want to measure, so we can measure its height.">
+          ref
+        </HoverExplain>{" "}
+        to attach to the element we want to measure) and{" "}
+        <span className="code-font">bounds</span> (an object containing the
+        element's dimensions, including height, width, and position).
       </p>
       <p className="max-w-2xl mx-auto">
         The <span className="code-font">options</span> array contains the
-        different <span className="hover-explain">views</span> that can be
-        displayed in the drawer, in this case, just some{" "}
+        different{" "}
+        <HoverExplain description="Different screens or content layouts that can be displayed in the same container, like different pages in a tabbed interface where only one is visible at a time.">
+          views
+        </HoverExplain>{" "}
+        that can be displayed in the drawer, in this case, just some{" "}
         <span className="code-font">lorem ipsum</span> text for each, which I
         will later replace with actual recreations of the private key and
         recovery phrase screens taken from the app. Each of the views also
@@ -191,7 +203,9 @@ const [elementRef, bounds] = useMeasure();`}
         the content inside, creating smooth expansion and contraction as views
         change. The <span className="code-font">transition</span> there is set
         to use a custom cubic-bezier{" "}
-        <span className="hover-explain">easing curve</span>{" "}
+        <HoverExplain description="A mathematical function that defines how an animation progresses over time - whether it starts slow and speeds up, or moves at a constant rate, similar to acceleration curves in physics.">
+          easing curve
+        </HoverExplain>{" "}
         <span className="code-font">[0.26, 1, 0.5, 1]</span> which is a snappy
         but smooth curve.
       </p>
@@ -209,8 +223,11 @@ const [elementRef, bounds] = useMeasure();`}
         view is exited, it is "popped" out of the DOM, so it does not cause a
         layout shift by interacting with the new view which is animating in. The{" "}
         <span className="code-font">custom={`{view}`}</span> prop passes the
-        current <span className="hover-explain">view index</span> to child
-        animations.
+        current{" "}
+        <HoverExplain description="A number that identifies which view/screen is currently being displayed, like an array index that tells the system 'show screen #2' or 'show screen #0'.">
+          view index
+        </HoverExplain>{" "}
+        to child animations.
       </p>
       <p className="max-w-2xl mx-auto">
         The inner <span className="code-font">motion.div</span> handles the
@@ -286,9 +303,14 @@ const [elementRef, bounds] = useMeasure();`}
       />
       <p className="max-w-2xl mx-auto">
         Inside every view is a{" "}
-        <span className="hover-explain">callback function</span> that instructs
-        the <span className="hover-explain">parent component</span> to change
-        the view to the chosen index.
+        <HoverExplain description="A function that is passed as a parameter (a parameter is a value that is passed to a function/component) to another function and gets executed when a specific event happens, like a phone number you give someone to 'call you back' when they're ready.">
+          callback function
+        </HoverExplain>{" "}
+        that instructs the{" "}
+        <HoverExplain description="The over-arching component that contains and controls this component, like a parent folder that contains subfolders - it manages the child component's (the views) behavior and data. The drawer is the parent, and the views are the children.">
+          parent component
+        </HoverExplain>{" "}
+        to change the view to the chosen index.
       </p>
       <p className="max-w-2xl mx-auto">
         Since in the beginning, the code for the parent component included lines
