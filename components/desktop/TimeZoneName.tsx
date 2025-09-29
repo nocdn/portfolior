@@ -50,7 +50,7 @@ export function TimeZoneName() {
             transition={{
               ease: [0.23, 1, 0.32, 1],
             }}
-            className="absolute left-[calc(50%-1px)] top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none font-open-runde font-semibold text-[18px] text-gray-800/90"
+            className="absolute left-[calc(50%-1px)] top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none text-[18px]"
             style={{ opacity: 0.1 }}
           >
             {bstTimeString}

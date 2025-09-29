@@ -19,6 +19,8 @@ import { AnimatePresence, motion } from "motion/react"
 import { ExtraButton } from "@/components/ExtraButton"
 import HomeTitle from "@/components/mobile/HomeTitle"
 import { MobileComponentCarousel } from "@/components/mobile/ComponentCarousel"
+import MusicList from "@/components/desktop/MusicList"
+import PodcastList from "@/components/desktop/PodcastList"
 
 export default function HomeClient({
   initialIsMobile,
@@ -119,6 +121,8 @@ export default function HomeClient({
 
   const [activeMobileIndex, setActiveMobileIndex] = useState(0)
   const [mobileComponentsIndex, setMobileComponentsIndex] = useState(0)
+
+  const [showingExtra, setShowingExtra] = useState(false)
 
   return (
     <div>
@@ -527,7 +531,37 @@ export default function HomeClient({
               </div>
             </div>
           </DesktopSection>
-          <ExtraButton />
+
+          {!showingExtra && (
+            <div
+              className="w-full flex justify-center items-center"
+              onMouseDown={() => setShowingExtra(true)}
+            >
+              <p className="text-gray-500/30 hover:text-gray-500/50 cursor-pointer active:scale-[0.96] font-jetbrains-mono text-[16px] font-semibold transition-opacity duration-300 ease-in-out">
+                <span className="mr-0.5">[</span>
+                <span>EXTRA</span>
+                <span className="ml-0.5">]</span>
+              </p>
+            </div>
+          )}
+          {showingExtra && (
+            <>
+              <DesktopSection
+                title="MUSIC"
+                subtitleChildren="CURRENTLY LISTENING"
+                className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[3.75%]"
+              >
+                <MusicList />
+              </DesktopSection>
+              <DesktopSection
+                title="PODCASTS"
+                subtitleChildren="BEST EPISODES"
+                className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[3.75%]"
+              >
+                <PodcastList />
+              </DesktopSection>
+            </>
+          )}
         </main>
       )}
       <div

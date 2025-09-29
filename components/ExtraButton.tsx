@@ -32,16 +32,6 @@ export function ExtraButton() {
   }, [])
 
   return (
-    <div
-      ref={ref}
-      style={{ opacity }}
-      className="w-full flex justify-center items-center font-jetbrains-mono text-[16px] font-semibold text-gray-500/60 cursor-pointer active:scale-[0.96] transition-opacity duration-300 ease-in-out"
-    >
-      <p>
-        <span className="mr-0.5">[</span>
-        <span>EXTRA</span>
-        <span className="ml-0.5">]</span>
-      </p>
-    </div>
+    
   )
 }
