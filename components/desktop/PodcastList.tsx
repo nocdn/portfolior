@@ -17,14 +17,14 @@ import { ArrowRight, ArrowLeft } from "lucide-react"
 type PodcastItem = {
   name: string
   cover: StaticImageData
-  artist: string
+  artist?: string
   link?: string
-  description: string
-  best: [number, string, string][]
+  description?: string
+  best?: [number | null, string, string][]
 }
 
 export default function PodcastList() {
-  const podcastList = [
+  const podcastList: PodcastItem[] = [
     {
       name: "Darknet Diaries",
       cover: darknet,
