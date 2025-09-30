@@ -65,11 +65,48 @@ export default function PodcastList() {
         ],
       ],
     },
-    { name: "Factually", cover: factually, artist: "Adam Conover" },
+    {
+      name: "Factually",
+      cover: factually,
+      artist: "Adam Conover",
+      description:
+        "Adam interviews experts to unpack the truth behind misconceptions in science, politics, economics, and culture with humor and gentle curiosity.",
+      best: [
+        [
+          null,
+          "The Real Problem with A.I. with Emily Bender",
+          "https://podyssey.fm/podcast/itunes1463460577/episode45573031-Problem-Emily-Bender-Factually-with-Adam-Conover",
+        ],
+        [
+          null,
+          "The Gig Economy In the Time of COVID-19",
+          "https://podyssey.fm/podcast/itunes1463460577/episode8556638-Economy-COVID-Johana-Bhuiyan-Factually-with-Adam-Conover",
+        ],
+      ],
+    },
     {
       name: "Land of Giants",
       cover: giants,
       artist: "The Land of Giants",
+      description:
+        "Each season focuses on one company (Amazon, Google, Netflix, Meta, Disney, etc.) exploring how they gained power and what they're doing with it.",
+      best: [
+        [
+          33,
+          "The Cost of Convenience",
+          "https://podyssey.fm/podcast/itunes1465767420/episode23601300-Convenience-Land-of-the-Giants",
+        ],
+        [
+          25,
+          "The Netflix Effect",
+          "https://podyssey.fm/podcast/itunes1465767420/episode9027844-Netflix-Effect-Land-of-the-Giants",
+        ],
+        [
+          66,
+          "The Disney Dilemma",
+          "https://podyssey.fm/podcast/itunes1465767420/episode219096623-Disney-Dilemma-Land-of-the-Giants",
+        ],
+      ],
     },
     {
       name: "Jordan Harbinger Show",
@@ -140,9 +177,69 @@ export default function PodcastList() {
       name: "Reply All",
       cover: reply,
       artist: "Gimlet Media",
+      description:
+        "One of the finest on the internet. Internet mysteries, rabbit holes, bizarre tech support cases, and stories about online culture.",
+      best: [
+        [
+          102,
+          "Long Distance",
+          "https://podyssey.fm/podcast/itunes941907967/episode540483-Distance-Reply-All",
+        ],
+        [
+          103,
+          "Long Distance, Part II",
+          "https://podyssey.fm/podcast/itunes941907967/episode468607-Distance-Reply-All",
+        ],
+        [
+          164,
+          "Long Distance: The Real Alex Martin",
+          "https://podyssey.fm/podcast/itunes941907967/episode9208683-Distance-Martin-Reply-All",
+        ],
+      ],
     },
-    { name: "Science Vs", cover: science, artist: "Wendy Zukerman" },
-    { name: "Search Engine", cover: search, artist: "PJ Vogt" },
+    {
+      name: "Science Vs",
+      cover: science,
+      artist: "Wendy Zukerman",
+      description:
+        "Myth-busting podcast that cuts through blogs, strong opinions, and viral claims with actual scientific evidence.",
+      best: [
+        [
+          null,
+          "Magic Mushrooms: Trip Through the Science",
+          "https://podyssey.fm/podcast/itunes1051557000/episode21193623-Magic-Mushrooms-Through-Science-Science-Vs",
+        ],
+        [
+          null,
+          "Adderall: What's It Doing to Your Brain?",
+          "https://podyssey.fm/podcast/itunes1051557000/episode107327515-Adderall-Whats-Doing-Brain-Science-Vs",
+        ],
+      ],
+    },
+    {
+      name: "Search Engine",
+      cover: search,
+      artist: "PJ Vogt",
+      description:
+        "The spiritual successor to Reply All. A human-powered search engine for questions the internet can't answer.",
+      best: [
+        [
+          null,
+          "Why didn’t Chris and Dan get into Berghain? (Pt 1)",
+          "https://podyssey.fm/podcast/itunes1614253637/episode218146391-didnt-Chris-Berghain-Search-Engine",
+        ],
+        [
+          null,
+          "Why didn’t Chris and Dan get into Berghain? (Pt 2)",
+          "https://podyssey.fm/podcast/itunes1614253637/episode219321161-didnt-Chris-Berghain-Search-Engine",
+        ],
+        [
+          null,
+          "Why are drug dealers putting fentanyl in everything?",
+          "https://podyssey.fm/podcast/itunes1614253637/episode157353681-dealers-putting-fentanyl-everything-Search-Engine",
+        ],
+      ],
+    },
   ]
 
   const [currentPodcast, setCurrentPodcast] = useState(0)
@@ -181,7 +278,9 @@ export default function PodcastList() {
                 <div
                   className="hover:bg-gray-200 rounded-full p-1 cursor-pointer opacity-30 hover:opacity-100"
                   onMouseDown={() => {
-                    setCurrentPodcast((prev) => prev + 1)
+                    if (currentPodcast < podcastList.length - 1) {
+                      setCurrentPodcast((prev) => prev + 1)
+                    }
                   }}
                 >
                   <ArrowRight size={18} />
