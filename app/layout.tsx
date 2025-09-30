@@ -66,9 +66,16 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Bartosz Bak",
-  description: "Portfolio by Bartosz",
+  description: "Frontend Engineer",
   icons: {
     icon: "/favicon.ico",
+  },
+  openGraph: {
+    images: [
+      {
+        url: "/api/og",
+      },
+    ],
   },
 }
 
