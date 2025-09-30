@@ -2,33 +2,35 @@ import { headers } from "next/headers"
 import HomeClient from "@/components/HomeClient"
 import type { Metadata } from "next"
 
-export const metadata: Metadata = {
-  title: "Bartosz Bak",
-  description: "Frontend Engineer",
-  openGraph: {
+export async function generateMetadata(): Promise<Metadata> {
+  return {
     title: "Bartosz Bak",
     description: "Frontend Engineer",
-    url: "https://bartoszbak.org",
-    siteName: "Bartosz Bak",
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: "https://bartoszbak.org/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Bartosz Bak — Frontend Engineer",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@nocdns",
-    creator: "@nocdns",
-    title: "Bartosz Bak",
-    description: "Frontend Engineer",
-    images: ["https://bartoszbak.org/og.png"],
-  },
+    openGraph: {
+      title: "Bartosz Bak",
+      description: "Frontend Engineer",
+      url: "https://bartoszbak.org",
+      siteName: "Bartosz Bak",
+      locale: "en_US",
+      type: "website",
+      images: [
+        {
+          url: "https://bartoszbak.org/og.png",
+          width: 1200,
+          height: 630,
+          alt: "Bartosz Bak — Frontend Engineer",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@nocdns",
+      creator: "@nocdns",
+      title: "Bartosz Bak",
+      description: "Frontend Engineer",
+      images: ["https://bartoszbak.org/og.png"],
+    },
+  }
 }
 
 function isProbablyMobile(userAgent: string): boolean {
