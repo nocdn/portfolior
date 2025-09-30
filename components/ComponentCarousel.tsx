@@ -9,7 +9,7 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
   const componentCards = [
     <motion.a
       key={0}
-      className="flex items-center gap-3 mr-6 cursor-pointer"
+      className="flex items-center gap-3 mr-6 cursor-pointer rounded-xl"
       initial={{ opacity: 0, x: -40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: "spring", stiffness: 220, damping: 20 }}
@@ -32,7 +32,7 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
     </motion.a>,
     <motion.div
       key={1}
-      className="flex items-center gap-3 mr-6 cursor-pointer"
+      className="flex items-center gap-3 mr-6 cursor-pointer rounded-xl"
       initial={{ opacity: 0, x: -40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: "spring", stiffness: 220, damping: 20 }}
