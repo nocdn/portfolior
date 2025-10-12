@@ -345,7 +345,7 @@ export default function HomeClient({
                 />
               </div>
             }
-            subtitleURL="https://ui.bartoszbak.org/docs/components"
+            subtitleURL="https://ui.bartoszbak.org/"
             secondaryChildren={
               <div className="flex items-center gap-2 mr-2">
                 <button

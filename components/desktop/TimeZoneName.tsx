@@ -17,6 +17,7 @@ export function TimeZoneName() {
   return (
     <div className="inline-block relative">
       <motion.span
+        className="group-hover:text-blue-600 transition-colors duration-200"
         onMouseEnter={() => setHoveringName(true)}
         onMouseLeave={() => setHoveringName(false)}
         style={{

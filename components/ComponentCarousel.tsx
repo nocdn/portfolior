@@ -7,38 +7,15 @@ import cornerComponentImage from "../public/images/corner-buttons.png"
 
 export function ComponentCarousel({ cardTick }: { cardTick: number }) {
   const componentCards = [
-    <motion.a
+    <motion.div
       key={0}
       className="flex items-center gap-3 mr-6 cursor-pointer rounded-xl"
       initial={{ opacity: 0, x: -40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ type: "spring", stiffness: 220, damping: 20 }}
       exit={{ opacity: 0, x: 40, filter: "blur(3px)" }}
-      href="https://ui.shadcn.com/docs/components/animated-spinner"
-      target="_blank"
-    >
-      <img
-        src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/oklch-colors-new.png"
-        alt="OKLCH colors"
-        className="w-[200px] h-[100px] rounded-xl border border-gray-200"
-      />
-      <div className="flex flex-col gap-1 mb-auto">
-        <p className="self-start font-inter text-[16.5px]">Animated spinners</p>
-        <p className="mb-auto text-[15.5px] font-inter font-[450] text-gray-700 leading-normal">
-          Custom recreation of the default iOS spinner, built for Svelte and
-          React.
-        </p>
-      </div>
-    </motion.a>,
-    <motion.div
-      key={1}
-      className="flex items-center gap-3 mr-6 cursor-pointer rounded-xl"
-      initial={{ opacity: 0, x: -40 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ type: "spring", stiffness: 220, damping: 20 }}
-      exit={{ opacity: 0, x: 40, filter: "blur(3px)" }}
       onClick={() =>
-        window.open("https://ui.bartoszbak.org/docs/cornered-button", "_blank")
+        window.open("https://ui.bartoszbak.org/?item=cornered-button", "_blank")
       }
     >
       <Image
@@ -65,6 +42,53 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
         </p>
       </div>
     </motion.div>,
+    <motion.a
+      key={1}
+      className="flex items-center gap-3 mr-6 cursor-pointer rounded-xl"
+      initial={{ opacity: 0, x: -40 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ type: "spring", stiffness: 220, damping: 20 }}
+      exit={{ opacity: 0, x: 40, filter: "blur(3px)" }}
+      href="https://ui.bartoszbak.org/?item=ticker"
+      target="_blank"
+    >
+      <img
+        src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/oklch-colors-new.png"
+        alt="OKLCH colors"
+        className="w-[200px] h-[100px] rounded-xl border border-gray-200"
+      />
+      <div className="flex flex-col gap-1 mb-auto">
+        <p className="self-start font-inter text-[16.5px]">Animated ticker</p>
+        <p className="mb-auto text-[15.5px] font-inter font-[450] text-gray-700 leading-normal">
+          Ticker component which smoothly animates when it's text content
+          changes.
+        </p>
+      </div>
+    </motion.a>,
+    <motion.a
+      key={2}
+      className="flex items-center gap-3 mr-6 cursor-pointer rounded-xl"
+      initial={{ opacity: 0, x: -40 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ type: "spring", stiffness: 220, damping: 20 }}
+      exit={{ opacity: 0, x: 40, filter: "blur(3px)" }}
+      href="https://ui.bartoszbak.org/?item=copy-button"
+      target="_blank"
+    >
+      <img
+        src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/oklch-colors-new.png"
+        alt="OKLCH colors"
+        className="w-[200px] h-[100px] rounded-xl border border-gray-200"
+      />
+      <div className="flex flex-col gap-1 mb-auto">
+        <p className="self-start font-inter text-[16.5px]">
+          Animated copy button
+        </p>
+        <p className="mb-auto text-[15.5px] font-inter font-[450] text-gray-700 leading-normal">
+          A button that very smoothly transitions between it's two children.
+        </p>
+      </div>
+    </motion.a>,
   ]
 
   const [currentCard, setCurrentCard] = useState(0)
