@@ -4,6 +4,8 @@ import { AnimatePresence, motion } from "motion/react"
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import cornerComponentImage from "../public/images/corner-buttons.png"
+import animatedTickerImage from "../public/images/ticker.gif"
+import animatedCopyButtonImage from "../public/images/copy.gif"
 
 export function ComponentCarousel({ cardTick }: { cardTick: number }) {
   const componentCards = [
@@ -53,8 +55,8 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
       target="_blank"
     >
       <img
-        src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/oklch-colors-new.png"
-        alt="OKLCH colors"
+        src={animatedTickerImage.src}
+        alt="Animated ticker"
         className="w-[200px] h-[100px] rounded-xl border border-gray-200"
       />
       <div className="flex flex-col gap-1 mb-auto">
@@ -76,8 +78,8 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
       target="_blank"
     >
       <img
-        src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/oklch-colors-new.png"
-        alt="OKLCH colors"
+        src={animatedCopyButtonImage.src}
+        alt="Animated copy button"
         className="w-[200px] h-[100px] rounded-xl border border-gray-200"
       />
       <div className="flex flex-col gap-1 mb-auto">

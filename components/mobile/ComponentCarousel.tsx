@@ -1,7 +1,8 @@
 "use client"
-import Image from "next/image"
 import { useEffect, useRef } from "react"
 import cornerComponentImage from "../../public/images/corner-buttons.png"
+import animatedTickerImage from "../../public/images/ticker.gif"
+import animatedCopyButtonImage from "../../public/images/copy.gif"
 
 type MobileComponentCarouselProps = {
   activeIndex: number
@@ -58,40 +59,16 @@ export function MobileComponentCarousel({
     >
       <a
         className="flex flex-col gap-3 cursor-pointer w-full min-w-full flex-shrink-0 snap-center px-0.5"
-        href="https://ui.shadcn.com/docs/components/animated-spinner"
+        href="https://ui.bartoszbak.org/?item=cornered-button"
         target="_blank"
       >
-        <img
-          src="https://oiszjiwtfc65cwa2.public.blob.vercel-storage.com/work-previews/oklch-colors-new.png"
-          alt="OKLCH colors"
-          className="w-full h-auto rounded-xl border border-gray-200"
-        />
-        <div className="flex flex-col gap-1 mb-auto">
-          <p className="self-start font-inter text-[16.5px]">
-            Animated spinners
-          </p>
-          <p className="mb-auto text-[15.5px] font-inter font-[450] text-gray-700 leading-normal">
-            Custom recreation of the default iOS spinner, built for Svelte and
-            React.
-          </p>
+        <div className="relative w-full aspect-[2/1] rounded-xl border border-gray-200 bg-white overflow-hidden p-12.5">
+          <img
+            src={cornerComponentImage.src}
+            alt="Corner bordered buttons"
+            className="w-full h-full object-contain"
+          />
         </div>
-      </a>
-      <div
-        className="flex flex-col gap-3 cursor-pointer w-full min-w-full flex-shrink-0 snap-center px-0.5"
-        onClick={() =>
-          window.open(
-            "https://ui.bartoszbak.org/docs/cornered-button",
-            "_blank"
-          )
-        }
-      >
-        <Image
-          src={cornerComponentImage.src}
-          alt="Corner bordered buttons"
-          width={2000}
-          height={1000}
-          className="w-full h-auto rounded-xl border border-gray-200 px-8 py-4 object-contain"
-        />
         <div className="flex flex-col gap-1 mb-auto">
           <p className="self-start font-inter text-[16.5px]">
             Corner bordered buttons
@@ -108,20 +85,48 @@ export function MobileComponentCarousel({
             and Tailwind CSS docs page. Heavily customizeable with props.
           </p>
         </div>
-      </div>
-      <div className="flex flex-col gap-3 w-full min-w-full flex-shrink-0 snap-center px-0.5">
-        <div className="w-full h-[180px] rounded-xl border border-dashed border-gray-300 flex items-center justify-center bg-gray-50">
-          <p className="text-gray-600 font-inter text-[15.5px]">
-            More components coming soon
-          </p>
+      </a>
+      <a
+        className="flex flex-col gap-3 cursor-pointer w-full min-w-full flex-shrink-0 snap-center px-0.5"
+        href="https://ui.bartoszbak.org/?item=ticker"
+        target="_blank"
+      >
+        <div className="relative w-full aspect-[2/1] rounded-xl border border-gray-200 bg-white overflow-hidden">
+          <img
+            src={animatedTickerImage.src}
+            alt="Animated ticker"
+            className="w-full h-full object-contain"
+          />
         </div>
         <div className="flex flex-col gap-1 mb-auto">
-          <p className="self-start font-inter text-[16.5px]">Coming soon</p>
+          <p className="self-start font-inter text-[16.5px]">Animated ticker</p>
           <p className="mb-auto text-[15.5px] font-inter font-[450] text-gray-700 leading-normal">
-            A growing collection of interactive UI components.
+            Ticker component which smoothly animates when it's text content
+            changes.
           </p>
         </div>
-      </div>
+      </a>
+      <a
+        className="flex flex-col gap-3 cursor-pointer w-full min-w-full flex-shrink-0 snap-center px-0.5"
+        href="https://ui.bartoszbak.org/?item=copy-button"
+        target="_blank"
+      >
+        <div className="relative w-full aspect-[2/1] rounded-xl border border-gray-200 bg-white overflow-hidden">
+          <img
+            src={animatedCopyButtonImage.src}
+            alt="Animated copy button"
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <div className="flex flex-col gap-1 mb-auto">
+          <p className="self-start font-inter text-[16.5px]">
+            Animated copy button
+          </p>
+          <p className="mb-auto text-[15.5px] font-inter font-[450] text-gray-700 leading-normal">
+            A button that very smoothly transitions between it's two children.
+          </p>
+        </div>
+      </a>
     </div>
   )
 }
