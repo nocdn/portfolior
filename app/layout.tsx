@@ -107,6 +107,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link
+          rel="preload"
+          href="/fonts/PPNeueMontreal-Medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
