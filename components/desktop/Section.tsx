@@ -1,12 +1,13 @@
+"use client"
+
 import { AnimatePresence, motion } from "motion/react"
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 
 export function DesktopSection({
   children,
   className,
   title,
   subtitleChildren,
-  onOrbLoad,
   secondaryChildren,
   subtitleURL,
 }: {
@@ -14,19 +15,9 @@ export function DesktopSection({
   className?: string
   title: string
   subtitleChildren?: React.ReactNode
-  onOrbLoad?: (x: number, y: number) => void
   secondaryChildren?: React.ReactNode
   subtitleURL?: string
 }) {
-  const orbRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (orbRef.current) {
-      const rect = orbRef.current.getBoundingClientRect()
-      onOrbLoad?.(rect.left + rect.width / 2, rect.top + rect.height / 2)
-    }
-  }, [])
-
   const [isHovering, setIsHovering] = useState(false)
 
   return (
@@ -78,10 +69,6 @@ export function DesktopSection({
         >
           {secondaryChildren}
         </div>
-        <motion.div
-          ref={orbRef}
-          className="w-4 h-4 rounded-full absolute top-1/2 -translate-y-1/2 -translate-x-7"
-        ></motion.div>
       </div>
       {children}
     </div>

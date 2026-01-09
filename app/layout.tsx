@@ -106,6 +106,37 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Bartosz Bak",
+              alternateName: ["Bartek Bak", "nocdn"],
+              url: "https://bartoszbak.org",
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Bartosz Bak",
+              alternateName: "Bartek",
+              url: "https://bartoszbak.org",
+              jobTitle: "Frontend Engineer",
+              sameAs: [
+                "https://twitter.com/nocdns",
+                "https://github.com/nocdn",
+              ],
+            }),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${ibmPlexMono.variable} ${openRunde.variable} ${jetBrainsMono.variable} ${switzer.variable} antialiased`}
       >

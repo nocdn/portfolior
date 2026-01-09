@@ -1,3 +1,5 @@
+"use client"
+
 import AlarmClockIcon from "@/components/icons/clock"
 import { AnimatePresence, motion } from "motion/react"
 import { useState } from "react"
@@ -73,7 +75,7 @@ export function TimeZoneName() {
             className="absolute left-[calc(50%-1px)] top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none font-open-runde font-semibold text-[16px] text-blue-600/75"
             style={{ opacity: 0.1 }}
           >
-            BST
+            UTC
           </motion.div>
         )}
       </AnimatePresence>

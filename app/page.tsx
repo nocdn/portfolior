@@ -1,6 +1,7 @@
 import { headers } from "next/headers"
-import HomeClient from "@/components/HomeClient"
 import type { Metadata } from "next"
+import HomeDesktop from "@/components/home/HomeDesktop"
+import HomeMobile from "@/components/home/HomeMobile"
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -43,6 +44,8 @@ function isProbablyMobile(userAgent: string): boolean {
 export default async function Page() {
   const headersList = await headers()
   const userAgent = headersList.get("user-agent") || ""
-  const initialIsMobile = isProbablyMobile(userAgent)
-  return <HomeClient initialIsMobile={initialIsMobile} />
+  const isMobile = isProbablyMobile(userAgent)
+
+  // Server-side routing: only ship JS for the relevant layout
+  return isMobile ? <HomeMobile /> : <HomeDesktop />
 }
