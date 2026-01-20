@@ -1,16 +1,24 @@
 // Shared static data - can be imported by server components
 
 export type Project = {
-  title: string
-  mobileTitle?: string
-  description: string
-  sourceURL?: string
-  demoURL?: string
-  chips?: string[]
-  year?: number
-}
+  title: string;
+  mobileTitle?: string;
+  description: string;
+  sourceURL?: string;
+  demoURL?: string;
+  chips?: string[];
+  year?: number;
+};
 
 export const projects: Project[] = [
+  {
+    title: "MCQs",
+    description:
+      "Interactive psychology practice questions built for my friends",
+    demoURL: "https://mcqs.bartoszbak.org/",
+    chips: ["nextjs", "hono", "postgres", "RDS", "bun", "redis"],
+    year: 2026,
+  },
   {
     title: "Shifts",
     description: "Full stack rota and shift management system with auth",
@@ -35,14 +43,6 @@ export const projects: Project[] = [
     year: 2025,
   },
   {
-    title: "MCQs",
-    description:
-      "Interactive psychology practice questions built for my friends",
-    demoURL: "https://mcqs.bartoszbak.org/",
-    chips: ["react", "supabase", "lambda"],
-    year: 2024,
-  },
-  {
     title: "Quiet Watch",
     description: "Intelligent ad segment remover powered by LLMs",
     sourceURL: "https://github.com/nocdn/ad-segment-trimmer",
@@ -64,14 +64,14 @@ export const projects: Project[] = [
     chips: ["sveltekit", "tailwindcss", "supabase"],
     year: 2025,
   },
-]
+];
 
 export type ArticleData = {
-  title: string
-  date: string
-  href: string
-  disabled?: boolean
-}
+  title: string;
+  date: string;
+  href: string;
+  disabled?: boolean;
+};
 
 export const articles: ArticleData[] = [
   {
@@ -81,8 +81,8 @@ export const articles: ArticleData[] = [
   },
   {
     title: "Coming soon.....",
-    date: "September 2025",
+    date: "February 2026",
     disabled: true,
     href: "/writing/",
   },
-]
+];
