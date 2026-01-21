@@ -85,6 +85,8 @@ const Music: React.FC = () => {
               width={112}
               height={112}
               className="rounded-lg peer hover:translate-y-[-14px] transition-all duration-300 border bg-gray-200 border-gray-500 cursor-pointer hover:shadow-xl"
+              loading="lazy"
+              priority={false}
             />
 
             <div className="font-jetbrains-mono text-sm absolute -top-16 border border-gray-300 left-1/2 -translate-x-1/2 opacity-0 peer-hover:opacity-100 hover:opacity-100 transition-all duration-300 bg-white rounded-lg p-2 whitespace-nowrap pointer-events-none peer-hover:pointer-events-auto hover:pointer-events-auto peer-hover:translate-y-[-10px] hover:translate-y-[-10px] peer-hover:shadow-[0_10px_20px_-5px_rgba(0,0,0,0.3),0_10px_10px_-5px_rgba(0,0,0,0.2)] hover:shadow-[0_10px_20px_-5px_rgba(0,0,0,0.3),0_10px_10px_-5px_rgba(0,0,0,0.2)] blur-[2px] peer-hover:blur-[0px] hover:blur-[0px]">

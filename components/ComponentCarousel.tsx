@@ -26,6 +26,8 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
         width={200}
         height={100}
         className="w-[200px] h-[100px] rounded-xl border border-gray-200 px-8 py-4 object-contain"
+        loading="lazy"
+        priority={false}
       />
       <div className="flex flex-col gap-1 mb-auto">
         <p className="self-start font-inter text-[16.5px]">
@@ -51,6 +53,7 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
         src={animatedTickerImage.src}
         alt="Animated ticker"
         className="w-[200px] h-[100px] rounded-xl border border-gray-200"
+        loading="lazy"
       />
       <div className="flex flex-col gap-1 mb-auto">
         <p className="self-start font-inter text-[16.5px]">Animated ticker</p>
@@ -74,6 +77,7 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
         src={animatedCopyButtonImage.src}
         alt="Animated copy button"
         className="w-[200px] h-[100px] rounded-xl border border-gray-200"
+        loading="lazy"
       />
       <div className="flex flex-col gap-1 mb-auto">
         <p className="self-start font-inter text-[16.5px]">

@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { useRef, useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react"
+import { motion, AnimatePresence } from "motion/react"
+import { ArrowUpRight } from "lucide-react"
 
 export function Project({
   className,
@@ -12,12 +12,12 @@ export function Project({
   sourceURL,
   chips = [],
 }: {
-  className?: string;
-  title: string;
-  description?: string;
-  demoURL?: string;
-  sourceURL?: string;
-  chips?: string[];
+  className?: string
+  title: string
+  description?: string
+  demoURL?: string
+  sourceURL?: string
+  chips?: string[]
 }) {
   const chipsDetails = {
     svelte: {
@@ -110,16 +110,15 @@ export function Project({
       label: "Redis",
       url: "https://redis.io/",
     },
-  };
+  }
 
-  const [showingBackground, setShowingBackground] = useState(false);
-  const [showingChips, setShowingChips] = useState(false);
-  const [showDescription, setShowDescription] = useState(true);
+  const [showingBackground, setShowingBackground] = useState(false)
+  const [showingChips, setShowingChips] = useState(false)
 
   const chipsElements = chips.map((chip, index) => (
     <div
       key={index}
-      className="rounded-lg px-2.5 text-[14px] leading-4 py-1.5 inline-flex items-center font-open-runde tracking-tighter"
+      className="rounded-lg px-2.5 text-[14px] leading-4 py-1.5 inline-flex items-center font-inter font-[550] tracking-tighter"
       style={{
         backgroundColor:
           chipsDetails[chip as keyof typeof chipsDetails].bgColor,
@@ -129,18 +128,18 @@ export function Project({
     >
       {chipsDetails[chip as keyof typeof chipsDetails].label}
     </div>
-  ));
+  ))
 
   return (
     <div
       className="flex flex-col"
       onMouseEnter={() => {
-        setShowingBackground(true);
-        setShowingChips(true);
+        setShowingBackground(true)
+        setShowingChips(true)
       }}
       onMouseLeave={() => {
-        setShowingBackground(false);
-        setShowingChips(false);
+        setShowingBackground(false)
+        setShowingChips(false)
       }}
     >
       <a
@@ -214,5 +213,5 @@ export function Project({
         </div>
       </a>
     </div>
-  );
+  )
 }

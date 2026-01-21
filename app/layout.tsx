@@ -3,30 +3,6 @@ import { Geist, Geist_Mono, Inter, JetBrains_Mono } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
 
-const openRunde = localFont({
-  src: [
-    {
-      path: "../public/fonts/OpenRunde-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/OpenRunde-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/OpenRunde-Semibold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-  variable: "--font-open-runde",
-  display: "swap",
-  preload: true,
-  fallback: ["system-ui", "sans-serif"],
-})
-
 const switzer = localFont({
   src: "../public/fonts/Switzer-Medium.woff2",
   variable: "--font-switzer",
@@ -61,7 +37,7 @@ const inter = Inter({
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "500",
 })
 
 export const metadata: Metadata = {
@@ -125,7 +101,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${openRunde.variable} ${jetBrainsMono.variable} ${switzer.variable} ${ppNeueMontreal.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${jetBrainsMono.variable} ${switzer.variable} ${ppNeueMontreal.variable} antialiased`}
       >
         {children}
       </body>

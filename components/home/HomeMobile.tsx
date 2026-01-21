@@ -9,7 +9,7 @@ export default function HomeMobile() {
   return (
     <div>
       <div
-        className="flex flex-col h-svh w-screen overflow-y-scroll snap-y snap-mandatory *:flex-none *:snap-start *:h-[100svh] *:w-screen"
+        className="flex flex-col h-svh w-screen overflow-y-scroll snap-y snap-mandatory *:flex-none *:snap-start *:h-svh *:w-screen"
         style={{
           scrollbarWidth: "none",
         }}

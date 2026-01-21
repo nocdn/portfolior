@@ -25,7 +25,7 @@ export function DesktopExtraSection() {
         className="w-full flex justify-center items-center"
         onMouseDown={() => setShowingExtra(true)}
       >
-        <p className="text-gray-500/30 hover:text-gray-500/50 cursor-pointer active:scale-[0.96] font-jetbrains-mono text-[16px] font-semibold transition-opacity duration-300 ease-in-out">
+        <p className="text-gray-500/30 hover:text-gray-500/50 cursor-pointer active:scale-[0.96] font-jetbrains-mono text-[16px] font-medium transition-opacity duration-300 ease-in-out">
           <span className="mr-0.5">[</span>
           <span>EXTRA</span>
           <span className="ml-0.5">]</span>

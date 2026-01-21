@@ -37,7 +37,7 @@ export function DesktopContactSection() {
                 setTimeout(() => setHoveringTwitter(false), 300)
               }}
             >
-              <p style={{ fontFamily: "OpenRunde, sans-serif" }}>
+              <p className="font-inter">
                 <span className="mr-1px text-[16.5px]">@</span>
                 <span
                   style={{
@@ -86,7 +86,7 @@ export function DesktopContactSection() {
               href="https://github.com/nocdn"
               className="text-gray-500 hover:text-blue-800 transition-colors relative mb-0.5"
             >
-              <p style={{ fontFamily: "OpenRunde, sans-serif" }}>
+              <p className="font-inter">
                 <span className="mr-px text-[16.5px]">@</span>
                 <span
                   style={{
@@ -116,7 +116,7 @@ export function DesktopContactSection() {
                 setTimeout(() => setShowCopied(false), 1000)
               }}
               href="mailto:contact@bartoszbak.org"
-              className="font-open-runde text-gray-500 hover:text-pink-800 transition-colors text-[16.5px] mb-0.5"
+              className="font-inter text-gray-500 hover:text-pink-800 transition-colors text-[16.5px] mb-0.5"
             >
               <AnimatePresence mode="wait">
                 <motion.div

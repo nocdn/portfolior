@@ -71,7 +71,7 @@ export function TimeZoneName() {
               filter: "blur(1px)",
               transition: { duration: 0.15 },
             }}
-            className="absolute left-[calc(50%-1px)] top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none font-open-runde font-semibold text-[16px] text-blue-600/75"
+            className="absolute left-[calc(50%-1px)] top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none font-inter font-semibold text-[16px] text-blue-600/75"
             style={{ opacity: 0.1 }}
           >
             UTC
@@ -97,7 +97,7 @@ export function TimeZoneName() {
               scale: 0.7,
               transition: { duration: 0.15 },
             }}
-            className="absolute left-[calc(50%-1px)] top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none font-open-runde font-semibold text-[16px] text-blue-600"
+            className="absolute left-[calc(50%-1px)] top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none font-inter font-semibold text-[16px] text-blue-600"
             style={{ opacity: 0.1 }}
           >
             <AlarmClockIcon

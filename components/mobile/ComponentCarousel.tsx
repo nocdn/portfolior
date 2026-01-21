@@ -67,6 +67,7 @@ export function MobileComponentCarousel({
             src={cornerComponentImage.src}
             alt="Corner bordered buttons"
             className="w-full h-full object-contain"
+            loading="lazy"
           />
         </div>
         <div className="flex flex-col gap-1 mb-auto">
@@ -90,6 +91,7 @@ export function MobileComponentCarousel({
             src={animatedTickerImage.src}
             alt="Animated ticker"
             className="w-full h-full object-contain"
+            loading="lazy"
           />
         </div>
         <div className="flex flex-col gap-1 mb-auto">
@@ -110,6 +112,7 @@ export function MobileComponentCarousel({
             src={animatedCopyButtonImage.src}
             alt="Animated copy button"
             className="w-full h-full object-contain"
+            loading="lazy"
           />
         </div>
         <div className="flex flex-col gap-1 mb-auto">

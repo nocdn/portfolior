@@ -253,6 +253,8 @@ export default function PodcastList() {
           width={170}
           height={170}
           className="rounded-md"
+          loading="lazy"
+          priority={false}
         />
         <div className="flex flex-col gap-0.5">
           <div className="flex items-center gap-2 font-sans text-[18px]">
