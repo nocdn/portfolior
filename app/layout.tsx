@@ -66,13 +66,13 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Bartosz Bak",
-  description: "Frontend Engineer",
+  description: "Aspiring design engineer based in the UK",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     title: "Bartosz Bak",
-    description: "Frontend Engineer",
+    description: "Aspiring design engineer based in the UK",
     url: "https://bartoszbak.org",
     siteName: "Bartosz Bak",
     locale: "en_US",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
         url: "https://bartoszbak.org/og.png",
         width: 1200,
         height: 630,
-        alt: "Bartosz Bak — Frontend Engineer",
+        alt: "Bartosz Bak - Aspiring design engineer based in the UK",
       },
     ],
   },
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     site: "@nocdns",
     creator: "@nocdns",
     title: "Bartosz Bak",
-    description: "Frontend Engineer",
+    description: "Aspiring design engineer based in the UK",
     images: ["https://bartoszbak.org/og.png"],
   },
   alternates: {
@@ -104,8 +104,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Bartosz Bak",
+    url: "https://bartoszbak.org",
+    description: "Aspiring design engineer based in the UK",
+    image: "https://bartoszbak.org/og.png",
+  }
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${openRunde.variable} ${jetBrainsMono.variable} ${switzer.variable} ${ppNeueMontreal.variable} antialiased`}
       >
