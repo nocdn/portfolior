@@ -1,6 +1,3 @@
-// Server Component - no "use client" directive
-// Only the interactive parts are client components
-
 import { DesktopAboutSection } from "./DesktopAboutSection"
 import { DesktopProjectsSection } from "./DesktopProjectsSection"
 import { DesktopComponentsSection } from "./DesktopComponentsSection"

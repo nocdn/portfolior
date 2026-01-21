@@ -4,7 +4,6 @@ import { useState } from "react"
 import dynamic from "next/dynamic"
 import { DesktopSection } from "@/components/desktop/Section"
 
-// Lazy load these components - they only load when user clicks "EXTRA"
 const MusicList = dynamic(() => import("@/components/desktop/MusicList"), {
   loading: () => (
     <div className="h-28 w-full animate-pulse bg-gray-100 rounded-lg" />

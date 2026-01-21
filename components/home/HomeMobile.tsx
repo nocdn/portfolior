@@ -1,6 +1,3 @@
-// Server Component - no "use client" directive
-// Only interactive parts are client components
-
 import { projects, articles } from "@/lib/data"
 import { MobileSection } from "@/components/mobile/Section"
 import { Article } from "@/components/Article"
@@ -12,15 +9,13 @@ export default function HomeMobile() {
   return (
     <div>
       <div
-        className="flex flex-col h-[100svh] w-screen overflow-y-scroll snap-y snap-mandatory *:flex-none *:snap-start *:h-[100svh] *:w-screen"
+        className="flex flex-col h-svh w-screen overflow-y-scroll snap-y snap-mandatory *:flex-none *:snap-start *:h-[100svh] *:w-screen"
         style={{
           scrollbarWidth: "none",
         }}
       >
-        {/* Client component for scroll navigation */}
         <MobileNavigation />
 
-        {/* Server-rendered static sections */}
         <MobileSection id="about" title="ABOUT">
           <p className="leading-relaxed text-[18.5px]">
             Hey there, I'm Bartek. I am a front-end developer based in the UK,
@@ -32,10 +27,10 @@ export default function HomeMobile() {
 
         <MobileSection id="projects" title="PROJECTS">
           <div className="flex flex-col gap-4">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <a
                 className="flex justify-between items-center gap-4"
-                key={index}
+                key={project.title}
                 href={project.demoURL || project.sourceURL || ""}
                 target="_blank"
               >
@@ -49,18 +44,16 @@ export default function HomeMobile() {
           </div>
         </MobileSection>
 
-        {/* Client component for carousel state */}
         <MobileComponentsSection />
 
         <MobileSection id="writing" title="WRITING">
           <div className="flex flex-col gap-3">
-            {articles.map((article, index) => (
-              <Article key={index} {...article} />
+            {articles.map((article) => (
+              <Article key={article.title} {...article} />
             ))}
           </div>
         </MobileSection>
 
-        {/* Client component for copy functionality */}
         <MobileContactSection />
       </div>
       <div

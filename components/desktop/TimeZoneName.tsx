@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "motion/react"
 import { useState } from "react"
 
 export function TimeZoneName() {
-  // calculate BST time (no matter where the user is)
   const bstTime = new Date()
   const bstTimeString = bstTime.toLocaleTimeString("en-GB", {
     hour: "2-digit",
