@@ -18,7 +18,7 @@ export function DesktopContactSection() {
       <div className="flex gap-8">
         <div
           style={{
-            fontFamily: "PP, Inter, sans-serif",
+            fontFamily: "var(--font-pp-neue-montreal), Inter, sans-serif",
             fontWeight: 500,
             fontSize: "18px",
           }}
@@ -38,7 +38,7 @@ export function DesktopContactSection() {
               }}
             >
               <p style={{ fontFamily: "OpenRunde, sans-serif" }}>
-                <span className="mr-[1px] text-[16.5px]">@</span>
+                <span className="mr-1px text-[16.5px]">@</span>
                 <span
                   style={{
                     letterSpacing: "-0.5px",
@@ -87,7 +87,7 @@ export function DesktopContactSection() {
               className="text-gray-500 hover:text-blue-800 transition-colors relative mb-0.5"
             >
               <p style={{ fontFamily: "OpenRunde, sans-serif" }}>
-                <span className="mr-[1px] text-[16.5px]">@</span>
+                <span className="mr-px text-[16.5px]">@</span>
                 <span
                   style={{
                     letterSpacing: "-0.5px",

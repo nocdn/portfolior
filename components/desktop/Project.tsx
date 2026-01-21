@@ -160,7 +160,7 @@ export function Project({
         <div
           className="relative z-10 text-[15px] flex items-center gap-3 motion-blur-in-[2px] motion-opacity-in-0"
           style={{
-            fontFamily: "PP Neue Montreal, Inter, sans-serif",
+            fontFamily: "var(--font-pp-neue-montreal), Inter, sans-serif",
             fontWeight: 500,
             lineHeight: "32px",
             fontSize: "17px",

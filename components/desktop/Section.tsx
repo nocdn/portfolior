@@ -23,7 +23,7 @@ export function DesktopSection({
   return (
     <div
       style={{
-        fontFamily: "PP, Inter, sans-serif",
+        fontFamily: "var(--font-pp-neue-montreal), Inter, sans-serif",
         fontWeight: 500,
         lineHeight: "30px",
         fontSize: "19px",

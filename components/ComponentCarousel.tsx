@@ -32,15 +32,8 @@ export function ComponentCarousel({ cardTick }: { cardTick: number }) {
           Corner bordered buttons
         </p>
         <p className="mb-auto text-[15.5px] font-inter font-[450] text-gray-700 leading-normal">
-          Inspired by{" "}
-          <a
-            href="https://www.twitter.com/aliszu"
-            target="_blank"
-            className="text-blue-700"
-          >
-            @aliszu
-          </a>{" "}
-          and Tailwind CSS docs page. Heavily customizeable with props.
+          Inspired by <span className="text-blue-700">@aliszu</span> and
+          Tailwind CSS docs page. Heavily customizeable with props.
         </p>
       </div>
     </motion.div>,

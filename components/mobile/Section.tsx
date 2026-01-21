@@ -14,7 +14,7 @@ export function MobileSection({
       id={id}
       className="flex flex-col gap-2 p-8 pb-[calc(env(safe-area-inset-bottom)+2rem)] text-[24px] font-medium h-[100svh] justify-end"
       style={{
-        fontFamily: "PP, Inter, sans-serif",
+        fontFamily: "var(--font-pp-neue-montreal), Inter, sans-serif",
         fontWeight: 500,
         lineHeight: "30px",
         fontSize: "20px",

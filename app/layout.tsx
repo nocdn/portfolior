@@ -1,11 +1,5 @@
 import type { Metadata } from "next"
-import {
-  Geist,
-  Geist_Mono,
-  Inter,
-  IBM_Plex_Mono,
-  JetBrains_Mono,
-} from "next/font/google"
+import { Geist, Geist_Mono, Inter, JetBrains_Mono } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
 
@@ -29,12 +23,24 @@ const openRunde = localFont({
   ],
   variable: "--font-open-runde",
   display: "swap",
+  preload: true,
+  fallback: ["system-ui", "sans-serif"],
 })
 
 const switzer = localFont({
   src: "../public/fonts/Switzer-Medium.woff2",
   variable: "--font-switzer",
   display: "swap",
+  preload: true,
+  fallback: ["system-ui", "sans-serif"],
+})
+
+const ppNeueMontreal = localFont({
+  src: "../public/fonts/PPNeueMontreal-Medium.woff2",
+  variable: "--font-pp-neue-montreal",
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "sans-serif"],
 })
 
 const geistSans = Geist({
@@ -50,12 +56,6 @@ const geistMono = Geist_Mono({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-})
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 })
 
 const jetBrainsMono = JetBrains_Mono({
@@ -106,46 +106,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="preload"
-          href="/fonts/PPNeueMontreal-Medium.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Bartosz Bak",
-              alternateName: ["Bartek Bak", "nocdn"],
-              url: "https://bartoszbak.org",
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Bartosz Bak",
-              alternateName: "Bartek",
-              url: "https://bartoszbak.org",
-              jobTitle: "Frontend Engineer",
-              sameAs: [
-                "https://twitter.com/nocdns",
-                "https://github.com/nocdn",
-              ],
-            }),
-          }}
-        />
-      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${ibmPlexMono.variable} ${openRunde.variable} ${jetBrainsMono.variable} ${switzer.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${openRunde.variable} ${jetBrainsMono.variable} ${switzer.variable} ${ppNeueMontreal.variable} antialiased`}
       >
         {children}
       </body>
