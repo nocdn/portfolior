@@ -27,6 +27,7 @@ export function DesktopSection({
         fontWeight: 500,
         lineHeight: "30px",
         fontSize: "19px",
+        willChange: "transform, opacity, filter",
       }}
       className={`${className}`}
       onMouseEnter={() => setIsHovering(true)}
