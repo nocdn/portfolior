@@ -1,5 +1,3 @@
-"use client"
-
 import React, { useEffect, useState } from "react"
 // based on the lucide clock icon
 

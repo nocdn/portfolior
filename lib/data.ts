@@ -1,14 +1,12 @@
-// Shared static data - can be imported by server components
-
 export type Project = {
-  title: string;
-  mobileTitle?: string;
-  description: string;
-  sourceURL?: string;
-  demoURL?: string;
-  chips?: string[];
-  year?: number;
-};
+  title: string
+  mobileTitle?: string
+  description: string
+  sourceURL?: string
+  demoURL?: string
+  chips?: string[]
+  year?: number
+}
 
 export const projects: Project[] = [
   {
@@ -64,14 +62,14 @@ export const projects: Project[] = [
     chips: ["sveltekit", "tailwindcss", "supabase"],
     year: 2025,
   },
-];
+]
 
 export type ArticleData = {
-  title: string;
-  date: string;
-  href: string;
-  disabled?: boolean;
-};
+  title: string
+  date: string
+  href: string
+  disabled?: boolean
+}
 
 export const articles: ArticleData[] = [
   {
@@ -85,4 +83,4 @@ export const articles: ArticleData[] = [
     disabled: true,
     href: "/writing/",
   },
-];
+]
