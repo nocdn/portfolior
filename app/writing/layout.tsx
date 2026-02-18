@@ -1,50 +1,23 @@
-"use client"
+import { ArrowLeft } from "lucide-react"
+import { cacheLife } from "next/cache"
+import Link from "next/link"
 
-import { AnimatedCircularButton } from "@/components/AnimatedCircularButton"
-import { Check, ChevronLeft } from "lucide-react"
-import { LinkIcon } from "@/components/ui/link"
-import { ArrowLeftIcon } from "@/components/ui/arrow-left"
-import { useRouter } from "next/navigation"
-
-export default function WritingLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  const router = useRouter()
+export default async function WritingLayout({ children }: { children: React.ReactNode }) {
+  "use cache"
+  cacheLife("max")
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="w-full px-6 md:py-16 py-12 font-inter">
-        <div className="flex justify-between mb-16 max-w-2xl mx-auto">
-          <AnimatedCircularButton
-            ariaLabel="Go back"
-            onClick={() => {
-              router.back()
-            }}
-          >
-            <ArrowLeftIcon
-              className="opacity-35 group-hover:opacity-100"
-              size={17}
-            />
-          </AnimatedCircularButton>
-          <AnimatedCircularButton
-            ariaLabel="Copy URL"
-            secondaryChildren={
-              <Check className="h-4 w-4 text-blue-800" strokeWidth={2.25} />
-            }
-            onClick={() => {
-              navigator.clipboard.writeText(window.location.href)
-            }}
-          >
-            <LinkIcon
-              className="h-4 w-4 opacity-35 group-hover:opacity-100"
-              size={16}
-            />
-          </AnimatedCircularButton>
-        </div>
-        {children}
+    <div className="font-inter flex w-full flex-col items-center py-20 font-[440]">
+      <div className="mb-20 flex w-full max-w-2xl justify-between">
+        <Link href="/" className="group ml-5 flex items-center gap-1.5 md:ml-0">
+          <ArrowLeft
+            size={15}
+            className="transition-transform duration-200 ease-[cubic-bezier(0.175,0.885,0.32,1)] group-hover:-translate-x-0.5"
+          />{" "}
+          Back
+        </Link>
       </div>
+      <div className="w-full max-w-2xl leading-relaxed">{children}</div>
     </div>
   )
 }

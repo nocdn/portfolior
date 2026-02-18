@@ -1,10 +1,42 @@
+import { ThemeScript } from "@/components/ThemeScript"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono, Inter, JetBrains_Mono } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"
 
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+  display: "swap",
+})
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+})
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+})
+
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: "swap",
+})
+
+const ioskeleyMono = localFont({
+  src: "./fonts/IoskeleyMono-Regular.woff2",
+  variable: "--font-ioskeley-mono",
+  display: "swap",
+  fallback: ["ui-monospace", "monospace"],
+})
+
 const switzer = localFont({
-  src: "../public/fonts/Switzer-Medium.woff2",
+  src: "./fonts/Switzer-Medium.woff2",
   variable: "--font-switzer",
   display: "swap",
   preload: true,
@@ -12,36 +44,34 @@ const switzer = localFont({
 })
 
 const ppNeueMontreal = localFont({
-  src: "../public/fonts/PPNeueMontreal-Medium.woff2",
+  src: "./fonts/PPNeueMontreal-Medium.woff2",
   variable: "--font-pp-neue-montreal",
   display: "swap",
   preload: true,
   fallback: ["system-ui", "sans-serif"],
 })
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
+const isDevelopment = process.env.NODE_ENV === "development"
+const DEFAULT_SITE_URL = "https://bartoszbak.org"
+const LOCALHOST_URL = "http://localhost:3000"
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
+function getMetadataBase(): URL {
+  const envSiteUrl = process.env.NEXT_PUBLIC_SITE_URL
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-})
+  if (envSiteUrl) {
+    try {
+      return new URL(envSiteUrl)
+    } catch {
+      // Ignore invalid env values and use a safe fallback.
+    }
+  }
 
-const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: "500",
-})
+  return new URL(isDevelopment ? LOCALHOST_URL : DEFAULT_SITE_URL)
+}
 
 export const metadata: Metadata = {
-  title: "Bartosz Bak",
+  metadataBase: getMetadataBase(),
+  title: isDevelopment ? "Bartosz Bak (dev)" : "Bartosz Bak",
   description: "Aspiring design engineer based in the UK",
   icons: {
     icon: "/favicon.ico",
@@ -55,7 +85,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://bartoszbak.org/og.png",
+        url: "https://ssr.bartoszbak.org/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Bartosz Bak - Aspiring design engineer based in the UK",
@@ -68,7 +98,7 @@ export const metadata: Metadata = {
     creator: "@nocdns",
     title: "Bartosz Bak",
     description: "Aspiring design engineer based in the UK",
-    images: ["https://bartoszbak.org/og.png"],
+    images: ["https://ssr.bartoszbak.org/opengraph-image"],
   },
   alternates: {
     canonical: "https://bartoszbak.org",
@@ -86,12 +116,12 @@ export default function RootLayout({
     name: "Bartosz Bak",
     url: "https://bartoszbak.org",
     description: "Aspiring design engineer based in the UK",
-    image: "https://bartoszbak.org/og.png",
+    image: "https://ssr.bartoszbak.org/opengraph-image",
   }
-
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <ThemeScript />
         <script
           type="application/ld+json"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
@@ -101,7 +131,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${jetBrainsMono.variable} ${switzer.variable} ${ppNeueMontreal.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${jetBrainsMono.variable} ${ioskeleyMono.variable} ${switzer.variable} ${ppNeueMontreal.variable} bg-background`}
       >
         {children}
       </body>
