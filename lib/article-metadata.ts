@@ -7,10 +7,10 @@ export function articleMetadata(title: string, href: string): Metadata {
 
   return {
     title: `${title} - Bartosz Bak`,
-    description: `${title} — by Bartosz Bak`,
+    description: `${title} – by Bartosz Bak`,
     openGraph: {
       title,
-      description: `${title} — by Bartosz Bak`,
+      description: `${title} – by Bartosz Bak`,
       url: `${BASE_URL}${href}`,
       siteName: "Bartosz Bak",
       locale: "en_US",
@@ -29,7 +29,7 @@ export function articleMetadata(title: string, href: string): Metadata {
       site: "@nocdns",
       creator: "@nocdns",
       title,
-      description: `${title} — by Bartosz Bak`,
+      description: `${title} – by Bartosz Bak`,
       images: [ogImageUrl],
     },
   }
