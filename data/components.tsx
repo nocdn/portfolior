@@ -30,7 +30,7 @@ export const componentCards: ComponentCard[] = [
         and Tailwind CSS docs page. Heavily customizeable with props.
       </>
     ),
-    href: "https://ui.bartoszbak.org/?item=cornered-button",
+    href: "https://ui.bartoszbak.org/components/cornered-button",
     useNextImage: true,
   },
   {
@@ -38,13 +38,13 @@ export const componentCards: ComponentCard[] = [
     alt: "Animated ticker",
     title: "Animated ticker",
     description: "Ticker component which smoothly animates when it's text content changes.",
-    href: "https://ui.bartoszbak.org/?item=ticker",
+    href: "https://ui.bartoszbak.org/components/ticker",
   },
   {
     image: animatedCopyButtonImage.src,
     alt: "Animated copy button",
     title: "Animated copy button",
     description: "A button that very smoothly transitions between it's two children.",
-    href: "https://ui.bartoszbak.org/?item=copy-button",
+    href: "https://ui.bartoszbak.org/components/copy-button",
   },
 ]
