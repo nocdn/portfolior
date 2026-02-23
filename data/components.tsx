@@ -1,20 +1,13 @@
-import animatedCopyButtonImage from "../public/images/copy.gif"
-import cornerComponentImage from "../public/images/corner-buttons.png"
-import animatedTickerImage from "../public/images/ticker.gif"
-
 export type ComponentCard = {
-  image: string
-  alt: string
+  previewKind: "cornered-button" | "ticker" | "copy-button"
   title: string
   description: React.ReactNode
   href: string
-  useNextImage?: boolean
 }
 
 export const componentCards: ComponentCard[] = [
   {
-    image: cornerComponentImage.src,
-    alt: "Corner bordered buttons",
+    previewKind: "cornered-button",
     title: "Corner bordered buttons",
     description: (
       <>
@@ -31,18 +24,15 @@ export const componentCards: ComponentCard[] = [
       </>
     ),
     href: "https://ui.bartoszbak.org/components/cornered-button",
-    useNextImage: true,
   },
   {
-    image: animatedTickerImage.src,
-    alt: "Animated ticker",
+    previewKind: "ticker",
     title: "Animated ticker",
     description: "Ticker component which smoothly animates when it's text content changes.",
     href: "https://ui.bartoszbak.org/components/ticker",
   },
   {
-    image: animatedCopyButtonImage.src,
-    alt: "Animated copy button",
+    previewKind: "copy-button",
     title: "Animated copy button",
     description: "A button that very smoothly transitions between it's two children.",
     href: "https://ui.bartoszbak.org/components/copy-button",
