@@ -1,5 +1,5 @@
 export type ComponentCard = {
-  previewKind: "cornered-button" | "ticker" | "copy-button"
+  previewKind: "cornered-button" | "ticker" | "animated-button"
   title: string
   description: React.ReactNode
   href: string
@@ -32,9 +32,9 @@ export const componentCards: ComponentCard[] = [
     href: "https://ui.bartoszbak.org/components/ticker",
   },
   {
-    previewKind: "copy-button",
+    previewKind: "animated-button",
     title: "Animated copy button",
     description: "A button that very smoothly transitions between it's two children.",
-    href: "https://ui.bartoszbak.org/components/copy-button",
+    href: "https://ui.bartoszbak.org/components/animated-button",
   },
 ]

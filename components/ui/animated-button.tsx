@@ -22,7 +22,8 @@ export function AnimatedButton({
   timeout?: number
 }) {
   const [isShowingSecondary, setIsShowingSecondary] = useState(false)
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const isControlled = showingSecondary !== undefined
 
   useEffect(() => {
     return () => {
@@ -32,7 +33,8 @@ export function AnimatedButton({
     }
   }, [])
 
-  const shouldShowSecondary = Boolean(secondaryChildren) && isShowingSecondary
+  const shouldShowSecondary =
+    Boolean(secondaryChildren) && (isControlled ? Boolean(showingSecondary) : isShowingSecondary)
 
   return (
     <motion.button
@@ -41,11 +43,14 @@ export function AnimatedButton({
       aria-label={ariaLabel}
       className={cn("group flex shrink-0 cursor-pointer items-center justify-center", className)}
       onClick={() => {
-        if (isShowingSecondary) return
+        if (shouldShowSecondary) return
 
         onClick?.()
 
-        if (secondaryChildren) {
+        if (secondaryChildren && !isControlled) {
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+          }
           setIsShowingSecondary(true)
           timeoutRef.current = setTimeout(() => {
             setIsShowingSecondary(false)

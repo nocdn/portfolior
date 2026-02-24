@@ -37,11 +37,11 @@ const MOBILE_SPRING_CONFIG = {
 
 const FILM_TICKER_ENTRIES = [
   "Snowden (2016)",
-  "In the Heights (2021)",
   "The Martian (2015)",
   "Fight Club (1999)",
   "About Time (2013)",
   "Hijack (2023)",
+  "Rye Lane (2023)",
 ] as const
 
 const TICKER_INTERVAL_MS = 1300
@@ -94,7 +94,7 @@ function TickerPreview() {
   )
 }
 
-function CopyButtonPreview({ preventSwipeConflicts }: { preventSwipeConflicts: boolean }) {
+function AnimatedButtonPreview({ preventSwipeConflicts }: { preventSwipeConflicts: boolean }) {
   return (
     <div
       className="flex h-full w-full items-center justify-center gap-3"
@@ -150,8 +150,8 @@ function CardPreview({
         <CorneredButtonPreview preventSwipeConflicts={preventSwipeConflicts} />
       )}
       {card.previewKind === "ticker" && <TickerPreview />}
-      {card.previewKind === "copy-button" && (
-        <CopyButtonPreview preventSwipeConflicts={preventSwipeConflicts} />
+      {card.previewKind === "animated-button" && (
+        <AnimatedButtonPreview preventSwipeConflicts={preventSwipeConflicts} />
       )}
     </div>
   )
