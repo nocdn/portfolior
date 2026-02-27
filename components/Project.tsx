@@ -18,7 +18,7 @@ export const ProjectDesktop = ({
       className={`${className} group/item relative inline-block cursor-pointer py-0.5 transition-opacity duration-100 group-hover:opacity-30 hover:opacity-100! hover:duration-0 focus:outline-none`}
     >
       <div className="font-pp-neue-montreal relative z-10 flex items-center gap-3 text-[17px] leading-8 font-medium">
-        <p className="text-gray-800/90 group-hover/item:text-blue-600 group-hover/item:drop-shadow-[0_0_0.5px_rgba(59,130,246,0.2)] dark:group-hover/item:text-blue-400 dark:group-hover/item:drop-shadow-[0_0_0.5px_rgba(96,165,250,0.2)]">
+        <p className="text-gray-800/90 group-hover/item:text-blue-600 group-hover/item:drop-shadow-[0_0_0.5px_rgba(59,130,246,0.2)] dark:text-gray-200/95 dark:antialiased dark:group-hover/item:text-blue-400 dark:group-hover/item:drop-shadow-[0_0_0.5px_rgba(96,165,250,0.2)]">
           {title}
         </p>
         {description && (
