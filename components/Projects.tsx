@@ -1,3 +1,5 @@
+"use client"
+
 import { projects } from "@/data/projects"
 import { ProjectDesktop } from "./Project"
 import { SectionDesktop, SectionMobile } from "./Section"
@@ -9,8 +11,8 @@ export const ProjectsDesktop = () => {
       className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[2.5%] motion-delay-100"
     >
       <div className="group flex flex-col">
-        {projects.map((project, index) => (
-          <ProjectDesktop key={index} {...project} />
+        {projects.map((project) => (
+          <ProjectDesktop key={project.title} {...project} />
         ))}
       </div>
     </SectionDesktop>

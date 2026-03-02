@@ -14,7 +14,7 @@ export const projects: Project[] = [
     description: "Interactive psychology practice questions built for my friends",
     demoURL: "https://mcqs.bartoszbak.org/",
     sourceURL: "https://github.com/nocdn/mcqs-upgrade",
-    chips: ["nextjs", "hono", "postgres", "RDS", "bun", "redis"],
+    chips: ["nextjs", "hono", "postgres", "rds", "bun", "redis"],
     year: 2026,
   },
   {
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     title: "Vanish",
     description: "Temporary emails through Cloudflare, with frontend and API",
     sourceURL: "https://github.com/nocdn/vanish",
-    chips: ["react", "flask"],
+    chips: ["react", "convex"],
     year: 2025,
   },
   {
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     mobileTitle: "Books (r)",
     description: "Recreation of (Basic) Bookmarks in Next.js with extra features",
     sourceURL: "https://github.com/nocdn/volumes-alt",
-    chips: ["react", "postgres", "nextjs"],
+    chips: ["nextjs", "postgres"],
     year: 2025,
   },
   {
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     title: "Votes",
     description: "Voting platform for university society elections, in SvelteKit",
     sourceURL: "https://github.com/nocdn/votes",
-    chips: ["sveltekit", "tailwindcss", "supabase"],
+    chips: ["sveltekit", "tailwindcss", "postgres"],
     year: 2025,
   },
 ]
@@ -93,6 +93,12 @@ export const chipDetails: Record<string, ChipDetails> = {
     textColor: "#008DFF",
     label: "React",
     url: "https://react.dev/",
+  },
+  convex: {
+    bgColor: "#F5F5F5",
+    textColor: "#111111",
+    label: "Convex",
+    url: "https://convex.dev/",
   },
   flask: {
     bgColor: "#F1F1F1",
@@ -142,7 +148,7 @@ export const chipDetails: Record<string, ChipDetails> = {
     label: "Hono",
     url: "https://hono.dev/",
   },
-  RDS: {
+  rds: {
     bgColor: "#FEEEEE",
     textColor: "#EC6A5B",
     label: "RDS",
