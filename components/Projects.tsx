@@ -6,10 +6,7 @@ import { SectionDesktop, SectionMobile } from "./Section"
 
 export const ProjectsDesktop = () => {
   return (
-    <SectionDesktop
-      title="PROJECTS"
-      className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[2.5%] motion-delay-100"
-    >
+    <SectionDesktop title="PROJECTS" className="">
       <div className="group flex flex-col">
         {projects.map((project) => (
           <ProjectDesktop key={project.title} {...project} />

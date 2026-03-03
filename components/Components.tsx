@@ -10,14 +10,14 @@ export const ComponentsDesktop = () => {
   return (
     <SectionDesktop
       title="COMPONENTS"
-      className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[3.75%] motion-delay-200"
+      className=""
       subtitleChildren={
         <span className="flex items-center gap-1">
           SHADCN REGISTRY{" "}
           <ArrowUpRight
             size={16}
             strokeWidth={2.75}
-            className="mr-0.5 text-blue-700 dark:text-blue-400 opacity-40 transition-all duration-200 group-hover:opacity-60"
+            className="mr-0.5 text-blue-700 opacity-40 transition-all duration-200 group-hover:opacity-60 dark:text-blue-400"
           />
         </span>
       }
@@ -48,7 +48,11 @@ export const ComponentsMobile = () => {
           className="flex items-center gap-1 text-blue-700/60 dark:text-blue-400/60"
         >
           SHADCN REGISTRY
-          <ArrowUpRight size={16} strokeWidth={2.75} className="mr-0.5 text-blue-700 dark:text-blue-400 opacity-60" />
+          <ArrowUpRight
+            size={16}
+            strokeWidth={2.75}
+            className="mr-0.5 text-blue-700 opacity-60 dark:text-blue-400"
+          />
         </a>
       }
     >

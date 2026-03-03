@@ -6,10 +6,7 @@ import { TwitterCard } from "./TwitterCard"
 
 export const AboutDesktop = () => {
   return (
-    <SectionDesktop
-      title="ABOUT"
-      className="motion-blur-in-[2px] motion-opacity-in-0 motion-translate-y-in-[7%] group antialiased"
-    >
+    <SectionDesktop title="ABOUT" className="group antialiased">
       <div>
         Hey there, I'm{" "}
         <Suspense fallback={<span className="text-blue-600 dark:text-blue-400">Bartek</span>}>
@@ -35,11 +32,7 @@ export const AboutDesktop = () => {
           <TwitterCard />
         </Suspense>
         , reach me via <br />
-        <Suspense
-          fallback={
-            <span className="text-blue-600 dark:text-blue-400">email</span>
-          }
-        >
+        <Suspense fallback={<span className="text-blue-600 dark:text-blue-400">email</span>}>
           <EmailCopy />
         </Suspense>{" "}
         or see my other code on{" "}
