@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   devIndicators: false,
   cacheComponents: true,
   experimental: {
+    viewTransition: true,
     optimizePackageImports: ["shiki", "motion", "lucide-react"],
   },
 }

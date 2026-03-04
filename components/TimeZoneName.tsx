@@ -112,15 +112,20 @@ const AlarmClockIcon: React.FC<AlarmClockIconProps> = ({
 }
 
 export function TimeZoneName() {
-  const bstTime = new Date()
-  const bstTimeString = bstTime.toLocaleTimeString("en-GB", {
+  const [now, setNow] = useState(() => new Date())
+  const [hoveringName, setHoveringName] = useState<boolean>(false)
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  const bstTimeString = now.toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
     timeZone: "Europe/London",
   })
-
-  const [hoveringName, setHoveringName] = useState<boolean>(false)
 
   return (
     <div className="relative inline-block">

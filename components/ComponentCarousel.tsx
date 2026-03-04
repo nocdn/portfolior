@@ -192,13 +192,11 @@ function DesktopCardContent({ card }: { card: ComponentCard }) {
 
 export function DesktopComponentCarousel({ cardTick }: { cardTick: number }) {
   const [currentCard, setCurrentCard] = useState(0)
-  const isInitialRender = useRef(true)
+  const prevCardTick = useRef(cardTick)
 
   useEffect(() => {
-    if (isInitialRender.current) {
-      isInitialRender.current = false
-      return
-    }
+    if (prevCardTick.current === cardTick) return
+    prevCardTick.current = cardTick
     setCurrentCard((prev) => (prev + 1) % componentCards.length)
   }, [cardTick])
 
