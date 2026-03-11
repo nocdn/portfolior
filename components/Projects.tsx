@@ -1,12 +1,27 @@
 "use client"
 
 import { projects } from "@/data/projects"
+import { ArrowUpRight } from "lucide-react"
 import { ProjectDesktop } from "./Project"
 import { SectionDesktop, SectionMobile } from "./Section"
 
 export const ProjectsDesktop = () => {
   return (
-    <SectionDesktop title="PROJECTS" className="">
+    <SectionDesktop
+      title="PROJECTS"
+      className=""
+      subtitleChildren={
+        <span className="flex items-center gap-1">
+          REPOS{" "}
+          <ArrowUpRight
+            size={16}
+            strokeWidth={2.75}
+            className="mr-0.5 text-blue-700 opacity-40 transition-all duration-200 group-hover:opacity-60 dark:text-blue-400"
+          />
+        </span>
+      }
+      subtitleURL="https://github.com/nocdn?tab=repositories"
+    >
       <div className="group flex flex-col">
         {projects.map((project) => (
           <ProjectDesktop key={project.title} {...project} />
@@ -31,7 +46,7 @@ export const ProjectsMobile = () => {
             <p className="flex-nowrap text-[17px] whitespace-nowrap">
               {project.mobileTitle || project.title}
             </p>
-            <div className="h-0.25 w-full bg-gray-200 dark:bg-white/10"></div>
+            <div className="h-px w-full bg-gray-200 dark:bg-white/10"></div>
             <p className="text-sm text-gray-500/90 dark:text-gray-400/90">{project.year}</p>
           </a>
         ))}
