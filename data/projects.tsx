@@ -1,4 +1,5 @@
 import { InlineIconText } from "@/components/InlineIconText"
+import { ArrowExternalLink } from "@/icons/arrowExternal"
 import { Docker, Redis } from "@/icons/projectsIcons"
 import type { ReactNode } from "react"
 
@@ -26,7 +27,7 @@ export const projects: Project[] = [
         <InlineIconText icon={Docker} title="Docker" className="text-blue-500" />, caching with{" "}
         <InlineIconText icon={Redis} title="Redis" className="text-red-500" />. There is a demo{" "}
         <a href="https://mcqs.bartoszbak.org/" target="_blank" rel="noopener noreferrer">
-          here
+          here <ArrowExternalLink />
         </a>
         .
       </p>

@@ -1,8 +1,9 @@
 import { Suspense } from "react"
 import { AboutDesktop, AboutMobile } from "./About"
 import { ComponentsDesktop, ComponentsMobile } from "./Components"
-import { ComponentsDesktopFallback } from "./ComponentsDesktopFallback"
 import { ContactMobile } from "./Contact"
+import { ComponentsDesktopFallback } from "./fallbacks/ComponentsDesktopFallback"
+import { ProjectsDesktopFallback } from "./fallbacks/ProjectsDesktopFallback"
 import { MobileNavigation } from "./MobileNavigation"
 import { ProjectsDesktop, ProjectsMobile } from "./Projects"
 import { WritingDesktop, WritingMobile } from "./Writing"
@@ -10,9 +11,11 @@ import { WritingDesktop, WritingMobile } from "./Writing"
 export const HomeDesktop = () => {
   return (
     <div>
-      <main className="mx-auto mb-24 flex w-[565px] translate-x-3 flex-col gap-12 pt-26">
+      <main className="mx-auto mb-24 flex w-141.25 translate-x-3 flex-col gap-12 pt-26">
         <AboutDesktop />
-        <ProjectsDesktop />
+        <Suspense fallback={<ProjectsDesktopFallback />}>
+          <ProjectsDesktop />
+        </Suspense>
         <Suspense fallback={<ComponentsDesktopFallback />}>
           <ComponentsDesktop />
         </Suspense>

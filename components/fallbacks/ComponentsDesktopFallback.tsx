@@ -1,6 +1,6 @@
 import { componentCards } from "@/data/components"
 import { ArrowRightIcon, ArrowUpRight, ExternalLink } from "lucide-react"
-import { SectionDesktop } from "./Section"
+import { SectionDesktop } from "../Section"
 
 const fallbackCard = componentCards[0]
 
