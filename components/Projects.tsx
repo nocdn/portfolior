@@ -2,14 +2,18 @@
 
 import { projects } from "@/data/projects"
 import { ArrowUpRight } from "lucide-react"
+import { useState } from "react"
 import { ProjectDesktop } from "./Project"
 import { SectionDesktop, SectionMobile } from "./Section"
 
 export const ProjectsDesktop = () => {
+  const [openProjectTitle, setOpenProjectTitle] = useState<string | null>(null)
+
   return (
     <SectionDesktop
       title="PROJECTS"
       className=""
+      onMouseLeave={() => setOpenProjectTitle(null)}
       subtitleChildren={
         <span className="flex items-center gap-1">
           REPOS{" "}
@@ -24,7 +28,16 @@ export const ProjectsDesktop = () => {
     >
       <div className="group flex flex-col">
         {projects.map((project) => (
-          <ProjectDesktop key={project.title} {...project} />
+          <ProjectDesktop
+            key={project.title}
+            {...project}
+            isOpen={openProjectTitle === project.title}
+            onToggle={() =>
+              setOpenProjectTitle((currentTitle) =>
+                currentTitle === project.title ? null : project.title
+              )
+            }
+          />
         ))}
       </div>
     </SectionDesktop>

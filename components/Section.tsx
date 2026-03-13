@@ -1,3 +1,5 @@
+import type { MouseEventHandler, ReactNode } from "react"
+
 export const SectionDesktop = ({
   children,
   className,
@@ -5,17 +7,20 @@ export const SectionDesktop = ({
   subtitleChildren,
   secondaryChildren,
   subtitleURL,
+  onMouseLeave,
 }: {
-  children: React.ReactNode
+  children: ReactNode
   className?: string
   title: string
-  subtitleChildren?: React.ReactNode
-  secondaryChildren?: React.ReactNode
+  subtitleChildren?: ReactNode
+  secondaryChildren?: ReactNode
   subtitleURL?: string
+  onMouseLeave?: MouseEventHandler<HTMLDivElement>
 }) => {
   return (
     <div
       className={`group/section ${className} font-pp-neue-montreal text-[19px] leading-[30px] font-medium`}
+      onMouseLeave={onMouseLeave}
     >
       <div
         id="title"
@@ -54,8 +59,8 @@ export const SectionMobile = ({
 }: {
   id?: string
   title: string
-  children: React.ReactNode
-  secondaryChildren?: React.ReactNode
+  children: ReactNode
+  secondaryChildren?: ReactNode
 }) => {
   return (
     <div
