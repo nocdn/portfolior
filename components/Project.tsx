@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "motion/react"
-import type { ReactNode } from "react"
+import type { KeyboardEvent, MouseEvent, ReactNode } from "react"
 import { useId } from "react"
 import useMeasure from "react-use-measure"
 
@@ -12,6 +12,7 @@ export const ProjectDesktop = ({
   extendedDescription,
   isOpen,
   onToggle,
+  onClose,
 }: {
   className?: string
   title: string
@@ -19,9 +20,23 @@ export const ProjectDesktop = ({
   extendedDescription?: ReactNode
   isOpen: boolean
   onToggle: () => void
+  onClose: () => void
 }) => {
   const panelId = useId()
   const [contentRef, bounds] = useMeasure()
+  const handleMouseDown = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    event.currentTarget.blur()
+    onToggle()
+  }
+  const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return
+    }
+
+    event.preventDefault()
+    onToggle()
+  }
   const transition = {
     type: "tween" as const,
     ease: [0.26, 1, 0.5, 1] as const,
@@ -32,11 +47,13 @@ export const ProjectDesktop = ({
   return (
     <div
       className={`${className} group/item relative py-0.5 transition-opacity duration-150 group-hover:opacity-30 focus-within:opacity-100 hover:opacity-100! hover:duration-0 ${isOpen ? "opacity-100" : ""}`}
+      onMouseLeave={onClose}
     >
       <button
         type="button"
         className="w-full cursor-pointer text-left focus:outline-none"
-        onClick={onToggle}
+        onMouseDown={handleMouseDown}
+        onKeyDown={handleKeyDown}
         aria-expanded={isOpen}
         aria-controls={panelId}
       >

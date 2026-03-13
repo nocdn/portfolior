@@ -1,5 +1,5 @@
 import { InlineIconText } from "@/components/InlineIconText"
-import { ArrowExternalLink } from "@/icons/arrowExternal"
+import { LinkText } from "@/components/LinkText"
 import { Docker, Redis } from "@/icons/projectsIcons"
 import type { ReactNode } from "react"
 
@@ -23,13 +23,11 @@ export const projects: Project[] = [
     extendedDescription: (
       <p>
         A multiple-choice question practice platform, used by most of the UoY psychology cohort
-        (~200 unique users), containerised with{" "}
-        <InlineIconText icon={Docker} title="Docker" className="text-blue-500" />, caching with{" "}
+        (~200 unique users), auto-scaling and containerised with{" "}
+        <InlineIconText icon={Docker} title="Docker" className="text-blue-500" />, data caching with{" "}
         <InlineIconText icon={Redis} title="Redis" className="text-red-500" />. There is a demo{" "}
-        <a href="https://mcqs.bartoszbak.org/" target="_blank" rel="noopener noreferrer">
-          here <ArrowExternalLink />
-        </a>
-        .
+        <LinkText url="https://mcqs.bartoszbak.org/" text="here" />, or the source code is available{" "}
+        <LinkText url="https://mcqs.bartoszbak.org/" text="here" />.
       </p>
     ),
   },

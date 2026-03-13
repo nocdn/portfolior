@@ -13,7 +13,6 @@ export const ProjectsDesktop = () => {
     <SectionDesktop
       title="PROJECTS"
       className=""
-      onMouseLeave={() => setOpenProjectTitle(null)}
       subtitleChildren={
         <span className="flex items-center gap-1">
           REPOS{" "}
@@ -35,6 +34,11 @@ export const ProjectsDesktop = () => {
             onToggle={() =>
               setOpenProjectTitle((currentTitle) =>
                 currentTitle === project.title ? null : project.title
+              )
+            }
+            onClose={() =>
+              setOpenProjectTitle((currentTitle) =>
+                currentTitle === project.title ? null : currentTitle
               )
             }
           />
