@@ -8,14 +8,18 @@ import {
   Convex,
   Docker,
   Drizzle,
+  Flask,
   Hono,
   Letterboxd,
   Motion,
   Nextjs,
   OpenAI,
   PostgreSQL,
+  Python,
   RDS,
   Redis,
+  Resend,
+  Svelte,
   TailwindCSS,
   TypeScript,
   Vite,
@@ -227,11 +231,65 @@ export const projects: Project[] = [
     description: "Recreation of (Basic) Bookmarks in Next.js with extra features",
     sourceURL: "https://github.com/nocdn/volumes-alt",
     year: 2025,
+    extendedDescription: (
+      <p>
+        A recreation of (Basic) Bookmarks by Rauno Freiberg in{" "}
+        <InlineIconText icon={Nextjs} className="text-black">
+          Next.js
+        </InlineIconText>
+        . A full-stack app with Real time syncing with{" "}
+        <InlineIconText icon={Convex} className="text-[#511E46]">
+          Convex
+        </InlineIconText>
+        , async automatic favicon, title extraction in Server Actions. Tagging (through @-mentions)
+        system instead of folders. With API routes and cache components for bookmarks and tags. See
+        the code{" "}
+        <LinkText url="https://github.com/nocdn/volumes-alt" className="text-black">
+          here
+        </LinkText>
+      </p>
+    ),
   },
   {
     title: "Votes",
     description: "Voting platform for university society elections, in SvelteKit",
-    sourceURL: "https://github.com/nocdn/votes",
+    demoURL: "https://voting.bartoszbak.org",
+    sourceURL: "https://github.com/nocdn/voting",
     year: 2025,
+    extendedDescription: (
+      <p>
+        A voting platform built for university society elections, with a password-protected admin
+        panel, generating unique voting codes, and emailing them to voters through a{" "}
+        <InlineIconText icon={Flask} className="text-black">
+          Flask
+        </InlineIconText>{" "}
+        backend using{" "}
+        <InlineIconText icon={Resend} className="text-black">
+          {" "}
+          Resend
+        </InlineIconText>
+        , and store voter records in{" "}
+        <InlineIconText icon={PostgreSQL} className="text-[#0064a5]" iconClassName="translate-y-px">
+          Postgres.
+        </InlineIconText>{" "}
+        Frontend written with{" "}
+        <InlineIconText icon={Svelte} className="text-red-600">
+          SvelteKit
+        </InlineIconText>{" "}
+        and{" "}
+        <InlineIconText icon={Vite} className="text-purple-600">
+          Vite
+        </InlineIconText>
+        , including one-time code verification, a voting flow, and an admin results view. There is
+        minimal a demo{" "}
+        <LinkText url="https://voting.bartoszbak.org" className="text-black">
+          here
+        </LinkText>
+        , and the source is available{" "}
+        <LinkText url="https://github.com/nocdn/voting" className="text-black">
+          here
+        </LinkText>
+      </p>
+    ),
   },
 ]

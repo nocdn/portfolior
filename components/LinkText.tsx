@@ -6,10 +6,12 @@ export const LinkText = ({
   url,
   children,
   className,
+  iconClassName,
 }: {
   url: string
   children: ReactNode
   className?: string
+  iconClassName?: string
 }) => {
   return (
     <a
@@ -18,7 +20,7 @@ export const LinkText = ({
       rel="noopener noreferrer"
       className={`inline-flex items-center ${className ?? ""}`}
     >
-      {children} <ArrowExternalLink className="ml-0.5 translate-y-px" />
+      {children} <ArrowExternalLink className={`ml-0.5 translate-y-px ${iconClassName ?? ""}`} />
     </a>
   )
 }
