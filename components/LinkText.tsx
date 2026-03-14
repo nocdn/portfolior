@@ -1,12 +1,14 @@
+import type { ReactNode } from "react"
+
 import { ArrowExternalLink } from "@/icons/arrowExternal"
 
 export const LinkText = ({
   url,
-  text,
+  children,
   className,
 }: {
   url: string
-  text: string
+  children: ReactNode
   className?: string
 }) => {
   return (
@@ -16,7 +18,7 @@ export const LinkText = ({
       rel="noopener noreferrer"
       className={`inline-flex items-center ${className ?? ""}`}
     >
-      {text} <ArrowExternalLink className="ml-0.5 translate-y-px" />
+      {children} <ArrowExternalLink className="ml-0.5 translate-y-px" />
     </a>
   )
 }

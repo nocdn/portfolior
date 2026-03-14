@@ -1,22 +1,30 @@
-import type { ComponentType, ReactNode, SVGProps } from "react"
+import type { ReactElement, ReactNode, SVGProps } from "react"
 
-type ProjectIcon = ComponentType<SVGProps<SVGSVGElement>>
+type ProjectIcon = (props: SVGProps<SVGSVGElement>) => ReactElement
 
 export const InlineIconText = ({
   icon: Icon,
-  title,
+  children,
   className,
-  textColor,
+  textClassName,
+  iconClassName,
+  iconSize = 16,
 }: {
   icon: ProjectIcon
-  title: ReactNode
+  children: ReactNode
   className?: string
-  textColor?: string
+  textClassName?: string
+  iconClassName?: string
+  iconSize?: number | string
 }) => {
   return (
     <span className={`whitespace-nowrap ${className ?? ""}`}>
-      <Icon className="mr-1 inline size-4 align-[-0.125em]" aria-hidden="true" />
-      <span className={textColor}>{title}</span>
+      <Icon
+        className={`mr-1 inline align-[-0.125em] ${iconClassName ?? ""}`}
+        style={{ height: iconSize, width: iconSize }}
+        aria-hidden="true"
+      />
+      <span className={textClassName}>{children}</span>
     </span>
   )
 }

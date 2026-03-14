@@ -2,10 +2,10 @@ import type { SVGProps } from "react"
 
 export const BetterAuth = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} fill="none" viewBox="0 0 500 500">
-    <path fill="#fff" d="M0 0h500v500H0z" />
-    <path fill="#000" d="M69 121h86.988v259H69zM337.575 121H430v259h-92.425z" />
-    <path fill="#000" d="M427.282 121v83.456h-174.52V121zM430 296.544V380H252.762v-83.456z" />
-    <path fill="#000" d="M252.762 204.455v92.089h-96.774v-92.089z" />
+    <path fill="#000" d="M0 0h500v500H0z" />
+    <path fill="#fff" d="M69 121h86.988v259H69zM337.575 121H430v259h-92.425z" />
+    <path fill="#fff" d="M427.282 121v83.456h-174.52V121zM430 296.544V380H252.762v-83.456z" />
+    <path fill="#fff" d="M252.762 204.455v92.089h-96.774v-92.089z" />
   </svg>
 )
 
@@ -56,9 +56,76 @@ export const Bun = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
+export const Convex = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} fill="none" viewBox="28 28 128 132">
+    <path
+      fill="#F3B01C"
+      d="M108.092 130.021c18.166-2.018 35.293-11.698 44.723-27.854-4.466 39.961-48.162 65.218-83.83 49.711-3.286-1.425-6.115-3.796-8.056-6.844-8.016-12.586-10.65-28.601-6.865-43.135 10.817 18.668 32.81 30.111 54.028 28.122Z"
+    />
+    <path
+      fill="#8D2676"
+      d="M53.401 90.174c-7.364 17.017-7.682 36.94 1.345 53.336-31.77-23.902-31.423-75.052-.388-98.715 2.87-2.187 6.282-3.485 9.86-3.683 14.713-.776 29.662 4.91 40.146 15.507-21.3.212-42.046 13.857-50.963 33.555Z"
+    />
+    <path
+      fill="#EE342F"
+      d="M114.637 61.855C103.89 46.87 87.069 36.668 68.639 36.358c35.625-16.17 79.446 10.047 84.217 48.807.444 3.598-.139 7.267-1.734 10.512-6.656 13.518-18.998 24.002-33.42 27.882 10.567-19.599 9.263-43.544-3.065-61.704Z"
+    />
+  </svg>
+)
+
+export const Cloudflare = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} preserveAspectRatio="xMidYMid" viewBox="0 0 256 116">
+    <path
+      fill="#FFF"
+      d="m202.357 49.394-5.311-2.124C172.085 103.434 72.786 69.289 66.81 85.997c-.996 11.286 54.227 2.146 93.706 4.059 12.039.583 18.076 9.671 12.964 24.484l10.069.031c11.615-36.209 48.683-17.73 50.232-29.68-2.545-7.857-42.601 0-31.425-35.497Z"
+    />
+    <path
+      fill="#F4811F"
+      d="M176.332 108.348c1.593-5.31 1.062-10.622-1.593-13.809-2.656-3.187-6.374-5.31-11.154-5.842L71.17 87.634c-.531 0-1.062-.53-1.593-.53-.531-.532-.531-1.063 0-1.594.531-1.062 1.062-1.594 2.124-1.594l92.946-1.062c11.154-.53 22.839-9.56 27.087-20.182l5.312-13.809c0-.532.531-1.063 0-1.594C191.203 20.182 166.772 0 138.091 0 111.535 0 88.697 16.995 80.73 40.896c-5.311-3.718-11.684-5.843-19.12-5.31-12.747 1.061-22.838 11.683-24.432 24.43-.531 3.187 0 6.374.532 9.56C16.996 70.107 0 87.103 0 108.348c0 2.124 0 3.718.531 5.842 0 1.063 1.062 1.594 1.594 1.594h170.489c1.062 0 2.125-.53 2.125-1.594l1.593-5.842Z"
+    />
+    <path
+      fill="#FAAD3F"
+      d="M205.544 48.863h-2.656c-.531 0-1.062.53-1.593 1.062l-3.718 12.747c-1.593 5.31-1.062 10.623 1.594 13.809 2.655 3.187 6.373 5.31 11.153 5.843l19.652 1.062c.53 0 1.062.53 1.593.53.53.532.53 1.063 0 1.594-.531 1.063-1.062 1.594-2.125 1.594l-20.182 1.062c-11.154.53-22.838 9.56-27.087 20.182l-1.063 4.78c-.531.532 0 1.594 1.063 1.594h70.108c1.062 0 1.593-.531 1.593-1.593 1.062-4.25 2.124-9.03 2.124-13.81 0-27.618-22.838-50.456-50.456-50.456"
+    />
+  </svg>
+)
+
 export const Docker = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} viewBox="0 0 24 24" fill="#008fe2">
     <path d="M13.98 11.08h2.12a.19.19 0 0 0 .19-.19V9.01a.19.19 0 0 0-.19-.19h-2.12a.18.18 0 0 0-.18.18v1.9c0 .1.08.18.18.18m-2.95-5.43h2.12a.19.19 0 0 0 .18-.19V3.57a.19.19 0 0 0-.18-.18h-2.12a.18.18 0 0 0-.19.18v1.9c0 .1.09.18.19.18m0 2.71h2.12a.19.19 0 0 0 .18-.18V6.29a.19.19 0 0 0-.18-.18h-2.12a.18.18 0 0 0-.19.18v1.89c0 .1.09.18.19.18m-2.93 0h2.12a.19.19 0 0 0 .18-.18V6.29a.18.18 0 0 0-.18-.18H8.1a.18.18 0 0 0-.18.18v1.89c0 .1.08.18.18.18m-2.96 0h2.11a.19.19 0 0 0 .19-.18V6.29a.18.18 0 0 0-.19-.18H5.14a.19.19 0 0 0-.19.18v1.89c0 .1.08.18.19.18m5.89 2.72h2.12a.19.19 0 0 0 .18-.19V9.01a.19.19 0 0 0-.18-.19h-2.12a.18.18 0 0 0-.19.18v1.9c0 .1.09.18.19.18m-2.93 0h2.12a.18.18 0 0 0 .18-.19V9.01a.18.18 0 0 0-.18-.19H8.1a.18.18 0 0 0-.18.18v1.9c0 .1.08.18.18.18m-2.96 0h2.11a.18.18 0 0 0 .19-.19V9.01a.18.18 0 0 0-.18-.19H5.14a.19.19 0 0 0-.19.19v1.88c0 .1.08.19.19.19m-2.92 0h2.12a.18.18 0 0 0 .18-.19V9.01a.18.18 0 0 0-.18-.19H2.22a.18.18 0 0 0-.19.18v1.9c0 .1.08.18.19.18m21.54-1.19c-.06-.05-.67-.51-1.95-.51-.34 0-.68.03-1.01.09a3.77 3.77 0 0 0-1.72-2.57l-.34-.2-.23.33a4.6 4.6 0 0 0-.6 1.43c-.24.97-.1 1.88.4 2.66a4.7 4.7 0 0 1-1.75.42H.76a.75.75 0 0 0-.76.75 11.38 11.38 0 0 0 .7 4.06 6.03 6.03 0 0 0 2.4 3.12c1.18.73 3.1 1.14 5.28 1.14.98 0 1.96-.08 2.93-.26a12.25 12.25 0 0 0 3.82-1.4 10.5 10.5 0 0 0 2.61-2.13c1.25-1.42 2-3 2.55-4.4h.23c1.37 0 2.21-.55 2.68-1 .3-.3.55-.66.7-1.06l.1-.28Z" />
+  </svg>
+)
+
+export const Drizzle = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} fill="none" viewBox="0 0 160 160">
+    <rect
+      width="9.631"
+      height="40.852"
+      fill="#121212"
+      rx="4.816"
+      transform="matrix(.87303 .48767 -.49721 .86763 43.48 67.304)"
+    />
+    <rect
+      width="9.631"
+      height="40.852"
+      fill="#121212"
+      rx="4.816"
+      transform="matrix(.87303 .48767 -.49721 .86763 76.94 46.534)"
+    />
+    <rect
+      width="9.631"
+      height="40.852"
+      fill="#121212"
+      rx="4.816"
+      transform="matrix(.87303 .48767 -.49721 .86763 128.424 46.535)"
+    />
+    <rect
+      width="9.631"
+      height="40.852"
+      fill="#121212"
+      rx="4.816"
+      transform="matrix(.87303 .48767 -.49721 .86763 94.957 67.304)"
+    />
   </svg>
 )
 
@@ -73,6 +140,71 @@ export const Hono = (props: SVGProps<SVGSVGElement>) => (
       d="M129.49 53.7c24.314 28.2 46.29 58.238 65.93 90.114a187.318 187.318 0 0 1 15.24 33.13c8.338 32.804-.607 59.86-26.836 81.169-25.367 17.85-53.196 23.15-83.488 15.902-32.666-10.136-51.55-32.113-56.653-65.929-1.238-10.662-.133-21.043 3.314-31.142a225.41 225.41 0 0 1 17.89-35.78l19.878-29.155a5509.508 5509.508 0 0 0 44.726-58.31Z"
       fill="#FF9758"
     />
+  </svg>
+)
+
+export const Letterboxd = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} fill="none" viewBox="0 0 500 500">
+    <defs>
+      <rect id="letterboxd__path-1" width="129.847328" height="141.389313" x="0" y="0" />
+      <rect id="letterboxd__path-3" width="129.847328" height="141.389313" x="0" y="0" />
+    </defs>
+    <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
+      <circle cx="250" cy="250" r="250" fill="#202830" />
+      <g transform="translate(61 180)">
+        <g>
+          <ellipse cx="189" cy="69.9732824" rx="70.0786517" ry="69.9732824" fill="#00E054" />
+          <g transform="translate(248.152672)">
+            <mask id="letterboxd__mask-2" fill="white">
+              <use href="#letterboxd__path-1" />
+            </mask>
+            <g />
+            <ellipse
+              cx="59.7686766"
+              cy="69.9732824"
+              rx="70.0786517"
+              ry="69.9732824"
+              fill="#40BCF4"
+              mask="url(#letterboxd__mask-2)"
+            />
+          </g>
+          <g>
+            <mask id="letterboxd__mask-4" fill="white">
+              <use href="#letterboxd__path-3" />
+            </mask>
+            <g />
+            <ellipse
+              cx="70.0786517"
+              cy="69.9732824"
+              rx="70.0786517"
+              ry="69.9732824"
+              fill="#FF8000"
+              mask="url(#letterboxd__mask-4)"
+            />
+          </g>
+          <path
+            fill="#FFFFFF"
+            d="M129.539326 107.022244c-6.728833-10.744076-10.617978-23.443023-10.617978-37.048962 0-13.605939 3.889145-26.304885 10.617978-37.048961 6.728833 10.744076 10.617977 23.443022 10.617977 37.048961 0 13.605939-3.889144 26.304886-10.617977 37.048962Z"
+          />
+          <path
+            fill="#FFFFFF"
+            d="M248.460674 32.924321c6.728833 10.744076 10.617978 23.443022 10.617978 37.048961 0 13.605939-3.889145 26.304886-10.617978 37.048962-6.728833-10.744077-10.617977-23.443023-10.617977-37.048962 0-13.605939 3.889144-26.304885 10.617977-37.048961Z"
+          />
+        </g>
+      </g>
+    </g>
+  </svg>
+)
+
+export const Motion = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} preserveAspectRatio="xMidYMid" viewBox="0 0 256 384">
+    <path d="M0 0h256v128H128L0 0Zm0 128h128l128 128H128v128L0 256V128Z" />
+  </svg>
+)
+
+export const OpenAI = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} preserveAspectRatio="xMidYMid" viewBox="0 0 256 260">
+    <path d="M239.184 106.203a64.716 64.716 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.716 64.716 0 0 0-43.23 31.36c-14.31 24.602-11.061 55.634 8.033 76.74a64.665 64.665 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a64.72 64.72 0 0 0 48.754 21.744c28.481.025 53.714-18.361 62.414-45.481a64.767 64.767 0 0 0 43.229-31.36c14.137-24.558 10.875-55.423-8.083-76.483Zm-97.56 136.338a48.397 48.397 0 0 1-31.105-11.255l1.535-.87 51.67-29.825a8.595 8.595 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.601Zm-104.466-44.61a48.345 48.345 0 0 1-5.781-32.589l1.534.921 51.722 29.826a8.339 8.339 0 0 0 8.441 0l63.181-36.425v25.221a.87.87 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803ZM23.549 85.38a48.499 48.499 0 0 1 25.58-21.333v61.39a8.288 8.288 0 0 0 4.195 7.316l62.874 36.272-21.845 12.636a.819.819 0 0 1-.767 0L41.353 151.53c-23.211-13.454-31.171-43.144-17.804-66.405v.256Zm179.466 41.695-63.08-36.63L161.73 77.86a.819.819 0 0 1 .768 0l52.233 30.184a48.6 48.6 0 0 1-7.316 87.635v-61.391a8.544 8.544 0 0 0-4.4-7.213Zm21.742-32.69-1.535-.922-51.619-30.081a8.39 8.39 0 0 0-8.492 0L99.98 99.808V74.587a.716.716 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391v.205ZM88.061 139.097l-21.845-12.585a.87.87 0 0 1-.41-.614V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87-51.67 29.825a8.595 8.595 0 0 0-4.246 7.367l-.051 72.697Zm11.868-25.58 28.138-16.217 28.188 16.218v32.434l-28.086 16.218-28.188-16.218-.052-32.434Z" />
   </svg>
 )
 
@@ -226,10 +358,33 @@ export const Python = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
+export const RDS = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} fill="none" viewBox="0 0 96 96">
+    <path fill="url(#rds__a)" d="M95 1H1v94h94V1Z" />
+    <path
+      fill="#ffffff"
+      d="m19.1111 17.4501 10.9192 10.9193-1.6614 1.6614-10.9193-10.9193v8.9136h-2.35v-11.75c0-.6486.5252-1.175 1.175-1.175h11.75v2.35h-8.9135Zm61.7885-1.175v11.75h-2.35v-8.9136L67.6303 30.0308l-1.6614-1.6614 10.9193-10.9193h-8.9136v-2.35h11.75c.6498 0 1.175.5264 1.175 1.175Zm-2.35 51.7h2.35v11.75c0 .6486-.5252 1.175-1.175 1.175h-11.75v-2.35h8.9136L65.9689 67.6308l1.6614-1.6614 10.9193 10.9193v-8.9136Zm-.5875-20.8997c0-3.8999-4.5026-7.7527-12.0437-10.306l.7531-2.2254c8.668 2.934 13.6406 7.5012 13.6406 12.5314 0 5.0313-4.9726 9.5997-13.6417 12.5325l-.7532-2.2266c7.5423-2.5521 12.0449-6.4038 12.0449-10.3059Zm-59.8592 0c0 3.7365 4.2147 7.4871 11.2753 10.0345l-.7978 2.2101c-8.1522-2.941-12.8275-7.4036-12.8275-12.2446 0-4.8399 4.6753-9.3025 12.8275-12.2447l.7978 2.2102c-7.0606 2.5486-11.2753 6.2991-11.2753 10.0345Zm11.9274 20.5554L19.1111 78.5501h8.9135v2.35h-11.75c-.6498 0-1.175-.5264-1.175-1.175v-11.75h2.35v8.9136l10.9193-10.9193 1.6614 1.6614Zm17.9693-29.8697c-8.3965 0-12.925-2.169-12.925-3.055 0-.8871 4.5285-3.055 12.925-3.055 8.3954 0 12.925 2.1679 12.925 3.055 0 .886-4.5296 3.055-12.925 3.055Zm.0341 9.1004c-8.0394 0-12.9591-2.196-12.9591-3.391v-5.7117c2.894 1.5968 8.0276 2.3523 12.925 2.3523 4.8974 0 10.031-.7555 12.925-2.3523v5.7117c0 1.1961-4.8939 3.391-12.8909 3.391Zm0 8.9723c-8.0394 0-12.9591-2.1961-12.9591-3.391v-5.7799c2.8564 1.6791 7.9219 2.5486 12.9591 2.5486 5.009 0 10.0451-.8683 12.8909-2.5427v5.774c0 1.1961-4.8939 3.391-12.8909 3.391Zm-.0341 8.05c-8.3625 0-12.925-2.2478-12.925-3.4028v-4.8458c2.8564 1.6791 7.9219 2.5486 12.9591 2.5486 5.009 0 10.0451-.8671 12.8909-2.5427v4.8399c0 1.155-4.5625 3.4028-12.925 3.4028Zm0-34.5827c-7.3567 0-15.275 1.6909-15.275 5.405V60.481c0 3.7764 7.6845 5.7528 15.275 5.7528 7.5905 0 15.275-1.9764 15.275-5.7528V34.7061c0-3.7141-7.9183-5.405-15.275-5.405Z"
+    />
+    <defs>
+      <linearGradient
+        id="rds__a"
+        x1="1"
+        x2="9401"
+        y1="9401"
+        y2="1"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#2e27ad" />
+        <stop offset="1" stopColor="#527fff" />
+      </linearGradient>
+    </defs>
+  </svg>
+)
+
 export const AmazonWebServices = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} xmlSpace="preserve" viewBox="0 0 304 182">
     <path
-      fill="#ffffff"
+      fill="#252f3e"
       d="m86 66 2 9c0 3 1 5 3 8v2l-1 3-7 4-2 1-3-1-4-5-3-6c-8 9-18 14-29 14-9 0-16-3-20-8-5-4-8-11-8-19s3-15 9-20c6-6 14-8 25-8a79 79 0 0 1 22 3v-7c0-8-2-13-5-16-3-4-8-5-16-5l-11 1a80 80 0 0 0-14 5h-2c-1 0-2-1-2-3v-5l1-3c0-1 1-2 3-2l12-5 16-2c12 0 20 3 26 8 5 6 8 14 8 25v32zM46 82l10-2c4-1 7-4 10-7l3-6 1-9v-4a84 84 0 0 0-19-2c-6 0-11 1-15 4-3 2-4 6-4 11s1 8 3 11c3 2 6 4 11 4zm80 10-4-1-2-3-23-78-1-4 2-2h10l4 1 2 4 17 66 15-66 2-4 4-1h8l4 1 2 4 16 67 17-67 2-4 4-1h9c2 0 3 1 3 2v2l-1 2-24 78-2 4-4 1h-9l-4-1-1-4-16-65-15 64-2 4-4 1h-9zm129 3a66 66 0 0 1-27-6l-3-3-1-2v-5c0-2 1-3 2-3h2l3 1a54 54 0 0 0 23 5c6 0 11-2 14-4 4-2 5-5 5-9l-2-7-10-5-15-5c-7-2-13-6-16-10a24 24 0 0 1 5-34l10-5a44 44 0 0 1 20-2 110 110 0 0 1 12 3l4 2 3 2 1 4v4c0 3-1 4-2 4l-4-2c-6-2-12-3-19-3-6 0-11 0-14 2s-4 5-4 9c0 3 1 5 3 7s5 4 11 6l14 4c7 3 12 6 15 10s5 9 5 14l-3 12-7 8c-3 3-7 5-11 6l-14 2z"
     />
     <path
@@ -305,6 +460,408 @@ export const TailwindCSS = (props: SVGProps<SVGSVGElement>) => (
       <clipPath id="tailwindcss__a">
         <path fill="#fff" d="M0 0h54v32.4H0z" />
       </clipPath>
+    </defs>
+  </svg>
+)
+
+export const TypeScript = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} preserveAspectRatio="xMidYMid" viewBox="0 0 256 256">
+    <path
+      d="M20 0h216c11.046 0 20 8.954 20 20v216c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20V20C0 8.954 8.954 0 20 0Z"
+      fill="#3178C6"
+    />
+    <path
+      d="M150.518 200.475v27.62c4.492 2.302 9.805 4.028 15.938 5.179 6.133 1.151 12.597 1.726 19.393 1.726 6.622 0 12.914-.633 18.874-1.899 5.96-1.266 11.187-3.352 15.678-6.257 4.492-2.906 8.048-6.704 10.669-11.394 2.62-4.689 3.93-10.486 3.93-17.391 0-5.006-.749-9.394-2.246-13.163a30.748 30.748 0 0 0-6.479-10.055c-2.821-2.935-6.205-5.567-10.149-7.898-3.945-2.33-8.394-4.531-13.347-6.602-3.628-1.497-6.881-2.949-9.761-4.359-2.879-1.41-5.327-2.848-7.342-4.316-2.016-1.467-3.571-3.021-4.665-4.661-1.094-1.64-1.641-3.495-1.641-5.567 0-1.899.489-3.61 1.468-5.135s2.362-2.834 4.147-3.927c1.785-1.094 3.973-1.942 6.565-2.547 2.591-.604 5.471-.906 8.638-.906 2.304 0 4.737.173 7.299.518 2.563.345 5.14.877 7.732 1.597a53.669 53.669 0 0 1 7.558 2.719 41.7 41.7 0 0 1 6.781 3.797v-25.807c-4.204-1.611-8.797-2.805-13.778-3.582-4.981-.777-10.697-1.165-17.147-1.165-6.565 0-12.784.705-18.658 2.115-5.874 1.409-11.043 3.61-15.506 6.602-4.463 2.993-7.99 6.805-10.582 11.437-2.591 4.632-3.887 10.17-3.887 16.615 0 8.228 2.375 15.248 7.127 21.06 4.751 5.811 11.963 10.731 21.638 14.759a291.458 291.458 0 0 1 10.625 4.575c3.283 1.496 6.119 3.049 8.509 4.66 2.39 1.611 4.276 3.366 5.658 5.265 1.382 1.899 2.073 4.057 2.073 6.474a9.901 9.901 0 0 1-1.296 4.963c-.863 1.524-2.174 2.848-3.93 3.97-1.756 1.122-3.945 1.999-6.565 2.632-2.62.633-5.687.95-9.2.95-5.989 0-11.92-1.05-17.794-3.151-5.875-2.1-11.317-5.25-16.327-9.451Zm-46.036-68.733H140V109H41v22.742h35.345V233h28.137V131.742Z"
+      fill="#FFF"
+    />
+  </svg>
+)
+
+export const Vite = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} fill="none" viewBox="0 0 48 46">
+    <path
+      fill="#863bff"
+      d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"
+      style={{ fill: "color(display-p3 .5252 .23 1)", fillOpacity: "1" }}
+    />
+    <mask
+      id="vite__mask0_2002_17158"
+      width="48"
+      height="46"
+      x="0"
+      y="0"
+      maskUnits="userSpaceOnUse"
+      style={{ maskType: "alpha" }}
+    >
+      <path
+        fill="#000"
+        d="M25.842 44.938c-.664.844-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.183c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.498 0-3.579-1.842-3.579H1.133c-.92 0-1.456-1.04-.92-1.787L9.91.473c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.578 1.842 3.578h11.377c.943 0 1.473 1.088.89 1.832L25.843 44.94z"
+        style={{ fill: "#000", fillOpacity: "1" }}
+      />
+    </mask>
+    <g mask="url(#vite__mask0_2002_17158)">
+      <g filter="url(#vite__filter0_f_2002_17158)">
+        <ellipse
+          cx="5.508"
+          cy="14.704"
+          fill="#ede6ff"
+          rx="5.508"
+          ry="14.704"
+          style={{ fill: "color(display-p3 .9275 .9033 1)", fillOpacity: "1" }}
+          transform="matrix(.00324 1 1 -.00324 -4.47 31.516)"
+        />
+      </g>
+      <g filter="url(#vite__filter1_f_2002_17158)">
+        <ellipse
+          cx="10.399"
+          cy="29.851"
+          fill="#ede6ff"
+          rx="10.399"
+          ry="29.851"
+          style={{ fill: "color(display-p3 .9275 .9033 1)", fillOpacity: "1" }}
+          transform="matrix(.00324 1 1 -.00324 -39.328 7.883)"
+        />
+      </g>
+      <g filter="url(#vite__filter2_f_2002_17158)">
+        <ellipse
+          cx="5.508"
+          cy="30.487"
+          fill="#7e14ff"
+          rx="5.508"
+          ry="30.487"
+          style={{ fill: "color(display-p3 .4922 .0767 1)", fillOpacity: "1" }}
+          transform="rotate(89.814 -25.913 -14.639)scale(1 -1)"
+        />
+      </g>
+      <g filter="url(#vite__filter3_f_2002_17158)">
+        <ellipse
+          cx="5.508"
+          cy="30.599"
+          fill="#7e14ff"
+          rx="5.508"
+          ry="30.599"
+          style={{ fill: "color(display-p3 .4922 .0767 1)", fillOpacity: "1" }}
+          transform="rotate(89.814 -32.644 -3.334)scale(1 -1)"
+        />
+      </g>
+      <g filter="url(#vite__filter4_f_2002_17158)">
+        <ellipse
+          cx="5.508"
+          cy="30.599"
+          fill="#7e14ff"
+          rx="5.508"
+          ry="30.599"
+          style={{ fill: "color(display-p3 .4922 .0767 1)", fillOpacity: "1" }}
+          transform="rotate(89.814 -32.454 -1.99)scale(1 -1)"
+        />
+      </g>
+      <g filter="url(#vite__filter5_f_2002_17158)">
+        <ellipse
+          cx="14.072"
+          cy="22.078"
+          fill="#ede6ff"
+          rx="14.072"
+          ry="22.078"
+          style={{ fill: "color(display-p3 .9275 .9033 1)", fillOpacity: "1" }}
+          transform="rotate(93.35 24.506 48.493)scale(-1 1)"
+        />
+      </g>
+      <g filter="url(#vite__filter6_f_2002_17158)">
+        <ellipse
+          cx="3.47"
+          cy="21.501"
+          fill="#7e14ff"
+          rx="3.47"
+          ry="21.501"
+          style={{ fill: "color(display-p3 .4922 .0767 1)", fillOpacity: "1" }}
+          transform="rotate(89.009 28.708 47.59)scale(-1 1)"
+        />
+      </g>
+      <g filter="url(#vite__filter7_f_2002_17158)">
+        <ellipse
+          cx="3.47"
+          cy="21.501"
+          fill="#7e14ff"
+          rx="3.47"
+          ry="21.501"
+          style={{ fill: "color(display-p3 .4922 .0767 1)", fillOpacity: "1" }}
+          transform="rotate(89.009 28.708 47.59)scale(-1 1)"
+        />
+      </g>
+      <g filter="url(#vite__filter8_f_2002_17158)">
+        <ellipse
+          cx=".387"
+          cy="8.972"
+          fill="#7e14ff"
+          rx="4.407"
+          ry="29.108"
+          style={{ fill: "color(display-p3 .4922 .0767 1)", fillOpacity: "1" }}
+          transform="rotate(39.51 .387 8.972)"
+        />
+      </g>
+      <g filter="url(#vite__filter9_f_2002_17158)">
+        <ellipse
+          cx="47.523"
+          cy="-6.092"
+          fill="#7e14ff"
+          rx="4.407"
+          ry="29.108"
+          style={{ fill: "color(display-p3 .4922 .0767 1)", fillOpacity: "1" }}
+          transform="rotate(37.892 47.523 -6.092)"
+        />
+      </g>
+      <g filter="url(#vite__filter10_f_2002_17158)">
+        <ellipse
+          cx="41.412"
+          cy="6.333"
+          fill="#47bfff"
+          rx="5.971"
+          ry="9.665"
+          style={{ fill: "color(display-p3 .2799 .748 1)", fillOpacity: "1" }}
+          transform="rotate(37.892 41.412 6.333)"
+        />
+      </g>
+      <g filter="url(#vite__filter11_f_2002_17158)">
+        <ellipse
+          cx="-1.879"
+          cy="38.332"
+          fill="#7e14ff"
+          rx="4.407"
+          ry="29.108"
+          style={{ fill: "color(display-p3 .4922 .0767 1)", fillOpacity: "1" }}
+          transform="rotate(37.892 -1.88 38.332)"
+        />
+      </g>
+      <g filter="url(#vite__filter12_f_2002_17158)">
+        <ellipse
+          cx="-1.879"
+          cy="38.332"
+          fill="#7e14ff"
+          rx="4.407"
+          ry="29.108"
+          style={{ fill: "color(display-p3 .4922 .0767 1)", fillOpacity: "1" }}
+          transform="rotate(37.892 -1.88 38.332)"
+        />
+      </g>
+      <g filter="url(#vite__filter13_f_2002_17158)">
+        <ellipse
+          cx="35.651"
+          cy="29.907"
+          fill="#7e14ff"
+          rx="4.407"
+          ry="29.108"
+          style={{ fill: "color(display-p3 .4922 .0767 1)", fillOpacity: "1" }}
+          transform="rotate(37.892 35.651 29.907)"
+        />
+      </g>
+      <g filter="url(#vite__filter14_f_2002_17158)">
+        <ellipse
+          cx="38.418"
+          cy="32.4"
+          fill="#47bfff"
+          rx="5.971"
+          ry="15.297"
+          style={{ fill: "color(display-p3 .2799 .748 1)", fillOpacity: "1" }}
+          transform="rotate(37.892 38.418 32.4)"
+        />
+      </g>
+    </g>
+    <defs>
+      <filter
+        id="vite__filter0_f_2002_17158"
+        width="60.045"
+        height="41.654"
+        x="-19.77"
+        y="16.149"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="7.659" />
+      </filter>
+      <filter
+        id="vite__filter1_f_2002_17158"
+        width="90.34"
+        height="51.437"
+        x="-54.613"
+        y="-7.533"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="7.659" />
+      </filter>
+      <filter
+        id="vite__filter2_f_2002_17158"
+        width="79.355"
+        height="29.4"
+        x="-49.64"
+        y="2.03"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
+      <filter
+        id="vite__filter3_f_2002_17158"
+        width="79.579"
+        height="29.4"
+        x="-45.045"
+        y="20.029"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
+      <filter
+        id="vite__filter4_f_2002_17158"
+        width="79.579"
+        height="29.4"
+        x="-43.513"
+        y="21.178"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
+      <filter
+        id="vite__filter5_f_2002_17158"
+        width="74.749"
+        height="58.852"
+        x="15.756"
+        y="-17.901"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="7.659" />
+      </filter>
+      <filter
+        id="vite__filter6_f_2002_17158"
+        width="61.377"
+        height="25.362"
+        x="23.548"
+        y="2.284"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
+      <filter
+        id="vite__filter7_f_2002_17158"
+        width="61.377"
+        height="25.362"
+        x="23.548"
+        y="2.284"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
+      <filter
+        id="vite__filter8_f_2002_17158"
+        width="56.045"
+        height="63.649"
+        x="-27.636"
+        y="-22.853"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
+      <filter
+        id="vite__filter9_f_2002_17158"
+        width="54.814"
+        height="64.646"
+        x="20.116"
+        y="-38.415"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
+      <filter
+        id="vite__filter10_f_2002_17158"
+        width="33.541"
+        height="35.313"
+        x="24.641"
+        y="-11.323"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
+      <filter
+        id="vite__filter11_f_2002_17158"
+        width="54.814"
+        height="64.646"
+        x="-29.286"
+        y="6.009"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
+      <filter
+        id="vite__filter12_f_2002_17158"
+        width="54.814"
+        height="64.646"
+        x="-29.286"
+        y="6.009"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
+      <filter
+        id="vite__filter13_f_2002_17158"
+        width="54.814"
+        height="64.646"
+        x="8.244"
+        y="-2.416"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
+      <filter
+        id="vite__filter14_f_2002_17158"
+        width="39.409"
+        height="43.623"
+        x="18.713"
+        y="10.588"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596" />
+      </filter>
     </defs>
   </svg>
 )
