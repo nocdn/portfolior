@@ -13,6 +13,8 @@ export const ProjectDesktop = ({
   isOpen,
   onToggle,
   onClose,
+  onHoverStart,
+  onHoverEnd,
 }: {
   className?: string
   title: string
@@ -21,6 +23,8 @@ export const ProjectDesktop = ({
   isOpen: boolean
   onToggle: () => void
   onClose: () => void
+  onHoverStart?: () => void
+  onHoverEnd?: () => void
 }) => {
   const panelId = useId()
   const [contentRef, bounds] = useMeasure()
@@ -47,7 +51,11 @@ export const ProjectDesktop = ({
   return (
     <div
       className={`${className} group/item relative py-0.5 transition-opacity duration-150 group-hover:opacity-30 focus-within:opacity-100 hover:opacity-100! hover:duration-0 ${isOpen ? "opacity-100" : ""}`}
-      onMouseLeave={onClose}
+      onMouseEnter={onHoverStart}
+      onMouseLeave={() => {
+        onHoverEnd?.()
+        onClose()
+      }}
     >
       <button
         type="button"
