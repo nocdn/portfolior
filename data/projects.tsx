@@ -1,7 +1,6 @@
 import { InlineIconText } from "@/components/InlineIconText"
 import { LinkText } from "@/components/LinkText"
 import {
-  AmazonWebServices,
   BetterAuth,
   Bun,
   Cloudflare,
@@ -15,8 +14,6 @@ import {
   Nextjs,
   OpenAI,
   PostgreSQL,
-  Python,
-  RDS,
   Redis,
   Resend,
   Svelte,
@@ -51,16 +48,17 @@ export const projects: Project[] = [
         <InlineIconText icon={Docker} className="text-blue-500">
           Docker (Compose)
         </InlineIconText>
-        , using AWS <span className="text-blue-700">RDS</span>, data caching with{" "}
-        <InlineIconText icon={Redis} className="text-red-600">
+        , using AWS <span className="text-blue-700 dark:text-[#3460DC]">RDS</span>, data caching
+        with{" "}
+        <InlineIconText icon={Redis} className="text-red-600 dark:text-[#E03C3C]">
           Redis
         </InlineIconText>
         , powered by{" "}
-        <InlineIconText icon={Hono} className="text-amber-600">
+        <InlineIconText icon={Hono} className="text-amber-600 dark:text-amber-500">
           Hono
         </InlineIconText>{" "}
         and{" "}
-        <InlineIconText icon={Bun} className="text-[#5b5955]">
+        <InlineIconText icon={Bun} className="text-[#5b5955] dark:text-[#FBF1DF]">
           Bun.
         </InlineIconText>{" "}
         Frontend built with{" "}
@@ -68,7 +66,7 @@ export const projects: Project[] = [
           Vite
         </InlineIconText>{" "}
         and{" "}
-        <InlineIconText icon={Motion} className="text-black">
+        <InlineIconText icon={Motion} className="text-black dark:text-white">
           Motion.
         </InlineIconText>{" "}
         There is a demo{" "}
@@ -95,11 +93,11 @@ export const projects: Project[] = [
           Hono
         </InlineIconText>{" "}
         +{" "}
-        <InlineIconText icon={TypeScript} className="text-blue-700">
+        <InlineIconText icon={TypeScript} className="text-blue-700 dark:text-blue-500">
           TypeScript
         </InlineIconText>{" "}
         API, with API keys support, where a user can upload an audio or video file, and using{" "}
-        <InlineIconText icon={OpenAI} className="text-black">
+        <InlineIconText icon={OpenAI} className="text-black dark:text-white">
           OpenAI's
         </InlineIconText>{" "}
         models , it identifies the ad or sponsor segments, and efficiently trims them out. Also
@@ -124,7 +122,7 @@ export const projects: Project[] = [
     extendedDescription: (
       <p>
         A simple, but useful{" "}
-        <InlineIconText icon={Nextjs} className="text-black">
+        <InlineIconText icon={Nextjs} className="text-black dark:text-white">
           Next.js
         </InlineIconText>{" "}
         app, to either add a list of films, or import from{" "}
@@ -153,19 +151,27 @@ export const projects: Project[] = [
     extendedDescription: (
       <p>
         Shift scheduling app in{" "}
-        <InlineIconText icon={Nextjs} className="text-black">
+        <InlineIconText icon={Nextjs} className="text-black dark:text-white">
           Next.js (App Router, w/ server actions)
         </InlineIconText>
         , powered by{" "}
-        <InlineIconText icon={Bun} className="text-[#5b5955]">
+        <InlineIconText icon={Bun} className="text-[#5b5955] dark:text-[#FBF1DF]">
           Bun
         </InlineIconText>
         , built for my old work.{" "}
-        <InlineIconText icon={PostgreSQL} className="text-[#0064a5]" iconClassName="translate-y-px">
+        <InlineIconText
+          icon={PostgreSQL}
+          className="text-[#0064a5] dark:text-[#1A74AE]"
+          iconClassName="translate-y-px"
+        >
           Postgres
         </InlineIconText>{" "}
-        + <InlineIconText icon={Drizzle}>Drizzle</InlineIconText> for the database, with{" "}
-        <InlineIconText icon={OpenAI} className="text-black">
+        +{" "}
+        <InlineIconText icon={Drizzle} className="text-black dark:text-white">
+          Drizzle
+        </InlineIconText>{" "}
+        for the database, with{" "}
+        <InlineIconText icon={OpenAI} className="text-black dark:text-white">
           OpenAI's
         </InlineIconText>{" "}
         models for visual shift extraction. Manager uploads shifts{" "}
@@ -175,13 +181,13 @@ export const projects: Project[] = [
           Tailwind
         </InlineIconText>{" "}
         and{" "}
-        <InlineIconText icon={Motion} className="text-black">
+        <InlineIconText icon={Motion} className="text-black dark:text-white">
           Motion
         </InlineIconText>{" "}
         used to make it beautiful and user-friendly. Authenticaton with{" "}
         <InlineIconText
           icon={BetterAuth}
-          className="text-black"
+          className="text-black dark:text-[#ECE7DD]"
           iconSize={13}
           iconClassName="-translate-y-px"
         >
@@ -202,20 +208,20 @@ export const projects: Project[] = [
     extendedDescription: (
       <p>
         A{" "}
-        <InlineIconText icon={Nextjs} className="text-black">
+        <InlineIconText icon={Nextjs} className="text-black dark:text-white">
           Next.js (App Router)
         </InlineIconText>{" "}
         frontend, with Server Actions backend and API routes,{" "}
         <InlineIconText
           icon={Cloudflare}
-          className="text-amber-700"
+          className="text-amber-700 dark:text-amber-400"
           iconSize={16}
           iconClassName="translate-y-px ml-[2px]"
         >
           Cloudflare
         </InlineIconText>{" "}
         for email routing, with{" "}
-        <InlineIconText icon={Convex} className="text-[#511E46]">
+        <InlineIconText icon={Convex} className="text-[#511E46] dark:text-[#EE3430]">
           Convex
         </InlineIconText>{" "}
         for realtime db. All self-hostable, and with optional comments and expiries.{" "}
@@ -234,11 +240,11 @@ export const projects: Project[] = [
     extendedDescription: (
       <p>
         A recreation of (Basic) Bookmarks by Rauno Freiberg in{" "}
-        <InlineIconText icon={Nextjs} className="text-black">
+        <InlineIconText icon={Nextjs} className="text-black dark:text-white">
           Next.js
         </InlineIconText>
         . A full-stack app with Real time syncing with{" "}
-        <InlineIconText icon={Convex} className="text-[#511E46]">
+        <InlineIconText icon={Convex} className="text-[#511E46] dark:text-[#EE3430]">
           Convex
         </InlineIconText>
         , async automatic favicon, title extraction in Server Actions. Tagging (through @-mentions)
@@ -264,20 +270,24 @@ export const projects: Project[] = [
           Flask
         </InlineIconText>{" "}
         backend using{" "}
-        <InlineIconText icon={Resend} className="text-black">
+        <InlineIconText icon={Resend} className="text-black dark:text-[#F5F2EA]">
           {" "}
           Resend
         </InlineIconText>
         , and store voter records in{" "}
-        <InlineIconText icon={PostgreSQL} className="text-[#0064a5]" iconClassName="translate-y-px">
+        <InlineIconText
+          icon={PostgreSQL}
+          className="text-[#0064a5] dark:text-[#1A74AE]"
+          iconClassName="translate-y-px"
+        >
           Postgres.
         </InlineIconText>{" "}
         Frontend written with{" "}
-        <InlineIconText icon={Svelte} className="text-red-600">
+        <InlineIconText icon={Svelte} className="text-red-600 dark:text-red-500">
           SvelteKit
         </InlineIconText>{" "}
         and{" "}
-        <InlineIconText icon={Vite} className="text-purple-600">
+        <InlineIconText icon={Vite} className="text-purple-600 dark:text-purple-500">
           Vite
         </InlineIconText>
         , including one-time code verification, a voting flow, and an admin results view. There is

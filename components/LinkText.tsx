@@ -18,7 +18,7 @@ export const LinkText = ({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center ${className ?? ""}`}
+      className={`inline-flex items-center dark:text-white ${className ?? ""}`}
     >
       {children} <ArrowExternalLink className={`ml-0.5 translate-y-px ${iconClassName ?? ""}`} />
     </a>

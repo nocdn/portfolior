@@ -58,19 +58,21 @@ export function Article({
   date,
   href,
   disabled,
+  className,
 }: {
   title: string
   date: string
   href: string
   disabled?: boolean
+  className?: string
 }) {
   return (
     <Link
       href={href}
       prefetch={true}
-      className={`font-inter flex w-full gap-4 rounded-lg py-3 pl-0.5 text-[16px] leading-normal antialiased dark:border-white/8 dark:bg-white/5 ${
+      className={`font-inter flex w-full gap-4 rounded-lg py-3 pl-0.5 text-[16px] leading-normal antialiased ${
         disabled ? "cursor-not-allowed" : "cursor-pointer"
-      }`}
+      } ${className ?? ""}`}
     >
       <ArticleIcon seed={href} />
       <div>

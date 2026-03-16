@@ -124,7 +124,7 @@ export function ArticleIcon({ seed }: ArticleIconProps) {
   return (
     <div
       aria-hidden="true"
-      className="border-shadow flex w-fit flex-col gap-0.5 rounded-[3px] px-1 py-1.25"
+      className="border-shadow flex h-fit w-fit flex-col gap-0.5 rounded-[3px] px-1 py-1.25"
     >
       {lines.map((segments, lineIndex) => (
         <div key={lineIndex} className="flex w-7.5 items-center gap-0.5">

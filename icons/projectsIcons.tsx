@@ -1,4 +1,5 @@
 import type { SVGProps } from "react"
+import { useId } from "react"
 
 export const BetterAuth = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} fill="none" viewBox="0 0 500 500">
@@ -101,28 +102,28 @@ export const Drizzle = (props: SVGProps<SVGSVGElement>) => (
     <rect
       width="9.631"
       height="40.852"
-      fill="#121212"
+      fill="currentColor"
       rx="4.816"
       transform="matrix(.87303 .48767 -.49721 .86763 43.48 67.304)"
     />
     <rect
       width="9.631"
       height="40.852"
-      fill="#121212"
+      fill="currentColor"
       rx="4.816"
       transform="matrix(.87303 .48767 -.49721 .86763 76.94 46.534)"
     />
     <rect
       width="9.631"
       height="40.852"
-      fill="#121212"
+      fill="currentColor"
       rx="4.816"
       transform="matrix(.87303 .48767 -.49721 .86763 128.424 46.535)"
     />
     <rect
       width="9.631"
       height="40.852"
-      fill="#121212"
+      fill="currentColor"
       rx="4.816"
       transform="matrix(.87303 .48767 -.49721 .86763 94.957 67.304)"
     />
@@ -204,70 +205,79 @@ export const Letterboxd = (props: SVGProps<SVGSVGElement>) => (
 )
 
 export const Motion = (props: SVGProps<SVGSVGElement>) => (
-  <svg {...props} preserveAspectRatio="xMidYMid" viewBox="0 0 256 384">
+  <svg {...props} fill="currentColor" preserveAspectRatio="xMidYMid" viewBox="0 0 256 384">
     <path d="M0 0h256v128H128L0 0Zm0 128h128l128 128H128v128L0 256V128Z" />
   </svg>
 )
 
 export const OpenAI = (props: SVGProps<SVGSVGElement>) => (
-  <svg {...props} preserveAspectRatio="xMidYMid" viewBox="0 0 256 260">
+  <svg {...props} fill="currentColor" preserveAspectRatio="xMidYMid" viewBox="0 0 256 260">
     <path d="M239.184 106.203a64.716 64.716 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.716 64.716 0 0 0-43.23 31.36c-14.31 24.602-11.061 55.634 8.033 76.74a64.665 64.665 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a64.72 64.72 0 0 0 48.754 21.744c28.481.025 53.714-18.361 62.414-45.481a64.767 64.767 0 0 0 43.229-31.36c14.137-24.558 10.875-55.423-8.083-76.483Zm-97.56 136.338a48.397 48.397 0 0 1-31.105-11.255l1.535-.87 51.67-29.825a8.595 8.595 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.601Zm-104.466-44.61a48.345 48.345 0 0 1-5.781-32.589l1.534.921 51.722 29.826a8.339 8.339 0 0 0 8.441 0l63.181-36.425v25.221a.87.87 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803ZM23.549 85.38a48.499 48.499 0 0 1 25.58-21.333v61.39a8.288 8.288 0 0 0 4.195 7.316l62.874 36.272-21.845 12.636a.819.819 0 0 1-.767 0L41.353 151.53c-23.211-13.454-31.171-43.144-17.804-66.405v.256Zm179.466 41.695-63.08-36.63L161.73 77.86a.819.819 0 0 1 .768 0l52.233 30.184a48.6 48.6 0 0 1-7.316 87.635v-61.391a8.544 8.544 0 0 0-4.4-7.213Zm21.742-32.69-1.535-.922-51.619-30.081a8.39 8.39 0 0 0-8.492 0L99.98 99.808V74.587a.716.716 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391v.205ZM88.061 139.097l-21.845-12.585a.87.87 0 0 1-.41-.614V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87-51.67 29.825a8.595 8.595 0 0 0-4.246 7.367l-.051 72.697Zm11.868-25.58 28.138-16.217 28.188 16.218v32.434l-28.086 16.218-28.188-16.218-.052-32.434Z" />
   </svg>
 )
 
-export const Nextjs = (props: SVGProps<SVGSVGElement>) => (
-  <svg {...props} viewBox="0 0 180 180">
-    <mask
-      height="180"
-      id="nextjs_icon_dark__:r8:mask0_408_134"
-      maskUnits="userSpaceOnUse"
-      width="180"
-      x="0"
-      y="0"
-      style={{ maskType: "alpha" }}
-    >
-      <circle cx="90" cy="90" fill="black" r="90" />
-    </mask>
-    <g mask="url(#nextjs_icon_dark__:r8:mask0_408_134)">
-      <circle cx="90" cy="90" data-circle="true" fill="black" r="90" />
-      <path
-        d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z"
-        fill="url(#nextjs_icon_dark__:r8:paint0_linear_408_134)"
-      />
-      <rect
-        fill="url(#nextjs_icon_dark__:r8:paint1_linear_408_134)"
-        height="72"
-        width="12"
-        x="115"
-        y="54"
-      />
-    </g>
-    <defs>
-      <linearGradient
-        gradientUnits="userSpaceOnUse"
-        id="nextjs_icon_dark__:r8:paint0_linear_408_134"
-        x1="109"
-        x2="144.5"
-        y1="116.5"
-        y2="160.5"
+export const Nextjs = (props: SVGProps<SVGSVGElement>) => {
+  const id = useId()
+  const maskId = `${id}-mask`
+  const pathGradientId = `${id}-path-gradient`
+  const rectGradientId = `${id}-rect-gradient`
+
+  return (
+    <svg {...props} viewBox="0 0 180 180">
+      <mask
+        height="180"
+        id={maskId}
+        maskUnits="userSpaceOnUse"
+        width="180"
+        x="0"
+        y="0"
+        style={{ maskType: "alpha" }}
       >
-        <stop stopColor="white" />
-        <stop offset="1" stopColor="white" stopOpacity="0" />
-      </linearGradient>
-      <linearGradient
-        gradientUnits="userSpaceOnUse"
-        id="nextjs_icon_dark__:r8:paint1_linear_408_134"
-        x1="121"
-        x2="120.799"
-        y1="54"
-        y2="106.875"
-      >
-        <stop stopColor="white" />
-        <stop offset="1" stopColor="white" stopOpacity="0" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
+        <circle cx="90" cy="90" fill="black" r="90" />
+      </mask>
+      <g mask={`url(#${maskId})`} className="dark:opacity-0">
+        <circle cx="90" cy="90" data-circle="true" fill="black" r="90" />
+        <path
+          d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z"
+          fill={`url(#${pathGradientId})`}
+        />
+        <rect fill={`url(#${rectGradientId})`} height="72" width="12" x="115" y="54" />
+      </g>
+      <g mask={`url(#${maskId})`} className="opacity-0 dark:opacity-100">
+        <circle cx="90" cy="90" data-circle="true" fill="white" r="90" />
+        <path
+          d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z"
+          fill="black"
+        />
+        <rect fill="black" height="72" width="12" x="115" y="54" />
+      </g>
+      <defs>
+        <linearGradient
+          gradientUnits="userSpaceOnUse"
+          id={pathGradientId}
+          x1="109"
+          x2="144.5"
+          y1="116.5"
+          y2="160.5"
+        >
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient
+          gradientUnits="userSpaceOnUse"
+          id={rectGradientId}
+          x1="121"
+          x2="120.799"
+          y1="54"
+          y2="106.875"
+        >
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  )
+}
 
 export const PostgreSQL = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} xmlSpace="preserve" viewBox="0 0 432.071 445.383">
@@ -373,14 +383,7 @@ export const RDS = (props: SVGProps<SVGSVGElement>) => (
       d="m19.1111 17.4501 10.9192 10.9193-1.6614 1.6614-10.9193-10.9193v8.9136h-2.35v-11.75c0-.6486.5252-1.175 1.175-1.175h11.75v2.35h-8.9135Zm61.7885-1.175v11.75h-2.35v-8.9136L67.6303 30.0308l-1.6614-1.6614 10.9193-10.9193h-8.9136v-2.35h11.75c.6498 0 1.175.5264 1.175 1.175Zm-2.35 51.7h2.35v11.75c0 .6486-.5252 1.175-1.175 1.175h-11.75v-2.35h8.9136L65.9689 67.6308l1.6614-1.6614 10.9193 10.9193v-8.9136Zm-.5875-20.8997c0-3.8999-4.5026-7.7527-12.0437-10.306l.7531-2.2254c8.668 2.934 13.6406 7.5012 13.6406 12.5314 0 5.0313-4.9726 9.5997-13.6417 12.5325l-.7532-2.2266c7.5423-2.5521 12.0449-6.4038 12.0449-10.3059Zm-59.8592 0c0 3.7365 4.2147 7.4871 11.2753 10.0345l-.7978 2.2101c-8.1522-2.941-12.8275-7.4036-12.8275-12.2446 0-4.8399 4.6753-9.3025 12.8275-12.2447l.7978 2.2102c-7.0606 2.5486-11.2753 6.2991-11.2753 10.0345Zm11.9274 20.5554L19.1111 78.5501h8.9135v2.35h-11.75c-.6498 0-1.175-.5264-1.175-1.175v-11.75h2.35v8.9136l10.9193-10.9193 1.6614 1.6614Zm17.9693-29.8697c-8.3965 0-12.925-2.169-12.925-3.055 0-.8871 4.5285-3.055 12.925-3.055 8.3954 0 12.925 2.1679 12.925 3.055 0 .886-4.5296 3.055-12.925 3.055Zm.0341 9.1004c-8.0394 0-12.9591-2.196-12.9591-3.391v-5.7117c2.894 1.5968 8.0276 2.3523 12.925 2.3523 4.8974 0 10.031-.7555 12.925-2.3523v5.7117c0 1.1961-4.8939 3.391-12.8909 3.391Zm0 8.9723c-8.0394 0-12.9591-2.1961-12.9591-3.391v-5.7799c2.8564 1.6791 7.9219 2.5486 12.9591 2.5486 5.009 0 10.0451-.8683 12.8909-2.5427v5.774c0 1.1961-4.8939 3.391-12.8909 3.391Zm-.0341 8.05c-8.3625 0-12.925-2.2478-12.925-3.4028v-4.8458c2.8564 1.6791 7.9219 2.5486 12.9591 2.5486 5.009 0 10.0451-.8671 12.8909-2.5427v4.8399c0 1.155-4.5625 3.4028-12.925 3.4028Zm0-34.5827c-7.3567 0-15.275 1.6909-15.275 5.405V60.481c0 3.7764 7.6845 5.7528 15.275 5.7528 7.5905 0 15.275-1.9764 15.275-5.7528V34.7061c0-3.7141-7.9183-5.405-15.275-5.405Z"
     />
     <defs>
-      <linearGradient
-        id="rds__a"
-        x1="1"
-        x2="9401"
-        y1="9401"
-        y2="1"
-        gradientUnits="userSpaceOnUse"
-      >
+      <linearGradient id="rds__a" x1="1" x2="9401" y1="9401" y2="1" gradientUnits="userSpaceOnUse">
         <stop stopColor="#2e27ad" />
         <stop offset="1" stopColor="#527fff" />
       </linearGradient>
@@ -444,7 +447,7 @@ export const Resend = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} fill="none" viewBox="0 0 1800 1800">
     <path
       d="M1000.46 450C1174.77 450 1278.43 553.669 1278.43 691.282C1278.43 828.896 1174.77 932.563 1000.46 932.563H912.382L1350 1350H1040.82L707.794 1033.48C683.944 1011.47 672.936 985.781 672.935 963.765C672.935 932.572 694.959 905.049 737.161 893.122L908.712 847.244C973.85 829.812 1018.81 779.353 1018.81 713.298C1018.8 632.567 952.745 585.78 871.095 585.78H450V450H1000.46Z"
-      fill="black"
+      fill="currentColor"
     />
   </svg>
 )

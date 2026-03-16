@@ -19,7 +19,7 @@ export function WritingMobile() {
     <SectionMobile id="writing" title="WRITING">
       <div className="flex flex-col gap-2">
         {articles.map((article, index) => (
-          <Article key={index} {...article} />
+          <Article key={index} {...article} className="bg-transparent dark:bg-transparent" />
         ))}
       </div>
     </SectionMobile>

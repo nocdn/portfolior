@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import { useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
-import { ProjectDesktop } from "./Project"
+import { ProjectDesktop, ProjectMobile } from "./Project"
 import { SectionDesktop, SectionMobile } from "./Section"
 
 const PROJECTS_HINT_DELAY_MS = 600
@@ -139,23 +139,24 @@ export const ProjectsDesktop = () => {
 }
 
 export const ProjectsMobile = () => {
+  const [openProjectTitle, setOpenProjectTitle] = useState<string | null>(null)
+
   return (
     <SectionMobile id="projects" title="PROJECTS">
       <div className="group flex flex-col gap-4">
         {projects.map((project) => (
-          <a
-            className="flex items-center justify-between gap-4"
+          <ProjectMobile
             key={project.title}
-            href={project.demoURL || project.sourceURL || ""}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <p className="flex-nowrap text-[17px] whitespace-nowrap">
-              {project.mobileTitle || project.title}
-            </p>
-            <div className="h-px w-full bg-gray-200 dark:bg-white/10"></div>
-            <p className="text-sm text-gray-500/90 dark:text-gray-400/90">{project.year}</p>
-          </a>
+            title={project.mobileTitle || project.title}
+            year={project.year}
+            extendedDescription={project.extendedDescription}
+            isOpen={openProjectTitle === project.title}
+            onToggle={() =>
+              setOpenProjectTitle((currentTitle) =>
+                currentTitle === project.title ? null : project.title
+              )
+            }
+          />
         ))}
       </div>
     </SectionMobile>
