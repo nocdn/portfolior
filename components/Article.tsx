@@ -1,4 +1,6 @@
-import Link from "next/link"
+import { ArticleIcon } from "@/icons/articleIcon"
+
+import Link from "@/components/link"
 
 type IconProps = {
   size?: number | string
@@ -66,16 +68,15 @@ export function Article({
     <Link
       href={href}
       prefetch={true}
-      className={`font-inter flex w-full justify-between rounded-lg border border-gray-200 bg-white p-3 text-[16px] leading-normal antialiased dark:border-white/8 dark:bg-white/5 ${
-        disabled
-          ? "cursor-not-allowed"
-          : "cursor-pointer hover:bg-gray-100/55 dark:hover:bg-white/8"
+      className={`font-inter flex w-full gap-4 rounded-lg py-3 pl-0.5 text-[16px] leading-normal antialiased dark:border-white/8 dark:bg-white/5 ${
+        disabled ? "cursor-not-allowed" : "cursor-pointer"
       }`}
     >
+      <ArticleIcon seed={href} />
       <div>
         <p className="text-gray-1200 font-medium">{title}</p>
         <div className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-gray-500 dark:text-gray-400">
-          {!disabled && <p>{date}</p>}
+          {!disabled && <p className="text-[14.5px]">{date}</p>}
           <span className="flex items-center gap-2">
             {disabled && <p>Check back later</p>}
             {disabled ? (

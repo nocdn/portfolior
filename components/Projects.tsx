@@ -9,16 +9,15 @@ import { ProjectDesktop } from "./Project"
 import { SectionDesktop, SectionMobile } from "./Section"
 
 const PROJECTS_HINT_DELAY_MS = 600
-const PROJECTS_HINT_DURATION_MS = 2000
 
 export const ProjectsDesktop = () => {
   const [openProjectTitle, setOpenProjectTitle] = useState<string | null>(null)
   const [isHintVisible, setIsHintVisible] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const dismissTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const hasShownHintRef = useRef(false)
   const hasExpandedProjectRef = useRef(false)
+  const hintProjectTitleRef = useRef<string | null>(null)
 
   const clearHoverHintTimeout = () => {
     if (hoverTimeoutRef.current === null) {
@@ -29,22 +28,13 @@ export const ProjectsDesktop = () => {
     hoverTimeoutRef.current = null
   }
 
-  const clearDismissHintTimeout = () => {
-    if (dismissTimeoutRef.current === null) {
-      return
-    }
-
-    clearTimeout(dismissTimeoutRef.current)
-    dismissTimeoutRef.current = null
-  }
-
   const dismissHoverHint = () => {
     clearHoverHintTimeout()
-    clearDismissHintTimeout()
+    hintProjectTitleRef.current = null
     setIsHintVisible(false)
   }
 
-  const scheduleHoverHint = () => {
+  const scheduleHoverHint = (projectTitle: string) => {
     if (
       hasShownHintRef.current ||
       hasExpandedProjectRef.current ||
@@ -57,14 +47,18 @@ export const ProjectsDesktop = () => {
     clearHoverHintTimeout()
     hoverTimeoutRef.current = setTimeout(() => {
       hoverTimeoutRef.current = null
+      hintProjectTitleRef.current = projectTitle
       hasShownHintRef.current = true
       setIsHintVisible(true)
-      clearDismissHintTimeout()
-      dismissTimeoutRef.current = setTimeout(() => {
-        dismissTimeoutRef.current = null
-        setIsHintVisible(false)
-      }, PROJECTS_HINT_DURATION_MS)
     }, PROJECTS_HINT_DELAY_MS)
+  }
+
+  const handleHoverEnd = (projectTitle: string) => {
+    clearHoverHintTimeout()
+
+    if (hintProjectTitleRef.current === projectTitle) {
+      dismissHoverHint()
+    }
   }
 
   useEffect(() => {
@@ -72,7 +66,6 @@ export const ProjectsDesktop = () => {
 
     return () => {
       clearHoverHintTimeout()
-      clearDismissHintTimeout()
     }
   }, [])
 
@@ -99,8 +92,8 @@ export const ProjectsDesktop = () => {
               key={project.title}
               {...project}
               isOpen={openProjectTitle === project.title}
-              onHoverStart={scheduleHoverHint}
-              onHoverEnd={clearHoverHintTimeout}
+              onHoverStart={() => scheduleHoverHint(project.title)}
+              onHoverEnd={() => handleHoverEnd(project.title)}
               onToggle={() => {
                 setOpenProjectTitle((currentTitle) => {
                   const nextTitle = currentTitle === project.title ? null : project.title
@@ -132,7 +125,7 @@ export const ProjectsDesktop = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.15, ease: [0.26, 1, 0.5, 1] }}
-                  className="border-shadow pointer-events-none fixed bottom-4 left-4 z-[100] rounded-full bg-gray-100 px-3 py-1.5 text-[13px] leading-none font-medium text-gray-600 antialiased dark:bg-[#1c1c1e] dark:text-gray-300"
+                  className="border-shadow pointer-events-none fixed bottom-4 left-4 z-[100] origin-bottom-left rounded-full bg-gray-100 px-3 py-1.5 text-[13px] leading-none font-medium text-gray-600 antialiased dark:bg-[#1c1c1e] dark:text-gray-300"
                 >
                   Click a project to expand it.
                 </motion.div>

@@ -302,31 +302,3 @@ code {
   background: #2e70ff;
   color: white;
 }
-
-::view-transition-new(.slide-up) {
-  animation: vt-slide-up 400ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-::view-transition-old(.slide-up) {
-  animation: vt-fade-out 200ms ease-out;
-}
-
-@keyframes vt-slide-up {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-}
-
-@keyframes vt-fade-out {
-  to {
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-new(.slide-up),
-  ::view-transition-old(.slide-up) {
-    animation: none;
-  }
-}

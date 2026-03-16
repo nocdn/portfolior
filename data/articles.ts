@@ -1,3 +1,6 @@
+import { familyDrawerArticle, familyDrawerHref } from "@/app/writing/family-drawer/article"
+import { oldPhoneOtpApiArticle, oldPhoneOtpApiHref } from "@/app/writing/otp-api/article"
+
 export type ArticleData = {
   title: string
   date: string
@@ -7,14 +10,13 @@ export type ArticleData = {
 
 export const articles: ArticleData[] = [
   {
-    title: "My take on the Family Drawer",
-    date: "August 2025",
-    href: "/writing/family-drawer",
+    title: familyDrawerArticle.title,
+    date: familyDrawerArticle.date,
+    href: familyDrawerHref,
   },
   {
-    title: "Coming soon.....",
-    date: "February 2026",
-    disabled: true,
-    href: "/writing/",
+    title: oldPhoneOtpApiArticle.title,
+    date: oldPhoneOtpApiArticle.date,
+    href: oldPhoneOtpApiHref,
   },
 ]

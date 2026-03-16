@@ -5,7 +5,7 @@ import { SectionDesktop, SectionMobile } from "./Section"
 export function WritingDesktop() {
   return (
     <SectionDesktop title="WRITING" className="">
-      <div className="mr-2 grid grid-cols-2 gap-2">
+      <div className="flex flex-col gap-1">
         {articles.map((article, index) => (
           <Article key={index} {...article} />
         ))}

@@ -3,12 +3,13 @@ import { InlineDefinition } from "@/components/InlineDefinition"
 import { articleMetadata } from "@/lib/article-metadata"
 import { CodeBlock } from "@/lib/components/code-block"
 import { cacheLife } from "next/cache"
+import { familyDrawerArticle, familyDrawerHref } from "./article"
 import { finishedCode, initialCode } from "./article-code"
 import { CodePreviewSwitch } from "./components/codePreviewSwitch"
 import { FinishedDrawer } from "./components/finishedDrawer"
 import { InitialDrawer } from "./components/initialDrawer"
 
-export const metadata = articleMetadata("Recreating the Family Drawer", "/writing/family-drawer")
+export const metadata = articleMetadata(familyDrawerArticle.title, familyDrawerHref)
 
 export default async function FamilyDrawer() {
   "use cache"
@@ -16,7 +17,7 @@ export default async function FamilyDrawer() {
 
   return (
     <div className="flex flex-col gap-5 px-5 md:px-0">
-      <ArticleHeading title="Recreating the Family Drawer" date="August 2025" />
+      <ArticleHeading title={familyDrawerArticle.title} date={familyDrawerArticle.date} />
       <p className="text-paragraph mb-2 max-w-2xl">
         It feels like whenever the topic of animations (whether that is web or otherwise) comes up,
         the{" "}
