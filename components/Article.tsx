@@ -59,34 +59,43 @@ export function Article({
   href,
   disabled,
   className,
+  titleTag = "p",
+  prefetch = true,
+  showBookIcon = true,
 }: {
   title: string
   date: string
   href: string
   disabled?: boolean
   className?: string
+  titleTag?: "p" | "h1"
+  prefetch?: boolean
+  showBookIcon?: boolean
 }) {
+  const TitleTag = titleTag
+
   return (
     <Link
       href={href}
-      prefetch={true}
+      prefetch={prefetch}
       className={`font-inter flex w-full gap-4 rounded-lg py-3 pl-0.5 text-[16px] leading-normal antialiased ${
         disabled ? "cursor-not-allowed" : "cursor-pointer"
       } ${className ?? ""}`}
     >
       <ArticleIcon seed={href} />
       <div>
-        <p className="text-gray-1200 font-medium">{title}</p>
+        <TitleTag className="text-gray-1200 font-medium">{title}</TitleTag>
         <div className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-gray-500 dark:text-gray-400">
           {!disabled && <p className="text-[14.5px]">{date}</p>}
-          <span className="flex items-center gap-2">
-            {disabled && <p>Check back later</p>}
-            {disabled ? (
-              <ClockIcon className="h-4 w-4" strokeWidth={2.25} />
-            ) : (
-              <BookIcon className="h-4 w-4" strokeWidth={2.25} />
-            )}
-          </span>
+          {disabled || showBookIcon ? (
+            <span className="flex items-center gap-2">
+              {disabled && <p>Check back later</p>}
+              {disabled ? <ClockIcon className="h-4 w-4" strokeWidth={2.25} /> : null}
+              {!disabled && showBookIcon ? (
+                <BookIcon className="h-4 w-4" strokeWidth={2.25} />
+              ) : null}
+            </span>
+          ) : null}
         </div>
       </div>
     </Link>

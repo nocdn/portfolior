@@ -266,7 +266,7 @@ export const projects: Project[] = [
       <p>
         A voting platform built for university society elections, with a password-protected admin
         panel, generating unique voting codes, and emailing them to voters through a{" "}
-        <InlineIconText icon={Flask} className="text-black">
+        <InlineIconText icon={Flask} className="text-black dark:text-gray-200">
           Flask
         </InlineIconText>{" "}
         backend using{" "}

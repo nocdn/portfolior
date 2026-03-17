@@ -1,8 +1,22 @@
-export function ArticleHeading({ title, date }: { title: string; date: string }) {
+import { Article } from "./Article"
+
+export function ArticleHeading({
+  title,
+  date,
+  href,
+}: {
+  title: string
+  date: string
+  href: string
+}) {
   return (
-    <div className="mb-2">
-      <h1 className="w-fit font-medium">{title}</h1>
-      <p className="text-[15px] text-gray-500/60 dark:text-gray-400/60">{date}</p>
-    </div>
+    <Article
+      title={title}
+      date={date}
+      href={href}
+      prefetch={false}
+      titleTag="h1"
+      showBookIcon={false}
+    />
   )
 }

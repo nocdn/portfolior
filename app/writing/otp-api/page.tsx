@@ -11,7 +11,11 @@ export default async function OldPhoneOtpApiPage() {
 
   return (
     <div className="flex flex-col gap-5 px-5 md:px-0">
-      <ArticleHeading title={oldPhoneOtpApiArticle.title} date={oldPhoneOtpApiArticle.date} />
+      <ArticleHeading
+        title={oldPhoneOtpApiArticle.title}
+        date={oldPhoneOtpApiArticle.date}
+        href={oldPhoneOtpApiHref}
+      />
       <p className="text-paragraph max-w-2xl">
         I'm a big fan of not giving out my phone number for some random service I've used once. Yet
         my phone only has one SIM slot.

@@ -17,7 +17,11 @@ export default async function FamilyDrawer() {
 
   return (
     <div className="flex flex-col gap-5 px-5 md:px-0">
-      <ArticleHeading title={familyDrawerArticle.title} date={familyDrawerArticle.date} />
+      <ArticleHeading
+        title={familyDrawerArticle.title}
+        date={familyDrawerArticle.date}
+        href={familyDrawerHref}
+      />
       <p className="text-paragraph mb-2 max-w-2xl">
         It feels like whenever the topic of animations (whether that is web or otherwise) comes up,
         the{" "}
