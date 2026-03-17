@@ -156,6 +156,11 @@ export const ProjectsMobile = () => {
                 currentTitle === project.title ? null : project.title
               )
             }
+            onClose={() =>
+              setOpenProjectTitle((currentTitle) =>
+                currentTitle === project.title ? null : currentTitle
+              )
+            }
           />
         ))}
       </div>

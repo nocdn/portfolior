@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react"
 import type { KeyboardEvent, MouseEvent, ReactNode } from "react"
-import { useId } from "react"
+import { useEffect, useId, useRef } from "react"
 import useMeasure from "react-use-measure"
 
 const projectExpandTransition = {
@@ -104,15 +104,18 @@ export const ProjectMobile = ({
   extendedDescription,
   isOpen,
   onToggle,
+  onClose,
 }: {
   title: string
   year?: number
   extendedDescription?: ReactNode
   isOpen: boolean
   onToggle: () => void
+  onClose: () => void
 }) => {
   const panelId = useId()
   const [contentRef, bounds] = useMeasure()
+  const containerRef = useRef<HTMLDivElement | null>(null)
   const handleMouseDown = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
     event.currentTarget.blur()
@@ -127,8 +130,30 @@ export const ProjectMobile = ({
     onToggle()
   }
 
+  useEffect(() => {
+    if (!isOpen) {
+      return
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target
+
+      if (!(target instanceof Node) || containerRef.current?.contains(target)) {
+        return
+      }
+
+      onClose()
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown, true)
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown, true)
+    }
+  }, [isOpen, onClose])
+
   return (
-    <div className="flex flex-col">
+    <div ref={containerRef} className="flex flex-col">
       <button
         type="button"
         className="w-full cursor-pointer text-left focus:outline-none"
