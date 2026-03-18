@@ -9,10 +9,10 @@ export default async function WritingLayout({ children }: { children: React.Reac
 
   return (
     <div className="font-inter flex w-full flex-col items-center py-20 font-[440]">
-      <div className="mb-10 flex w-full max-w-2xl justify-between md:mb-20">
+      <div className="mb-4 flex w-full max-w-2xl justify-between md:mb-20">
         <Link
           href="/"
-          className="border-shadow group ml-5 flex items-center gap-1 rounded-full bg-[#f3f3f3] py-1 pr-3.5 pl-2 text-[15px] text-[#838383] transition-colors duration-150 hover:bg-[#f0f0f0] md:ml-0 dark:bg-[#1c1c1e] dark:text-gray-300 dark:hover:bg-[#242427] dark:hover:text-gray-100"
+          className="group ml-5 flex items-center gap-1 rounded-full bg-[#f3f3f3] py-1 pr-3.5 pl-2 text-[15px] text-[#838383] transition-colors duration-150 hover:bg-[#f0f0f0] md:ml-0 dark:bg-[#1c1c1e] dark:text-gray-300 dark:hover:bg-[#242427] dark:hover:text-gray-100"
         >
           <ChevronLeft
             size={16}
