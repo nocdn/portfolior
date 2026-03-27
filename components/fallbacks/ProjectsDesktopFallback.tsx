@@ -35,7 +35,7 @@ export function ProjectsDesktopFallback() {
                   </p>
                   <span
                     aria-hidden="true"
-                    className="font-inter pointer-events-none absolute top-1/2 left-full z-30 -translate-y-1/2 text-[16px] leading-8 font-medium whitespace-nowrap text-gray-500 transition-opacity duration-150 dark:text-gray-400 opacity-0"
+                    className="font-inter pointer-events-none absolute top-1/2 left-full z-30 -translate-y-1/2 text-[16px] leading-8 font-medium whitespace-nowrap text-gray-500 opacity-0 transition-opacity duration-150 dark:text-gray-400"
                   >
                     <span className="font-mono">[</span>
                     <span className="font-mono text-[16px] opacity-85">OPEN</span>
