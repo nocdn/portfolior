@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react"
 import { ProjectDesktop, ProjectMobile } from "./Project"
 import { SectionDesktop, SectionMobile } from "./Section"
 
-const HOVER_EXPAND_DELAY_MS = 450
+const HOVER_EXPAND_DELAY_MS = 600
 
 export const ProjectsDesktop = () => {
   const [openProjectTitle, setOpenProjectTitle] = useState<string | null>(null)

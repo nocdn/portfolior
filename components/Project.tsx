@@ -87,7 +87,7 @@ export const ProjectDesktop = ({
               }`}
             >
               <span className="font-mono">[</span>
-              <span className="text-[15px] opacity-85">OPEN</span>
+              <span className="font-mono text-[16px] opacity-85">OPEN</span>
               <span className="font-mono">]</span>
             </span>
           </div>
