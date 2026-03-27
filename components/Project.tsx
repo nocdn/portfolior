@@ -18,6 +18,7 @@ export const ProjectDesktop = ({
   description,
   extendedDescription,
   isOpen,
+  showOpenCta,
   onToggle,
   onClose,
   onHoverStart,
@@ -28,6 +29,7 @@ export const ProjectDesktop = ({
   description?: string
   extendedDescription?: ReactNode
   isOpen: boolean
+  showOpenCta?: boolean
   onToggle: () => void
   onClose: () => void
   onHoverStart?: () => void
@@ -66,15 +68,29 @@ export const ProjectDesktop = ({
         aria-expanded={isOpen}
         aria-controls={panelId}
       >
-        <div className="font-pp-neue-montreal relative z-10 flex items-center gap-3 text-[17px] leading-8 font-medium">
-          <p className="text-gray-800/90 group-hover/item:text-blue-600 group-hover/item:drop-shadow-[0_0_0.5px_rgba(59,130,246,0.2)] dark:text-gray-200/95 dark:antialiased dark:group-hover/item:text-blue-400 dark:group-hover/item:drop-shadow-[0_0_0.5px_rgba(96,165,250,0.2)]">
-            {title}
-          </p>
-          {description && (
-            <p className="font-switzer min-w-0 text-[17px] font-medium text-gray-500/90 antialiased group-hover:text-gray-700 dark:text-gray-400/90 dark:group-hover:text-gray-300">
-              {description}
+        <div className="font-pp-neue-montreal relative z-10 w-full text-[17px] leading-8 font-medium">
+          <div className="relative inline-flex items-center gap-3 whitespace-nowrap">
+            <p className="shrink-0 whitespace-nowrap text-gray-800/90 group-hover/item:text-blue-600 group-hover/item:drop-shadow-[0_0_0.5px_rgba(59,130,246,0.2)] dark:text-gray-200/95 dark:antialiased dark:group-hover/item:text-blue-400 dark:group-hover/item:drop-shadow-[0_0_0.5px_rgba(96,165,250,0.2)]">
+              {title}
             </p>
-          )}
+            {description && (
+              <p className="font-switzer text-[17px] font-medium whitespace-nowrap text-gray-500/90 antialiased group-hover:text-gray-700 dark:text-gray-400/90 dark:group-hover:text-gray-300">
+                {description}
+              </p>
+            )}
+            <span
+              aria-hidden="true"
+              className={`font-inter pointer-events-none absolute top-1/2 left-full z-30 -translate-y-1/2 text-[16px] leading-8 font-medium whitespace-nowrap text-gray-500 transition-opacity duration-150 dark:text-gray-400 ${
+                showOpenCta
+                  ? "pointer-events-auto ml-3 opacity-45 hover:opacity-75"
+                  : "ml-3 opacity-0"
+              }`}
+            >
+              <span className="font-mono">[</span>
+              <span className="text-[15px] opacity-85">OPEN</span>
+              <span className="font-mono">]</span>
+            </span>
+          </div>
         </div>
       </button>
       <motion.div

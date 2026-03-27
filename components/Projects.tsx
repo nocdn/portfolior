@@ -2,7 +2,7 @@
 
 import { projects } from "@/data/projects"
 import { ArrowUpRight } from "lucide-react"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ProjectDesktop, ProjectMobile } from "./Project"
 import { SectionDesktop, SectionMobile } from "./Section"
 
@@ -10,6 +10,7 @@ const HOVER_EXPAND_DELAY_MS = 450
 
 export const ProjectsDesktop = () => {
   const [openProjectTitle, setOpenProjectTitle] = useState<string | null>(null)
+  const [openCtaProjectTitle, setOpenCtaProjectTitle] = useState<string | null>(null)
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const clearHoverTimeout = () => {
@@ -22,20 +23,30 @@ export const ProjectsDesktop = () => {
   }
 
   const scheduleHoverExpand = (projectTitle: string) => {
-    if (openProjectTitle !== null) {
+    if (openProjectTitle === projectTitle) {
       return
     }
 
+    setOpenCtaProjectTitle(null)
     clearHoverTimeout()
     hoverTimeoutRef.current = setTimeout(() => {
       hoverTimeoutRef.current = null
-      setOpenProjectTitle(projectTitle)
+      setOpenCtaProjectTitle(projectTitle)
     }, HOVER_EXPAND_DELAY_MS)
   }
 
   const handleHoverEnd = (projectTitle: string) => {
     clearHoverTimeout()
+    setOpenCtaProjectTitle((currentTitle) => (currentTitle === projectTitle ? null : currentTitle))
   }
+
+  const toggleProject = (projectTitle: string) => {
+    clearHoverTimeout()
+    setOpenCtaProjectTitle(null)
+    setOpenProjectTitle((currentTitle) => (currentTitle === projectTitle ? null : projectTitle))
+  }
+
+  useEffect(() => clearHoverTimeout, [])
 
   return (
     <SectionDesktop
@@ -59,13 +70,12 @@ export const ProjectsDesktop = () => {
             key={project.title}
             {...project}
             isOpen={openProjectTitle === project.title}
+            showOpenCta={
+              openCtaProjectTitle === project.title && openProjectTitle !== project.title
+            }
             onHoverStart={() => scheduleHoverExpand(project.title)}
             onHoverEnd={() => handleHoverEnd(project.title)}
-            onToggle={() => {
-              setOpenProjectTitle((currentTitle) =>
-                currentTitle === project.title ? null : project.title
-              )
-            }}
+            onToggle={() => toggleProject(project.title)}
             onClose={() =>
               setOpenProjectTitle((currentTitle) =>
                 currentTitle === project.title ? null : currentTitle

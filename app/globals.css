@@ -208,6 +208,13 @@
     0px 2px 4px 0px rgba(255, 255, 255, 0.02);
 }
 
+.article-underline {
+  text-decoration: underline;
+  text-decoration-color: #3a3a3a;
+  text-underline-offset: 3px;
+  text-decoration-skip-ink: auto;
+}
+
 code {
   font-weight: 400;
 }

@@ -1,6 +1,6 @@
 export const familyDrawerArticle = {
   slug: "family-drawer",
-  title: "Recreating the Family Drawer",
+  title: "My take on the Family Drawer",
   date: "August 2025",
 } as const
 
