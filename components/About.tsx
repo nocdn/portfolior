@@ -1,5 +1,6 @@
 import { Suspense } from "react"
 import { EmailCopy } from "./EmailCopy"
+import { GithubCard } from "./GithubCard"
 import { SectionDesktop, SectionMobile } from "./Section"
 import { TimeZoneName } from "./TimeZoneName"
 import { TwitterCard } from "./TwitterCard"
@@ -36,14 +37,20 @@ export const AboutDesktop = () => {
           <EmailCopy />
         </Suspense>{" "}
         or see my other code on{" "}
-        <a
-          href="https://github.com/nocdn"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-lg text-blue-600 dark:text-blue-400"
+        <Suspense
+          fallback={
+            <a
+              href="https://github.com/nocdn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg text-blue-600 dark:text-blue-400"
+            >
+              GitHub
+            </a>
+          }
         >
-          GitHub
-        </a>
+          <GithubCard />
+        </Suspense>
         .
       </div>
     </SectionDesktop>

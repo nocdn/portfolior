@@ -1,3 +1,4 @@
+import { SOCIAL_PROFILE_IMAGE_URL } from "@/lib/social"
 import type { TwitterProfile } from "@/lib/twitter"
 import { cacheLife, cacheTag } from "next/cache"
 import { TwitterHover } from "./TwitterHover"
@@ -12,45 +13,12 @@ type FxTwitterResponse = {
   }
 }
 
-type GitHubUserResponse = {
-  avatar_url?: string
-}
-
-async function getGithubAvatarUrl(username: string): Promise<string> {
-  "use cache"
-  cacheTag("github-avatar", `github-avatar:${username}`)
-  cacheLife("days")
-
-  const res = await fetch(`https://api.github.com/users/${username}`, {
-    headers: {
-      Accept: "application/vnd.github+json",
-    },
-  })
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch GitHub avatar for ${username} (${res.status})`)
-  }
-
-  const data = (await res.json()) as GitHubUserResponse
-  if (!data.avatar_url) {
-    throw new Error(`GitHub avatar URL missing for ${username}`)
-  }
-
-  return data.avatar_url
-}
-
-async function getTwitterProfile(
-  twitterUsername: string,
-  githubUsername: string
-): Promise<TwitterProfile> {
+async function getTwitterProfile(twitterUsername: string): Promise<TwitterProfile> {
   "use cache"
   cacheTag("twitter-profile", `twitter-profile:${twitterUsername}`)
   cacheLife("max")
 
-  const [res, avatarUrl] = await Promise.all([
-    fetch(`https://api.fxtwitter.com/${twitterUsername}`),
-    getGithubAvatarUrl(githubUsername).catch(() => `https://github.com/${githubUsername}.png`),
-  ])
+  const res = await fetch(`https://api.fxtwitter.com/${twitterUsername}`)
 
   if (!res.ok) {
     throw new Error(`Failed to fetch Twitter profile for ${twitterUsername} (${res.status})`)
@@ -68,11 +36,11 @@ async function getTwitterProfile(
     description: user.description,
     followers: user.followers,
     following: user.following,
-    avatarUrl,
+    avatarUrl: SOCIAL_PROFILE_IMAGE_URL,
   }
 }
 
 export async function TwitterCard() {
-  const profile = await getTwitterProfile("nocdns", "nocdn")
+  const profile = await getTwitterProfile("nocdns")
   return <TwitterHover profile={profile} />
 }
