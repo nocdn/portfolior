@@ -25,7 +25,7 @@ export function EmailCopy() {
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger
-        className="cursor-pointer text-blue-600 underline decoration-blue-600/0 decoration-[1.5px] underline-offset-2 hover:decoration-blue-600 dark:text-blue-400 dark:hover:decoration-blue-400"
+        className="cursor-pointer text-blue-600 about-underline dark:text-blue-400"
         openOnHover
         delay={15}
         onClickCapture={(e) => {

@@ -10,7 +10,7 @@ export const AboutDesktop = () => {
     <SectionDesktop title="ABOUT" className="group antialiased">
       <div>
         Hey there, I'm{" "}
-        <Suspense fallback={<span className="text-blue-600 dark:text-blue-400">Bartek</span>}>
+        <Suspense fallback={<span className="about-underline text-blue-600 dark:text-blue-400">Bartek</span>}>
           <TimeZoneName />
         </Suspense>
         . I am a software engineer based in the UK, studying computer science at the University of
@@ -24,7 +24,7 @@ export const AboutDesktop = () => {
               href="https://x.com/nocdns"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[18.5px] text-blue-600 dark:text-blue-400"
+              className="text-[18.5px] text-blue-600 about-underline dark:text-blue-400"
             >
               Twitter
             </a>
@@ -33,7 +33,7 @@ export const AboutDesktop = () => {
           <TwitterCard />
         </Suspense>
         , reach me via <br />
-        <Suspense fallback={<span className="text-blue-600 dark:text-blue-400">email</span>}>
+        <Suspense fallback={<span className="text-blue-600 about-underline dark:text-blue-400">email</span>}>
           <EmailCopy />
         </Suspense>{" "}
         or see my other code on{" "}
@@ -43,7 +43,7 @@ export const AboutDesktop = () => {
               href="https://github.com/nocdn"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg text-blue-600 dark:text-blue-400"
+              className="text-lg text-blue-600 about-underline dark:text-blue-400"
             >
               GitHub
             </a>

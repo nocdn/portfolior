@@ -15,7 +15,7 @@ export function GithubHover({ contributions }: GithubHoverProps) {
     <HoverPopover
       href="https://github.com/nocdn"
       trigger="GitHub"
-      triggerClassName="text-lg text-blue-600 dark:text-blue-400"
+      triggerClassName="text-lg text-blue-600 about-underline dark:text-blue-400"
       popupClassName="w-[267px]"
       preloadImageSrc={SOCIAL_PROFILE_IMAGE_URL}
     >

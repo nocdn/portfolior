@@ -130,7 +130,7 @@ export function TimeZoneName() {
   return (
     <div className="relative inline-block">
       <motion.span
-        className="text-blue-600 dark:text-blue-400"
+        className="about-underline text-blue-600 dark:text-blue-400"
         onMouseEnter={() => setHoveringName(true)}
         onMouseLeave={() => setHoveringName(false)}
         style={{

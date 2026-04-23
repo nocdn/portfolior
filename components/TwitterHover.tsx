@@ -10,7 +10,7 @@ export function TwitterHover({ profile }: { profile: TwitterProfile }) {
     <HoverPopover
       href="https://x.com/nocdns"
       trigger="Twitter"
-      triggerClassName="relative text-[18.5px] text-blue-600 underline decoration-blue-600/0 decoration-[1.5px] underline-offset-2 hover:decoration-blue-600 dark:text-blue-400 dark:hover:decoration-blue-400"
+      triggerClassName="relative text-[18.5px] text-blue-600 about-underline dark:text-blue-400"
       popupClassName="w-72"
       preloadImageSrc={profile.avatarUrl}
     >
