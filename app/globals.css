@@ -210,12 +210,12 @@
 
 @utility about-underline {
   text-decoration-line: underline;
-  text-decoration-color: rgb(37 99 235 / 0.60);
+  text-decoration-color: rgba(38, 99, 235, 0.2);
   text-underline-offset: 3px;
   text-decoration-skip-ink: auto;
 
   &:is(.dark, .dark *) {
-    text-decoration-color: rgb(96 165 250 / 0.60);
+    text-decoration-color: rgb(96 165 250 / 0.2);
   }
 }
 

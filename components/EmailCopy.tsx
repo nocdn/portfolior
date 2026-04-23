@@ -3,6 +3,7 @@
 import { Popover } from "@base-ui/react/popover"
 import { AnimatePresence, motion } from "motion/react"
 import { useCallback, useEffect, useRef, useState } from "react"
+import { TextShimmer } from "./motion-primitives/text-shimmer"
 
 export function EmailCopy() {
   const [open, setOpen] = useState(false)
@@ -25,7 +26,7 @@ export function EmailCopy() {
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger
-        className="cursor-pointer text-blue-600 about-underline dark:text-blue-400"
+        className="cursor-pointer text-blue-600 dark:text-blue-400"
         openOnHover
         delay={15}
         onClickCapture={(e) => {
@@ -33,7 +34,16 @@ export function EmailCopy() {
           handleCopy()
         }}
       >
-        email
+        <TextShimmer
+          as="span"
+          duration={1}
+          delay={3}
+          repeat={Infinity}
+          repeatDelay={12.5}
+          className="about-underline [--base-color:#2563eb] [--base-gradient-color:#93c5fd] dark:[--base-color:#60a5fa] dark:[--base-gradient-color:#dbeafe]"
+        >
+          email
+        </TextShimmer>
       </Popover.Trigger>
       <AnimatePresence>
         {open && (

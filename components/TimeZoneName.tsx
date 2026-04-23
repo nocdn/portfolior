@@ -1,6 +1,7 @@
 "use client"
 import { AnimatePresence, motion } from "motion/react"
 import React, { useEffect, useState } from "react"
+import { TextShimmer } from "./motion-primitives/text-shimmer"
 // based on the lucide clock icon
 
 type AlarmClockIconProps = {
@@ -130,7 +131,7 @@ export function TimeZoneName() {
   return (
     <div className="relative inline-block">
       <motion.span
-        className="about-underline text-blue-600 dark:text-blue-400"
+        className="text-blue-600 dark:text-blue-400"
         onMouseEnter={() => setHoveringName(true)}
         onMouseLeave={() => setHoveringName(false)}
         style={{
@@ -153,7 +154,16 @@ export function TimeZoneName() {
           filter: { duration: 0.35 },
         }}
       >
-        Bartek
+        <TextShimmer
+          as="span"
+          duration={1}
+          delay={0}
+          repeat={Infinity}
+          repeatDelay={12.5}
+          className="about-underline [--base-color:#2563eb] [--base-gradient-color:#93c5fd] dark:[--base-color:#60a5fa] dark:[--base-gradient-color:#dbeafe]"
+        >
+          Bartek
+        </TextShimmer>
       </motion.span>
       <AnimatePresence>
         {hoveringName && (

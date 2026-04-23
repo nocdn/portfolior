@@ -4,13 +4,25 @@ import type { TwitterProfile } from "@/lib/twitter"
 import { formatCount } from "@/lib/twitter"
 import { Activity } from "react"
 import { HoverPopover } from "./HoverPopover"
+import { TextShimmer } from "./motion-primitives/text-shimmer"
 
 export function TwitterHover({ profile }: { profile: TwitterProfile }) {
   return (
     <HoverPopover
       href="https://x.com/nocdns"
-      trigger="Twitter"
-      triggerClassName="relative text-[18.5px] text-blue-600 about-underline dark:text-blue-400"
+      trigger={
+        <TextShimmer
+          as="span"
+          duration={1}
+          delay={1.5}
+          repeat={Infinity}
+          repeatDelay={12.5}
+          className="about-underline [--base-color:#2563eb] [--base-gradient-color:#93c5fd] dark:[--base-color:#60a5fa] dark:[--base-gradient-color:#dbeafe]"
+        >
+          Twitter
+        </TextShimmer>
+      }
+      triggerClassName="relative text-[18.5px] text-blue-600 dark:text-blue-400"
       popupClassName="w-72"
       preloadImageSrc={profile.avatarUrl}
     >
