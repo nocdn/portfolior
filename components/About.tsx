@@ -1,4 +1,5 @@
 import { Suspense } from "react"
+import { AboutShimmerText } from "./AboutShimmerText"
 import { EmailCopy } from "./EmailCopy"
 import { GithubCard } from "./GithubCard"
 import { SectionDesktop, SectionMobile } from "./Section"
@@ -13,8 +14,13 @@ export const AboutDesktop = () => {
         <Suspense fallback={<span className="about-underline text-blue-600 dark:text-blue-400">Bartek</span>}>
           <TimeZoneName />
         </Suspense>
-        . I am a software engineer based in the UK, studying computer science at the University of
-        York. I'm currently exploring typography, web animations and crafting interactions.
+        , I am an incoming intern at{" "}
+        <Suspense fallback={<span className="about-underline text-blue-600 dark:text-blue-400">Cloudflare</span>}>
+          <AboutShimmerText delay={1.5}>Cloudflare</AboutShimmerText>
+        </Suspense>
+        <br />
+        in London, studying computer science at the University of York. <br /> I'm currently exploring
+        typography, web animations and crafting interactions in my free time.
       </div>
       <div className="mt-4">
         You can see some more of my work on{" "}
@@ -61,8 +67,12 @@ export const AboutMobile = () => {
   return (
     <SectionMobile id="about" title="ABOUT">
       <div className="leading-[1.6]">
-        Hello, I'm <span className="text-blue-600 dark:text-blue-400">Bartek</span>, a software
-        engineer based in the UK, studying{" "}
+        Hello, I'm <span className="text-blue-600 dark:text-blue-400">Bartek</span>, I am incoming as
+        a software engineer intern at{" "}
+        <Suspense fallback={<span className="about-underline text-blue-600 dark:text-blue-400">Cloudflare</span>}>
+          <AboutShimmerText delay={1.5}>Cloudflare</AboutShimmerText>
+        </Suspense>{" "}
+        in London, studying{" "}
         <span className="text-blue-600 dark:text-blue-400">computer science</span> at the University
         of York. I'm currently exploring typography, web animations and crafting interactions.
       </div>
