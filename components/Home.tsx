@@ -2,6 +2,7 @@ import { Suspense } from "react"
 import { AboutDesktop, AboutMobile } from "./About"
 import { ComponentsDesktop, ComponentsMobile } from "./Components"
 import { ContactMobile } from "./Contact"
+import { ExperienceDesktop, ExperienceMobile } from "./Experience"
 import { ComponentsDesktopFallback } from "./fallbacks/ComponentsDesktopFallback"
 import { ProjectsDesktopFallback } from "./fallbacks/ProjectsDesktopFallback"
 import { MobileNavigation } from "./MobileNavigation"
@@ -13,6 +14,7 @@ export const HomeDesktop = () => {
     <div>
       <main className="mx-auto mb-24 flex w-141.25 translate-x-3 flex-col gap-12 pt-26">
         <AboutDesktop />
+        <ExperienceDesktop />
         <Suspense fallback={<ProjectsDesktopFallback />}>
           <ProjectsDesktop />
         </Suspense>
@@ -32,6 +34,7 @@ export const HomeMobile = () => {
     <div className="flex h-svh w-screen snap-y snap-mandatory flex-col overflow-y-scroll *:h-svh *:w-screen *:flex-none *:snap-start">
       <MobileNavigation />
       <AboutMobile />
+      <ExperienceMobile />
       <ProjectsMobile />
       <ComponentsMobile />
       <WritingMobile />

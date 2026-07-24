@@ -14,7 +14,7 @@ export const AboutDesktop = () => {
         <Suspense fallback={<span className="about-underline text-blue-600 dark:text-blue-400">Bartek</span>}>
           <TimeZoneName />
         </Suspense>
-        , I am an incoming intern at{" "}
+        , I am a UI Platform intern at{" "}
         <Suspense fallback={<span className="about-underline text-blue-600 dark:text-blue-400">Cloudflare</span>}>
           <AboutShimmerText delay={1.5}>Cloudflare</AboutShimmerText>
         </Suspense>
@@ -67,8 +67,8 @@ export const AboutMobile = () => {
   return (
     <SectionMobile id="about" title="ABOUT">
       <div className="leading-[1.6]">
-        Hello, I'm <span className="text-blue-600 dark:text-blue-400">Bartek</span>, I am incoming as
-        a software engineer intern at{" "}
+        Hello, I'm <span className="text-blue-600 dark:text-blue-400">Bartek</span>, I am a UI
+        Platform intern at{" "}
         <Suspense fallback={<span className="about-underline text-blue-600 dark:text-blue-400">Cloudflare</span>}>
           <AboutShimmerText delay={1.5}>Cloudflare</AboutShimmerText>
         </Suspense>{" "}
