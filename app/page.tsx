@@ -2,8 +2,6 @@ import { Explorations } from "@/components/Explorations"
 import { HoverLink } from "@/components/HoverLink"
 import { LinkText } from "@/components/LinkText"
 import { articles } from "@/data/articles"
-import { experiences } from "@/data/experience"
-import { projects } from "@/data/projects"
 
 const explorations = [
   {
