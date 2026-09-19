@@ -424,15 +424,17 @@ export function ExplorationItem({
   const handleMobileToggle = () => {
     if (expanded) {
       const video = videoRef.current
-      shouldPlayRef.current = false
-      if (video) {
-        video.pause()
-        video.currentTime = 0
-      }
+      if (video) pauseAndReverse(video)
     } else {
       ensureMediaLoaded()
       const video = videoRef.current
-      if (video) playVideo(video)
+      if (!video) {
+        onToggle()
+        return
+      }
+      sessionRef.current += 1
+      stopReverse(true)
+      playVideo(video)
     }
     onToggle()
   }
@@ -449,15 +451,13 @@ export function ExplorationItem({
   }, [isMobile, expanded, onToggle])
 
   // closing from elsewhere (another item opened, outside tap) bypasses the
-  // toggle handler, so pause here too instead of playing on invisibly
+  // toggle handler, so reverse here too instead of stopping abruptly
   useEffect(() => {
     if (!isMobile || expanded) return
     const video = videoRef.current
     if (!video || video.paused) return
-    shouldPlayRef.current = false
-    video.pause()
-    video.currentTime = 0
-  }, [isMobile, expanded])
+    pauseAndReverse(video)
+  }, [isMobile, expanded, pauseAndReverse])
 
   const zoomScale = isMobile ? MOBILE_ZOOM_SCALE : DESKTOP_ZOOM_SCALE
   const mediaTransitionDuration = prefersReducedMotion ? "duration-0" : "duration-700"
@@ -508,7 +508,10 @@ export function ExplorationItem({
             }}
             className="focus-visible:outline-foreground block w-full cursor-pointer text-left focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-4"
           >
-            <div style={{ aspectRatio: `${width} / ${height}` }} className="w-full overflow-hidden">
+            <div
+              style={{ aspectRatio: `${width} / ${height}` }}
+              className="relative w-full overflow-hidden"
+            >
               <img
                 src={placeholderSrc}
                 width={width}
@@ -531,7 +534,17 @@ export function ExplorationItem({
                   const video = videoRef.current
                   if (video && shouldPlayRef.current && video.paused) playVideo(video)
                 }}
-                className="h-full w-full outline-none select-none"
+                className={`h-full w-full outline-none select-none ${reversing ? "invisible" : "visible"}`}
+              />
+              <video
+                ref={reverseVideoRef}
+                src={shouldLoad ? reverseSrc : undefined}
+                muted
+                playsInline
+                preload={shouldLoad ? "auto" : "none"}
+                tabIndex={-1}
+                aria-hidden="true"
+                className={`pointer-events-none absolute inset-0 h-full w-full outline-none select-none ${reversing ? "visible" : "invisible"}`}
               />
             </div>
           </button>
