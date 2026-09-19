@@ -17,6 +17,12 @@
 /.next/
 /out/
 
+# vite / tanstack start
+/dist
+/worker-configuration.d.ts
+/wrangler
+src/routeTree.gen.ts
+
 # production
 /build
 
@@ -89,3 +95,6 @@ skills/
 .pochi/skills/
 .adal/skills/
 .mux/skills/
+# wrangler
+.wrangler/
+worker-configuration.d.ts
