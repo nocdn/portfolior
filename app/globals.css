@@ -320,3 +320,18 @@ code {
   background: #2e70ff;
   color: white;
 }
+
+.selection-warm {
+  --selection-bg: #ffe9e0;
+  --selection-text: #c33d08;
+}
+.selection-warm::selection,
+.selection-warm ::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+.selection-warm::-moz-selection,
+.selection-warm ::-moz-selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
