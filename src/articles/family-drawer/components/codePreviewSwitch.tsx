@@ -1,12 +1,11 @@
+import { highlightToHtml } from "@/lib/highlight"
 import { cn } from "@/lib/utils"
-import { highlightCode } from "@/server/highlight"
-import { useEffect, useState } from "react"
-import type { BundledLanguage } from "shiki"
+import { useMemo, useState } from "react"
 
 interface CodePreviewSwitchProps {
   children?: React.ReactNode
   code: string
-  lang?: BundledLanguage
+  lang?: string
   previewClassName?: string
   codeClassName?: string
   height?: string
@@ -21,22 +20,7 @@ export function CodePreviewSwitch({
   height = "384px",
 }: CodePreviewSwitchProps) {
   const [selected, setSelected] = useState<"preview" | "code">("preview")
-  const [highlightedHtml, setHighlightedHtml] = useState<string>("")
-
-  useEffect(() => {
-    let cancelled = false
-    async function runHighlight() {
-      const html = await highlightCode({ data: { code, lang } })
-      if (!cancelled) setHighlightedHtml(html)
-    }
-
-    if (code) {
-      runHighlight()
-    }
-    return () => {
-      cancelled = true
-    }
-  }, [code, lang])
+  const highlightedHtml = useMemo(() => highlightToHtml(code, lang), [code, lang])
 
   return (
     <div className="border-shadow flex flex-col rounded-xl">
@@ -72,21 +56,9 @@ export function CodePreviewSwitch({
           <div className={cn("h-full", previewClassName)}>{children}</div>
         ) : (
           <>
-            <style
-              dangerouslySetInnerHTML={{
-                __html: `
-                  .shiki-code-preview pre,
-                  .shiki-code-preview code,
-                  .shiki-code-preview pre *,
-                  .shiki-code-preview code * {
-                    font-family: inherit !important;
-                  }
-                `,
-              }}
-            />
             <div
               className={cn(
-                "shiki-code-preview font-ioskeley-mono h-full overflow-auto p-4 text-sm [&_pre]:m-0 [&_pre]:bg-transparent [&_pre]:p-0",
+                "font-ioskeley-mono h-full overflow-auto p-4 text-sm [&_pre]:m-0",
                 codeClassName
               )}
               dangerouslySetInnerHTML={{ __html: highlightedHtml }}
