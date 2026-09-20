@@ -55,7 +55,7 @@ const contentNegotiation = createMiddleware().server(async ({ next, request }) =
     })
   }
 
-  headers.set("Cache-Control", "public, max-age=300")
+  headers.set("Cache-Control", "public, max-age=604800")
   const [cacheBody, clientBody] = upstreamBody.tee()
   await cache.put(
     request,
