@@ -84,7 +84,7 @@ export function Article({
     >
       <ArticleIcon seed={href} />
       <div>
-        <TitleTag className="text-gray-1200 font-medium">{title}</TitleTag>
+        <TitleTag className="text-foreground font-medium">{title}</TitleTag>
         <div className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-gray-500 dark:text-gray-400">
           {!disabled && <p className="text-[14.5px]">{date}</p>}
           {disabled || showBookIcon ? (

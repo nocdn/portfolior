@@ -1,13 +1,24 @@
 import { createServerFn } from "@tanstack/react-start"
-import type { BundledLanguage } from "shiki"
 
 // Shiki stays server-only: this module is split by the Start compiler, so the
-// client only ever sees an RPC stub. GET makes repeated blocks edge-cacheable.
-export const highlightCode = createServerFn({ method: "GET" })
+// client only ever sees an RPC stub. POST keeps large snippets out of URLs
+// (Cloudflare caps URLs ~16KB; article-code.ts is already 12KB on disk).
+export const highlightCode = createServerFn({ method: "POST" })
   .validator((data: unknown) => {
     if (typeof data !== "object" || data === null) throw new Error("bad input")
     const { code, lang } = data as { code?: unknown; lang?: unknown }
-    if (typeof code !== "string" || typeof lang !== "string" || code.length > 20000) {
+    if (
+      typeof code !== "string" ||
+      code.length === 0 ||
+      code.length > 20000 ||
+      (lang !== "tsx" &&
+        lang !== "ts" &&
+        lang !== "jsx" &&
+        lang !== "js" &&
+        lang !== "json" &&
+        lang !== "bash" &&
+        lang !== "css")
+    ) {
       throw new Error("bad input")
     }
     return { code, lang }
@@ -24,7 +35,7 @@ export const highlightCode = createServerFn({ method: "GET" })
       engine: createJavaScriptRegexEngine(),
     })
     return highlighter.codeToHtml(data.code, {
-      lang: data.lang as BundledLanguage,
+      lang: data.lang,
       themes: {
         light: "github-light",
         dark: "github-dark",

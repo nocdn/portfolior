@@ -4,7 +4,6 @@ const urls = [
   { loc: "https://bartoszbak.org", changefreq: "monthly", priority: "1.0" },
   { loc: "https://bartoszbak.org/writing/family-drawer", changefreq: "monthly", priority: "0.8" },
   { loc: "https://bartoszbak.org/writing/otp-api", changefreq: "monthly", priority: "0.8" },
-  { loc: "https://bartoszbak.org/cv", changefreq: "yearly", priority: "0.5" },
 ]
 
 export const Route = createFileRoute("/sitemap.xml")({

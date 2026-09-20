@@ -45,7 +45,7 @@ export function CodePreviewSwitch({
         className="flex h-18 items-center justify-between gap-3 border-b border-gray-200 px-4 dark:border-white/8"
       >
         <button
-          onMouseDown={() => setSelected("preview")}
+          onClick={() => setSelected("preview")}
           className={cn(
             "w-full cursor-pointer rounded-full py-2 transition-all duration-100 select-none active:scale-99",
             selected === "preview"
@@ -56,7 +56,7 @@ export function CodePreviewSwitch({
           Preview
         </button>
         <button
-          onMouseDown={() => setSelected("code")}
+          onClick={() => setSelected("code")}
           className={cn(
             "w-full cursor-pointer rounded-full py-2 transition-all duration-100 select-none active:scale-99",
             selected === "code"

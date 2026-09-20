@@ -1,7 +1,7 @@
-import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-router"
-import type { ReactNode } from "react"
 import { ThemeScript } from "@/components/ThemeScript"
 import "@fontsource-variable/inter/wght.css"
+import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-router"
+import type { ReactNode } from "react"
 import "../styles.css"
 
 const siteUrl = "https://bartoszbak.org"
@@ -35,10 +35,7 @@ export const Route = createRootRoute({
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: ogImage },
     ],
-    links: [
-      { rel: "icon", href: "/favicon.ico" },
-      { rel: "canonical", href: siteUrl },
-    ],
+    links: [{ rel: "icon", href: "/favicon.ico" }],
   }),
   component: RootComponent,
 })

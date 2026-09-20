@@ -7,7 +7,7 @@ function NotFound() {
       <p className="text-foreground font-medium">Not found</p>
       <p className="text-muted-foreground">
         This page doesn&apos;t exist.{" "}
-        <Link to="/" className="underline underline-offset-4 hover:text-foreground">
+        <Link to="/" className="hover:text-foreground underline underline-offset-4">
           Go home
         </Link>
       </p>

@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router"
-import { articleMeta } from "@/lib/article-meta"
 import { oldPhoneOtpApiArticle, oldPhoneOtpApiHref } from "@/articles/otp-api/article"
 import { OtpApiBody } from "@/articles/otp-api/Body"
+import { articleMeta } from "@/lib/article-meta"
+import { createFileRoute } from "@tanstack/react-router"
 
 const meta = articleMeta(oldPhoneOtpApiArticle.title, oldPhoneOtpApiHref)
 
@@ -22,6 +22,7 @@ export const Route = createFileRoute("/writing/otp-api")({
       { name: "twitter:description", content: meta.ogDescription },
       { name: "twitter:image", content: meta.ogImageUrl },
     ],
+    links: [{ rel: "canonical", href: `https://bartoszbak.org${oldPhoneOtpApiHref}` }],
   }),
   component: OtpApiPage,
 })

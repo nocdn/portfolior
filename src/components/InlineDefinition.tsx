@@ -1,4 +1,3 @@
-
 import { useIsMobile } from "@/lib/hooks/useIsMobile"
 import { Popover } from "@base-ui/react/popover"
 import { ExternalLink } from "lucide-react"

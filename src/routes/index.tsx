@@ -1,8 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router"
 import { Explorations } from "@/components/Explorations"
 import { HoverLink } from "@/components/HoverLink"
+import Link from "@/components/link"
 import { LinkText } from "@/components/LinkText"
 import { articles } from "@/data/articles"
+import { createFileRoute } from "@tanstack/react-router"
 
 const explorations = [
   {
@@ -41,6 +42,9 @@ const explorations = [
 ]
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    links: [{ rel: "canonical", href: "https://bartoszbak.org" }],
+  }),
   component: Home,
 })
 
@@ -71,7 +75,7 @@ function Home() {
           <h2 className="text-[17px] font-medium tracking-tight md:text-[16px]">Writing</h2>
           <div className="flex flex-col">
             {articles.map((article) => (
-              <a
+              <Link
                 key={article.href}
                 href={article.href}
                 className="hover:bg-muted -mx-4 flex flex-col gap-1 rounded-md px-4 py-3"
@@ -82,7 +86,7 @@ function Home() {
                     : article.title}
                 </span>
                 <span className="text-muted-foreground">{article.date}</span>
-              </a>
+              </Link>
             ))}
             <div className="-mx-4 flex flex-col gap-1 px-4 py-3">
               <span className="text-foreground">Fixing the infamous Cloudflare error pages</span>

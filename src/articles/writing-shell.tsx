@@ -1,6 +1,6 @@
+import Link from "@/components/link"
 import { ChevronLeft } from "lucide-react"
 import type { ReactNode } from "react"
-import Link from "@/components/link"
 
 // Article body type matches the homepage about text:
 // Inter, 16px, weight 450, relaxed leading, paragraph color.

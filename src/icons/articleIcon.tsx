@@ -1,5 +1,3 @@
-"use client"
-
 const lineProfiles = [
   { minSegments: 2, maxSegments: 4, blankChance: 0.05 },
   { minSegments: 2, maxSegments: 4, blankChance: 0.08 },

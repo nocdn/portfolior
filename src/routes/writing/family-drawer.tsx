@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router"
-import { articleMeta } from "@/lib/article-meta"
 import { familyDrawerArticle, familyDrawerHref } from "@/articles/family-drawer/article"
 import { FamilyDrawerBody } from "@/articles/family-drawer/Body"
+import { articleMeta } from "@/lib/article-meta"
+import { createFileRoute } from "@tanstack/react-router"
 
 const meta = articleMeta(familyDrawerArticle.title, familyDrawerHref)
 
@@ -22,6 +22,7 @@ export const Route = createFileRoute("/writing/family-drawer")({
       { name: "twitter:description", content: meta.ogDescription },
       { name: "twitter:image", content: meta.ogImageUrl },
     ],
+    links: [{ rel: "canonical", href: `https://bartoszbak.org${familyDrawerHref}` }],
   }),
   component: FamilyDrawerPage,
 })
