@@ -19,7 +19,7 @@ export function WritingShell({ children }: { children: ReactNode }) {
           Back
         </Link>
       </div>
-      <div className="w-full max-w-2xl text-[16px] leading-[1.7]">{children}</div>
+      <div className="w-full max-w-2xl text-[17px] leading-[1.7] md:text-[16px]">{children}</div>
     </div>
   )
 }
