@@ -132,6 +132,12 @@
 }
 
 @layer base {
+  html {
+    /* reserve the scrollbar gutter so showing/hiding scrollbars
+       (e.g. body overflow lock during video zoom) never shifts layout.
+       no-op where scrollbars overlay (macOS) or don't exist (mobile) */
+    scrollbar-gutter: stable;
+  }
   * {
     @apply border-border outline-ring/50;
   }
