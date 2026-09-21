@@ -69,6 +69,17 @@ function Home() {
             development intern at{" "}
             <HoverLink text="Objective" href="https://objectiveit.com/" hoverColor="#E42655" />.
           </div>
+          <div className="text-paragraph leading-[1.7]">
+            You can contact me via{" "}
+            <HoverLink text="email" href="mailto:contact@bartoszbak.org" hoverColor="#000000" />, or{" "}
+            <HoverLink
+              text="LinkedIn"
+              href="https://linkedin.com/in/bartek-bak"
+              hoverColor="#0077B5"
+            />
+            , or find me on <HoverLink text="X" href="https://x.com/nocdns" hoverColor="#000000" />{" "}
+            and <HoverLink text="GitHub" href="https://github.com/nocdn" hoverColor="#0FBF3E" />.
+          </div>
         </div>
 
         <div className="flex flex-col gap-6">
