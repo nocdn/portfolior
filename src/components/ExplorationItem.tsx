@@ -56,6 +56,13 @@ function cubicBezier(p1x: number, p1y: number, p2x: number, p2y: number) {
 
 const reverseEase = cubicBezier(0.215, 0.61, 0.355, 1)
 
+// Videos that have decoded at least once this session. Survives route
+// remounts (e.g. home -> article -> back), so returning never replays the
+// blur-up placeholder: bytes come from HTTP cache and decode in a frame or
+// two. Written from event handlers/effects only, never during render, so
+// server rendering always sees an empty set (no cross-request leakage).
+const readyVideos = new Set<string>()
+
 export function ExplorationItem({
   src,
   reverseSrc,
@@ -92,8 +99,11 @@ export function ExplorationItem({
   const [zoomed, setZoomed] = useState(false)
   const [isTop, setIsTop] = useState(false)
   const [reversing, setReversing] = useState(false)
-  const [shouldLoad, setShouldLoad] = useState(false)
-  const [forwardReady, setForwardReady] = useState(false)
+  // remounts (home -> article -> back) start ready when this video decoded
+  // before: safe as an initializer because the set is only ever written from
+  // client-side event handlers, so SSR always sees it empty (no mismatch)
+  const [shouldLoad, setShouldLoad] = useState(() => readyVideos.has(src))
+  const [forwardReady, setForwardReady] = useState(() => readyVideos.has(src))
   const [panelOpen, setPanelOpen] = useState(false)
   const [translation, setTranslation] = useState({ x: 0, y: 0 })
   const [isMobile, setIsMobile] = useState(false)
@@ -528,6 +538,7 @@ export function ExplorationItem({
                 tabIndex={-1}
                 aria-hidden="true"
                 onCanPlay={() => {
+                  readyVideos.add(src)
                   setForwardReady(true)
                   const video = videoRef.current
                   if (video && shouldPlayRef.current && video.paused) playVideo(video)
@@ -627,6 +638,7 @@ export function ExplorationItem({
             preload={shouldLoad ? "auto" : "none"}
             tabIndex={-1}
             onCanPlay={() => {
+              readyVideos.add(src)
               setForwardReady(true)
               const video = videoRef.current
               if (video && shouldPlayRef.current && video.paused) playVideo(video)
