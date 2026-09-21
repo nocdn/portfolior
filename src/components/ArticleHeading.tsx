@@ -1,4 +1,5 @@
-import { Article } from "./Article"
+import { ArticleIcon } from "@/icons/articleIcon"
+import { ArticleTitle } from "./ArticleTitle"
 
 export function ArticleHeading({
   title,
@@ -10,13 +11,9 @@ export function ArticleHeading({
   href: string
 }) {
   return (
-    <Article
-      title={title}
-      date={date}
-      href={href}
-      prefetch={false}
-      titleTag="h1"
-      showBookIcon={false}
-    />
+    <div className="flex items-start gap-4">
+      <ArticleIcon seed={href} />
+      <ArticleTitle title={title} date={date} href={href} />
+    </div>
   )
 }

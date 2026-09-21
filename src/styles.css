@@ -370,3 +370,32 @@ code {
   background: var(--selection-bg);
   color: var(--selection-text);
 }
+
+/* article title morph: only the shared title travels between home and the
+   article page — the rest of the page swaps instantly, no full crossfade.
+   names must be static classes so both trees carry them at snapshot time */
+.vt-name-family-drawer {
+  view-transition-name: article-title-family-drawer;
+}
+
+.vt-name-otp-api {
+  view-transition-name: article-title-otp-api;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

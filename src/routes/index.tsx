@@ -1,8 +1,10 @@
+import { ArticleTitle } from "@/components/ArticleTitle"
 import { Explorations } from "@/components/Explorations"
 import { HoverLink } from "@/components/HoverLink"
 import Link from "@/components/link"
 import { LinkText } from "@/components/LinkText"
 import { articles } from "@/data/articles"
+import { ArticleIcon } from "@/icons/articleIcon"
 import { createFileRoute } from "@tanstack/react-router"
 
 const explorations = [
@@ -89,19 +91,26 @@ function Home() {
               <Link
                 key={article.href}
                 href={article.href}
-                className="hover:bg-muted -mx-4 flex flex-col gap-1 rounded-md px-4 py-3"
+                className="hover:bg-muted -mx-4 flex items-start gap-4 rounded-md px-4 py-3"
               >
-                <span className="text-foreground">
-                  {article.href.includes("otp-api")
-                    ? "Turning an old phone into an OTP server"
-                    : article.title}
-                </span>
-                <span className="text-muted-foreground">{article.date}</span>
+                <ArticleIcon seed={article.href} />
+                <ArticleTitle
+                  title={
+                    article.href.includes("otp-api")
+                      ? "Turning an old phone into an OTP server"
+                      : article.title
+                  }
+                  date={article.date}
+                  href={article.href}
+                />
               </Link>
             ))}
-            <div className="-mx-4 flex flex-col gap-1 px-4 py-3">
-              <span className="text-foreground">Fixing the infamous Cloudflare error pages</span>
-              <span className="text-muted-foreground">September 2026</span>
+            <div className="-mx-4 flex items-start gap-4 px-4 py-3">
+              <ArticleIcon seed="upcoming-cloudflare-error-pages" />
+              <ArticleTitle
+                title="Fixing the infamous Cloudflare error pages"
+                date="September 2026"
+              />
             </div>
           </div>
         </div>
