@@ -1,33 +1,10 @@
-// Unique per article, identical on the home row and the article heading:
-// the browser morphs between the two during home <-> article navigations.
-// Applied as static CSS classes (not React's <ViewTransition>): the name must
-// already be present in both trees when startViewTransition snapshots them.
-function slug(href: string) {
-  return href.split("/").pop()
-}
-
-export function articleTitleTransitionClass(href: string) {
-  return `vt-name-title-${slug(href)}`
-}
-
-export function articleIconTransitionClass(href: string) {
-  return `vt-name-icon-${slug(href)}`
-}
-
-export function ArticleTitle({
-  title,
-  date,
-  href,
-}: {
-  title: string
-  date: string
-  // omit for rows with no article page: no name, no transition
-  href?: string
-}) {
+// Shared by home rows and article headings: icon + title block stay
+// visually identical in both places.
+export function ArticleTitle({ title, date }: { title: string; date: string }) {
   return (
-    <div className={`flex flex-col gap-1 ${href ? articleTitleTransitionClass(href) : ""}`}>
+    <div className="flex flex-col gap-0.5">
       <span className="text-foreground">{title}</span>
-      <span className="text-muted-foreground">{date}</span>
+      <span className="text-muted-foreground text-[16px]">{date}</span>
     </div>
   )
 }

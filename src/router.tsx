@@ -15,25 +15,12 @@ function NotFound() {
   )
 }
 
-const articlePaths = ["/writing/family-drawer", "/writing/otp-api"]
-
 export function getRouter() {
   const router = createRouter({
     routeTree,
     defaultPreload: "intent",
     defaultNotFoundComponent: NotFound,
     scrollRestoration: true,
-    // morph the shared article title between home and article pages.
-    // every other navigation skips the transition entirely.
-    defaultViewTransition: {
-      types: ({ fromLocation, toLocation }) => {
-        const from = fromLocation?.pathname ?? ""
-        const to = toLocation.pathname
-        const hop =
-          (from === "/" && articlePaths.includes(to)) || (articlePaths.includes(from) && to === "/")
-        return hop ? ["article-title"] : false
-      },
-    },
   })
 
   return router

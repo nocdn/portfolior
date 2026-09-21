@@ -1,5 +1,5 @@
 import { ArticleIcon } from "@/icons/articleIcon"
-import { ArticleTitle, articleIconTransitionClass } from "./ArticleTitle"
+import { ArticleTitle } from "./ArticleTitle"
 
 export function ArticleHeading({
   title,
@@ -12,10 +12,8 @@ export function ArticleHeading({
 }) {
   return (
     <div className="flex items-start gap-4">
-      <div className={articleIconTransitionClass(href)}>
-        <ArticleIcon seed={href} />
-      </div>
-      <ArticleTitle title={title} date={date} href={href} />
+      <ArticleIcon seed={href} />
+      <ArticleTitle title={title} date={date} />
     </div>
   )
 }
