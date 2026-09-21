@@ -1,0 +1,4 @@
+# Hashed build assets (fonts, JS, CSS) can never go stale: new content gets a
+# new filename. Cache them on devices for a year, immutable.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
