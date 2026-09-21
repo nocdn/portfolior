@@ -21,14 +21,20 @@ const contentNegotiation = createMiddleware().server(async ({ next, request }) =
   }
 
   // Edge-cache HTML only: the markdown variant above never reaches the cache,
-  // so the two variants cannot poison each other. Fresh deploys start with an
-  // empty cache, so content can never go stale across releases (max 5 min anyway).
+  // so the two variants cannot poison each other. The key carries the build
+  // ID, so a deploy can never serve pre-deploy HTML (which would reference
+  // deleted asset hashes) — old entries just become unreachable.
+  // Browsers get max-age=60 (returning visitors refresh within a minute of a
+  // release); shared caches get s-maxage for the long tail.
   const cache =
     request.method === "GET" && !wantsMarkdown && typeof caches !== "undefined"
       ? ((caches as unknown as { default?: Cache }).default ?? null)
       : null
+  const keyUrl = new URL(request.url)
+  keyUrl.searchParams.set("__v", __BUILD_ID__)
+  const cacheKey = keyUrl.toString()
   if (cache) {
-    const hit = await cache.match(request)
+    const hit = await cache.match(cacheKey)
     if (hit) return hit
   }
 
@@ -55,10 +61,10 @@ const contentNegotiation = createMiddleware().server(async ({ next, request }) =
     })
   }
 
-  headers.set("Cache-Control", "public, max-age=604800")
+  headers.set("Cache-Control", "public, max-age=60, s-maxage=604800")
   const [cacheBody, clientBody] = upstreamBody.tee()
   await cache.put(
-    request,
+    cacheKey,
     new Response(cacheBody, {
       status: result.response.status,
       statusText: result.response.statusText,

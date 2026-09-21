@@ -11,6 +11,11 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
+  // git SHA tags edge-cache entries: a new deploy can never read old HTML,
+  // so long edge TTLs are safe and stale-forever is impossible
+  define: {
+    __BUILD_ID__: JSON.stringify(process.env.BUILD_ID ?? "dev"),
+  },
   plugins: [
     tailwindcss(),
     cloudflare({ viteEnvironment: { name: "ssr" } }),
