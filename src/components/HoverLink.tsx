@@ -15,7 +15,7 @@ export function HoverLink({ text, href, hoverColor, className = "" }: HoverLinkP
       href={href}
       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       style={{ "--hover-color": hoverColor } as CSSProperties}
-      className={`underline [text-decoration-color:color-mix(in_srgb,currentColor_35%,transparent)] underline-offset-[3px] transition-colors [text-decoration-skip-ink:auto] hover:text-(--hover-color) hover:decoration-(--hover-color) ${className}`}
+      className={`underline [text-decoration-color:color-mix(in_srgb,currentColor_35%,transparent)] underline-offset-[3px] [text-decoration-skip-ink:auto] hover:text-(--hover-color) hover:decoration-(--hover-color) ${className}`}
     >
       {text}
     </a>
