@@ -1,4 +1,4 @@
-import { ArticleTitle } from "@/components/ArticleTitle"
+import { ArticleTitle, articleIconTransitionClass } from "@/components/ArticleTitle"
 import { Explorations } from "@/components/Explorations"
 import { HoverLink } from "@/components/HoverLink"
 import Link from "@/components/link"
@@ -93,7 +93,9 @@ function Home() {
                 href={article.href}
                 className="hover:bg-muted -mx-4 flex items-start gap-4 rounded-md px-4 py-3"
               >
-                <ArticleIcon seed={article.href} />
+                <div className={articleIconTransitionClass(article.href)}>
+                  <ArticleIcon seed={article.href} />
+                </div>
                 <ArticleTitle
                   title={
                     article.href.includes("otp-api")
