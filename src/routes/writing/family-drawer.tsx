@@ -2,6 +2,7 @@ import { familyDrawerArticle, familyDrawerHref } from "@/articles/family-drawer/
 import { FamilyDrawerBody } from "@/articles/family-drawer/Body"
 import { articleMeta } from "@/lib/article-meta"
 import { createFileRoute } from "@tanstack/react-router"
+import ioskeleyMonoUrl from "../../fonts/IoskeleyMono-Regular.woff2?url"
 
 const meta = articleMeta(familyDrawerArticle.title, familyDrawerHref)
 
@@ -22,7 +23,18 @@ export const Route = createFileRoute("/writing/family-drawer")({
       { name: "twitter:description", content: meta.ogDescription },
       { name: "twitter:image", content: meta.ogImageUrl },
     ],
-    links: [{ rel: "canonical", href: `https://bartoszbak.org${familyDrawerHref}` }],
+    links: [
+      // code blocks are the only Ioskeley Mono consumer: preload it here,
+      // not on pages (like home) that never use it
+      {
+        rel: "preload",
+        href: ioskeleyMonoUrl,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+      { rel: "canonical", href: `https://bartoszbak.org${familyDrawerHref}` },
+    ],
   }),
   component: FamilyDrawerPage,
 })

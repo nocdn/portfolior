@@ -3,7 +3,6 @@ import { HeadContent, Outlet, Scripts, createRootRoute } from "@tanstack/react-r
 import type { ReactNode } from "react"
 import interLatinExtUrl from "../fonts/inter/inter-latin-ext-wght-normal.woff2?url"
 import interLatinUrl from "../fonts/inter/inter-latin-wght-normal.woff2?url"
-import ioskeleyMonoUrl from "../fonts/IoskeleyMono-Regular.woff2?url"
 import "../styles.css"
 
 const siteUrl = "https://bartoszbak.org"
@@ -40,7 +39,8 @@ export const Route = createRootRoute({
     links: [
       { rel: "icon", href: "/favicon.ico" },
       // start the critical fonts with the HTML: text swaps in sooner.
-      // must live in route head (not plain JSX): the shell strips raw links
+      // must live in route head (not plain JSX): the shell strips raw links.
+      // Ioskeley Mono is article-only, so it preloads on those routes instead.
       {
         rel: "preload",
         href: interLatinUrl,
@@ -51,13 +51,6 @@ export const Route = createRootRoute({
       {
         rel: "preload",
         href: interLatinExtUrl,
-        as: "font",
-        type: "font/woff2",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "preload",
-        href: ioskeleyMonoUrl,
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",
