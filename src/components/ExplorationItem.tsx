@@ -71,6 +71,8 @@ export function ExplorationItem({
   height,
   title,
   description,
+  eager,
+  onPreloadDone,
   expanded,
   onToggle,
 }: {
@@ -81,6 +83,8 @@ export function ExplorationItem({
   height: number
   title: string
   description: ReactNode
+  eager: boolean
+  onPreloadDone?: () => void
   expanded: boolean
   onToggle: () => void
 }) {
@@ -91,7 +95,6 @@ export function ExplorationItem({
   const rafRef = useRef(0)
   const sessionRef = useRef(0)
   const shouldPlayRef = useRef(false)
-  const loadRequestedRef = useRef(false)
   const reversingRef = useRef(false)
   const zoomedRef = useRef(false)
   const hoverLockRef = useRef(false)
@@ -102,7 +105,7 @@ export function ExplorationItem({
   // remounts (home -> article -> back) start ready when this video decoded
   // before: safe as an initializer because the set is only ever written from
   // client-side event handlers, so SSR always sees it empty (no mismatch)
-  const [shouldLoad, setShouldLoad] = useState(() => readyVideos.has(src))
+  const [shouldLoad, setShouldLoad] = useState(() => eager || readyVideos.has(src))
   const [forwardReady, setForwardReady] = useState(() => readyVideos.has(src))
   const [panelOpen, setPanelOpen] = useState(false)
   const [translation, setTranslation] = useState({ x: 0, y: 0 })
@@ -119,31 +122,11 @@ export function ExplorationItem({
     return () => window.removeEventListener("resize", updateViewport)
   }, [])
 
-  const ensureMediaLoaded = useCallback(() => {
-    if (loadRequestedRef.current) return
-    loadRequestedRef.current = true
-    setShouldLoad(true)
-  }, [])
+  const ensureMediaLoaded = useCallback(() => setShouldLoad(true), [])
 
   useEffect(() => {
-    const row = rowRef.current
-    if (!row || typeof IntersectionObserver === "undefined") {
-      ensureMediaLoaded()
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) return
-        ensureMediaLoaded()
-        observer.disconnect()
-      },
-      { rootMargin: "160px 0px" }
-    )
-
-    observer.observe(row)
-    return () => observer.disconnect()
-  }, [ensureMediaLoaded])
+    if (eager) ensureMediaLoaded()
+  }, [eager, ensureMediaLoaded])
 
   useEffect(
     () => () => {
@@ -175,6 +158,22 @@ export function ExplorationItem({
       // play() threw synchronously, stay paused
     }
   }, [])
+
+  const handleCanPlay = useCallback(() => {
+    readyVideos.add(src)
+    setForwardReady(true)
+    onPreloadDone?.()
+    const video = videoRef.current
+    if (video && shouldPlayRef.current && video.paused) playVideo(video)
+  }, [src, onPreloadDone, playVideo])
+
+  // The first video may become ready before hydration attaches onCanPlay.
+  // Checking the media element also covers a cached video after a branch
+  // switch between desktop and mobile markup.
+  useEffect(() => {
+    const video = videoRef.current
+    if (video && video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) handleCanPlay()
+  }, [isMobile, shouldLoad, handleCanPlay])
 
   const releaseHoverLock = useCallback(() => {
     lockCleanupRef.current?.()
@@ -537,12 +536,8 @@ export function ExplorationItem({
                 preload={shouldLoad ? "auto" : "none"}
                 tabIndex={-1}
                 aria-hidden="true"
-                onCanPlay={() => {
-                  readyVideos.add(src)
-                  setForwardReady(true)
-                  const video = videoRef.current
-                  if (video && shouldPlayRef.current && video.paused) playVideo(video)
-                }}
+                onCanPlay={handleCanPlay}
+                onError={onPreloadDone}
                 className={`h-full w-full outline-none select-none ${reversing ? "invisible" : "visible"}`}
               />
               <video
@@ -637,12 +632,8 @@ export function ExplorationItem({
             playsInline
             preload={shouldLoad ? "auto" : "none"}
             tabIndex={-1}
-            onCanPlay={() => {
-              readyVideos.add(src)
-              setForwardReady(true)
-              const video = videoRef.current
-              if (video && shouldPlayRef.current && video.paused) playVideo(video)
-            }}
+            onCanPlay={handleCanPlay}
+            onError={onPreloadDone}
             className={`pointer-events-none absolute inset-0 h-full w-full transition-[opacity,filter] outline-none select-none ${mediaTransitionDuration} ease-[cubic-bezier(0.215,0.61,0.355,1)] ${reversing ? "invisible" : "visible"} ${forwardReady ? "blur-0 opacity-100" : "opacity-0 blur-[12px]"}`}
           />
           <video

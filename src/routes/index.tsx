@@ -60,20 +60,28 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const mainRef = useRef<HTMLElement>(null)
-  const stopRipple = useRef<(() => void) | null>(null)
+  const stopRipples = useRef(new Map<keyof typeof rippleColors, () => void>())
 
-  useEffect(() => () => stopRipple.current?.(), [])
+  useEffect(
+    () => () => {
+      stopRipples.current.forEach((stop) => stop())
+      stopRipples.current.clear()
+    },
+    []
+  )
 
   const handleRipple =
     (key: keyof typeof rippleColors) => (event: PointerEvent<HTMLAnchorElement>) => {
-      if (stopRipple.current || event.pointerType !== "mouse") return
+      if (stopRipples.current.has(key) || event.pointerType !== "mouse") return
       const main = mainRef.current
       if (!main) return
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
 
-      stopRipple.current = rippleText(main, event.clientX, event.clientY, rippleColors[key], () => {
-        stopRipple.current = null
+      let stop: () => void
+      stop = rippleText(main, event.clientX, event.clientY, rippleColors[key], () => {
+        if (stopRipples.current.get(key) === stop) stopRipples.current.delete(key)
       })
+      stopRipples.current.set(key, stop)
     }
 
   return (
