@@ -48,6 +48,16 @@ const explorations = [
       </>
     ),
   },
+  {
+    src: "/videos/reasoningeffort.mp4",
+    reverseSrc: "/videos/reasoningeffort-reverse.mp4",
+    placeholderSrc: "/videos/reasoningeffort-placeholder.jpg",
+    width: 758,
+    height: 640,
+    title: "ChatGPT effort picker",
+    description:
+      "Prove that you are worthy to wield higher intelligence, by solving some math problems",
+  },
 ]
 
 export const Route = createFileRoute("/")({

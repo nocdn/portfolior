@@ -19,7 +19,7 @@ const PANEL_EASE: [number, number, number, number] = [0.215, 0.61, 0.355, 1]
 const FADE_IN_DURATION = 0.3
 const FADE_OUT_DURATION = 0.25
 const SUBTITLE_DELAY = 0.025
-const MEDIA_CLASS = "relative overflow-hidden rounded-lg"
+const MEDIA_CLASS = "border-shadow relative overflow-hidden rounded-lg"
 const MEDIA_SURFACE_CLASS =
   "absolute inset-0 overflow-hidden rounded-lg bg-[var(--color-preview-bg)]"
 
