@@ -1,4 +1,5 @@
 import { ArticleTitle } from "@/components/ArticleTitle"
+import { EmailCopy } from "@/components/EmailCopy"
 import { Explorations } from "@/components/Explorations"
 import { HoverLink } from "@/components/HoverLink"
 import Link from "@/components/link"
@@ -72,8 +73,7 @@ function Home() {
             <HoverLink text="Objective" href="https://objectiveit.com/" hoverColor="#E42655" />.
           </div>
           <div className="text-paragraph leading-[1.7]">
-            You can contact me via{" "}
-            <HoverLink text="email" href="mailto:contact@bartoszbak.org" hoverColor="#000000" />, or{" "}
+            You can contact me via <EmailCopy />, or{" "}
             <HoverLink
               text="LinkedIn"
               href="https://linkedin.com/in/bartek-bak"

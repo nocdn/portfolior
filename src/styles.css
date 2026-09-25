@@ -329,6 +329,25 @@ pre.th-code {
   text-decoration-skip-ink: auto;
 }
 
+/* Email morph link: Torph renders glyphs in nested inline-block spans, which
+   block ancestor text-decoration propagation, so the underline is specified
+   on the glyph spans themselves where it paints directly. Single letters
+   render as bare [torph-item] text; kinds that need masking (digits) get an
+   inner [torph-slot] > span, covered too. */
+.email-torph [torph-item],
+.email-torph [torph-slot] > span {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset: 3px;
+  text-decoration-skip-ink: auto;
+  transition: text-decoration-color 100ms;
+}
+
+.email-torph:hover [torph-item],
+.email-torph:hover [torph-slot] > span {
+  text-decoration-color: var(--hover-color);
+}
+
 code {
   font-weight: 400;
 }
