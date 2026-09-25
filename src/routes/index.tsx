@@ -4,9 +4,16 @@ import { Explorations } from "@/components/Explorations"
 import { HoverLink } from "@/components/HoverLink"
 import Link from "@/components/link"
 import { LinkText } from "@/components/LinkText"
+import { rippleText, type RippleColors } from "@/components/TextRipple"
 import { articles } from "@/data/articles"
 import { ArticleIcon } from "@/icons/articleIcon"
 import { createFileRoute } from "@tanstack/react-router"
+import { useEffect, useRef, type PointerEvent } from "react"
+
+const rippleColors = {
+  cloudflare: { body: "#FF5F07", heading: "#D94B00", muted: "#FF9A5B" },
+  objective: { body: "#E42655", heading: "#B71C43", muted: "#F27698" },
+} satisfies Record<string, RippleColors>
 
 const explorations = [
   {
@@ -52,9 +59,29 @@ export const Route = createFileRoute("/")({
 })
 
 function Home() {
+  const mainRef = useRef<HTMLElement>(null)
+  const stopRipple = useRef<(() => void) | null>(null)
+
+  useEffect(() => () => stopRipple.current?.(), [])
+
+  const handleRipple =
+    (key: keyof typeof rippleColors) => (event: PointerEvent<HTMLAnchorElement>) => {
+      if (stopRipple.current || event.pointerType !== "mouse") return
+      const main = mainRef.current
+      if (!main) return
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+
+      stopRipple.current = rippleText(main, event.clientX, event.clientY, rippleColors[key], () => {
+        stopRipple.current = null
+      })
+    }
+
   return (
-    <div className="font-inter bg-background text-foreground selection-warm text-[17px] font-[450] antialiased md:text-[16px]">
-      <main className="mx-auto flex w-full max-w-180 flex-col gap-16 px-6 pt-16 pb-24 md:pt-24">
+    <div className="font-inter bg-background text-foreground selection-warm relative text-[17px] font-[450] antialiased md:text-[16px]">
+      <main
+        ref={mainRef}
+        className="mx-auto flex w-full max-w-180 flex-col gap-16 px-6 pt-16 pb-24 md:pt-24"
+      >
         <div>
           <h1 className="text-[17px] font-medium tracking-tight md:text-[16px]">Bartek Bak</h1>
           <p className="text-muted-foreground">Intern at Cloudflare</p>
@@ -63,14 +90,25 @@ function Home() {
         <div className="flex flex-col gap-6">
           <div className="text-paragraph leading-[1.7]">
             I am currently on the UI platform team at{" "}
-            <HoverLink text="Cloudflare" href="https://www.cloudflare.com" hoverColor="#FF5F07" />,
-            where I work on the Dashboard, and the ways that people interact with the products.
+            <HoverLink
+              text="Cloudflare"
+              href="https://www.cloudflare.com"
+              hoverColor="#FF5F07"
+              onPointerEnter={handleRipple("cloudflare")}
+            />
+            , where I work on the Dashboard, and the ways that people interact with the products.
             Along with the team, I aim to make it a delightful and thoughtful experience.
           </div>
           <div className="text-paragraph leading-[1.7]">
             I study computer science at the University of York, and I was previously a software
             development intern at{" "}
-            <HoverLink text="Objective" href="https://objectiveit.com/" hoverColor="#E42655" />.
+            <HoverLink
+              text="Objective"
+              href="https://objectiveit.com/"
+              hoverColor="#E42655"
+              onPointerEnter={handleRipple("objective")}
+            />
+            .
           </div>
           <div className="text-paragraph leading-[1.7]">
             You can contact me via <EmailCopy />, or{" "}

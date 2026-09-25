@@ -329,6 +329,32 @@ pre.th-code {
   text-decoration-skip-ink: auto;
 }
 
+/* The mask reveals only this out-of-flow text copy; the real page keeps its
+   layout, colors and interactivity. Match the three text roles during the wave. */
+.text-ripple-overlay,
+.text-ripple-overlay * {
+  color: var(--ripple-body) !important;
+  text-decoration-color: currentColor !important;
+}
+
+.text-ripple-overlay h1,
+.text-ripple-overlay h2,
+.text-ripple-overlay h1 *,
+.text-ripple-overlay h2 * {
+  color: var(--ripple-heading) !important;
+}
+
+.text-ripple-overlay .text-muted-foreground,
+.text-ripple-overlay .text-muted-foreground * {
+  color: var(--ripple-muted) !important;
+}
+
+.text-ripple-overlay img,
+.text-ripple-overlay video,
+.text-ripple-overlay svg {
+  visibility: hidden !important;
+}
+
 /* Email morph link: Torph renders glyphs in nested inline-block spans, which
    block ancestor text-decoration propagation, so the underline is specified
    on the glyph spans themselves where it paints directly. Single letters

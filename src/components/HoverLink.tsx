@@ -1,13 +1,20 @@
-import type { CSSProperties } from "react"
+import type { CSSProperties, PointerEventHandler } from "react"
 
 type HoverLinkProps = {
   text: string
   href: string
   hoverColor: string
   className?: string
+  onPointerEnter?: PointerEventHandler<HTMLAnchorElement>
 }
 
-export function HoverLink({ text, href, hoverColor, className = "" }: HoverLinkProps) {
+export function HoverLink({
+  text,
+  href,
+  hoverColor,
+  className = "",
+  onPointerEnter,
+}: HoverLinkProps) {
   const isExternal = href.startsWith("http")
 
   return (
@@ -16,6 +23,7 @@ export function HoverLink({ text, href, hoverColor, className = "" }: HoverLinkP
       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       style={{ "--hover-color": hoverColor } as CSSProperties}
       className={`underline [text-decoration-color:color-mix(in_srgb,currentColor_35%,transparent)] underline-offset-[3px] transition-colors duration-100 [text-decoration-skip-ink:auto] hover:text-(--hover-color) hover:decoration-(--hover-color) ${className}`}
+      onPointerEnter={onPointerEnter}
     >
       {text}
     </a>
