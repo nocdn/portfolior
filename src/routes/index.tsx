@@ -152,7 +152,7 @@ function Home() {
             <div className="-mx-4 flex px-4 py-3">
               <ArticleHeading
                 title="Fixing the infamous Cloudflare error pages"
-                date="September 2026"
+                date="Coming soon"
                 href="upcoming-cloudflare-error-pages"
               />
             </div>

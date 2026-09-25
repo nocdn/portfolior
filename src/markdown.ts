@@ -29,7 +29,7 @@ You can contact me via [email](mailto:contact@bartoszbak.org), or [LinkedIn](htt
 
 - [My take on the Family Drawer](/writing/family-drawer) - August 2025
 - [Turning an old phone into an OTP server](/writing/otp-api) - March 2026
-- Fixing the infamous Cloudflare error pages - September 2026
+- Fixing the infamous Cloudflare error pages - Coming soon
 
 ## Explorations
 

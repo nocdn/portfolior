@@ -19,6 +19,9 @@ const PANEL_EASE: [number, number, number, number] = [0.215, 0.61, 0.355, 1]
 const FADE_IN_DURATION = 0.3
 const FADE_OUT_DURATION = 0.25
 const SUBTITLE_DELAY = 0.025
+const MEDIA_CLASS = "relative overflow-hidden rounded-lg"
+const MEDIA_SURFACE_CLASS =
+  "absolute inset-0 overflow-hidden rounded-lg bg-[var(--color-preview-bg)]"
 
 function cubicBezier(p1x: number, p1y: number, p2x: number, p2y: number) {
   const cx = 3 * p1x
@@ -517,39 +520,41 @@ export function ExplorationItem({
           >
             <div
               style={{ aspectRatio: `${width} / ${height}` }}
-              className="relative w-full overflow-hidden"
+              className={`${MEDIA_CLASS} w-full`}
             >
-              <img
-                src={placeholderSrc}
-                width={width}
-                height={height}
-                alt=""
-                aria-hidden="true"
-                className={`pointer-events-none h-full w-full select-none ${forwardReady ? "hidden" : ""}`}
-              />
-              <video
-                ref={videoRef}
-                src={shouldLoad ? src : undefined}
-                muted
-                loop
-                playsInline
-                preload={shouldLoad ? "auto" : "none"}
-                tabIndex={-1}
-                aria-hidden="true"
-                onCanPlay={handleCanPlay}
-                onError={onPreloadDone}
-                className={`h-full w-full outline-none select-none ${reversing ? "invisible" : "visible"}`}
-              />
-              <video
-                ref={reverseVideoRef}
-                src={shouldLoad ? reverseSrc : undefined}
-                muted
-                playsInline
-                preload={shouldLoad ? "auto" : "none"}
-                tabIndex={-1}
-                aria-hidden="true"
-                className={`pointer-events-none absolute inset-0 h-full w-full outline-none select-none ${reversing ? "visible" : "invisible"}`}
-              />
+              <div className={MEDIA_SURFACE_CLASS}>
+                <img
+                  src={placeholderSrc}
+                  width={width}
+                  height={height}
+                  alt=""
+                  aria-hidden="true"
+                  className={`pointer-events-none h-full w-full select-none ${forwardReady ? "hidden" : ""}`}
+                />
+                <video
+                  ref={videoRef}
+                  src={shouldLoad ? src : undefined}
+                  muted
+                  loop
+                  playsInline
+                  preload={shouldLoad ? "auto" : "none"}
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  onCanPlay={handleCanPlay}
+                  onError={onPreloadDone}
+                  className={`h-full w-full outline-none select-none ${reversing ? "invisible" : "visible"}`}
+                />
+                <video
+                  ref={reverseVideoRef}
+                  src={shouldLoad ? reverseSrc : undefined}
+                  muted
+                  playsInline
+                  preload={shouldLoad ? "auto" : "none"}
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className={`pointer-events-none absolute inset-0 h-full w-full outline-none select-none ${reversing ? "visible" : "invisible"}`}
+                />
+              </div>
             </div>
           </button>
           <m.div
@@ -609,43 +614,45 @@ export function ExplorationItem({
             // so the video never clips behind its siblings mid-animation
             if (!zoomedRef.current) setIsTop(false)
           }}
-          className={`relative overflow-hidden ${isTop ? "z-100" : "z-10"} ${zoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
+          className={`${MEDIA_CLASS} ${isTop ? "z-100" : "z-10"} ${zoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
           onClick={(event) => {
             event.stopPropagation()
             if (zoomed) unzoom(true)
             else zoom()
           }}
         >
-          <img
-            src={placeholderSrc}
-            width={width}
-            height={height}
-            alt=""
-            aria-hidden="true"
-            className={`pointer-events-none absolute inset-0 h-full w-full transition-[opacity,filter,transform] select-none ${mediaTransitionDuration} ease-[cubic-bezier(0.215,0.61,0.355,1)] ${forwardReady ? "blur-0 scale-100 opacity-0" : "scale-110 opacity-100 blur-[12px]"}`}
-          />
-          <video
-            ref={videoRef}
-            src={shouldLoad ? src : undefined}
-            muted
-            loop
-            playsInline
-            preload={shouldLoad ? "auto" : "none"}
-            tabIndex={-1}
-            onCanPlay={handleCanPlay}
-            onError={onPreloadDone}
-            className={`pointer-events-none absolute inset-0 h-full w-full transition-[opacity,filter] outline-none select-none ${mediaTransitionDuration} ease-[cubic-bezier(0.215,0.61,0.355,1)] ${reversing ? "invisible" : "visible"} ${forwardReady ? "blur-0 opacity-100" : "opacity-0 blur-[12px]"}`}
-          />
-          <video
-            ref={reverseVideoRef}
-            src={shouldLoad ? reverseSrc : undefined}
-            muted
-            playsInline
-            preload={shouldLoad ? "auto" : "none"}
-            tabIndex={-1}
-            aria-hidden="true"
-            className={`pointer-events-none absolute inset-0 h-full w-full outline-none select-none ${reversing ? "visible" : "invisible"}`}
-          />
+          <div className={MEDIA_SURFACE_CLASS}>
+            <img
+              src={placeholderSrc}
+              width={width}
+              height={height}
+              alt=""
+              aria-hidden="true"
+              className={`pointer-events-none absolute inset-0 h-full w-full transition-[opacity,filter,transform] select-none ${mediaTransitionDuration} ease-[cubic-bezier(0.215,0.61,0.355,1)] ${forwardReady ? "blur-0 scale-100 opacity-0" : "scale-110 opacity-100 blur-[12px]"}`}
+            />
+            <video
+              ref={videoRef}
+              src={shouldLoad ? src : undefined}
+              muted
+              loop
+              playsInline
+              preload={shouldLoad ? "auto" : "none"}
+              tabIndex={-1}
+              onCanPlay={handleCanPlay}
+              onError={onPreloadDone}
+              className={`pointer-events-none absolute inset-0 h-full w-full transition-[opacity,filter] outline-none select-none ${mediaTransitionDuration} ease-[cubic-bezier(0.215,0.61,0.355,1)] ${reversing ? "invisible" : "visible"} ${forwardReady ? "blur-0 opacity-100" : "opacity-0 blur-[12px]"}`}
+            />
+            <video
+              ref={reverseVideoRef}
+              src={shouldLoad ? reverseSrc : undefined}
+              muted
+              playsInline
+              preload={shouldLoad ? "auto" : "none"}
+              tabIndex={-1}
+              aria-hidden="true"
+              className={`pointer-events-none absolute inset-0 h-full w-full outline-none select-none ${reversing ? "visible" : "invisible"}`}
+            />
+          </div>
         </m.div>
         <m.div
           initial={false}
