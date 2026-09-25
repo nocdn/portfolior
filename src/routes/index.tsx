@@ -1,4 +1,4 @@
-import { ArticleTitle } from "@/components/ArticleTitle"
+import { ArticleHeading } from "@/components/ArticleHeading"
 import { EmailCopy } from "@/components/EmailCopy"
 import { Explorations } from "@/components/Explorations"
 import { HoverLink } from "@/components/HoverLink"
@@ -6,7 +6,6 @@ import Link from "@/components/link"
 import { LinkText } from "@/components/LinkText"
 import { rippleText, type RippleColors } from "@/components/TextRipple"
 import { articles } from "@/data/articles"
-import { ArticleIcon } from "@/icons/articleIcon"
 import { createFileRoute } from "@tanstack/react-router"
 import { useEffect, useRef, type PointerEvent } from "react"
 
@@ -137,24 +136,24 @@ function Home() {
               <Link
                 key={article.href}
                 href={article.href}
-                className="hover:bg-muted -mx-4 flex items-start gap-4 rounded-md px-4 py-3"
+                className="hover:bg-muted -mx-4 flex rounded-md px-4 py-3"
               >
-                <ArticleIcon seed={article.href} />
-                <ArticleTitle
+                <ArticleHeading
                   title={
                     article.href.includes("otp-api")
                       ? "Turning an old phone into an OTP server"
                       : article.title
                   }
                   date={article.date}
+                  href={article.href}
                 />
               </Link>
             ))}
-            <div className="-mx-4 flex items-start gap-4 px-4 py-3">
-              <ArticleIcon seed="upcoming-cloudflare-error-pages" />
-              <ArticleTitle
+            <div className="-mx-4 flex px-4 py-3">
+              <ArticleHeading
                 title="Fixing the infamous Cloudflare error pages"
                 date="September 2026"
+                href="upcoming-cloudflare-error-pages"
               />
             </div>
           </div>
