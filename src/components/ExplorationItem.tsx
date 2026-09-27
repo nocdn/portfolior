@@ -66,6 +66,32 @@ const reverseEase = cubicBezier(0.215, 0.61, 0.355, 1)
 // server rendering always sees an empty set (no cross-request leakage).
 const readyVideos = new Set<string>()
 
+// Videos play from in-memory blob URLs, which are always seekable. A server
+// that ignores Range requests (plain 200s) makes every seek land at 0, so the
+// reverse clip would replay from its start instead of from the hover point.
+// Kept for the page lifetime so remounts reuse them; only touched from effects.
+const videoUrls = new Map<string, string>()
+const videoRequests = new Map<string, Promise<string>>()
+
+function loadVideoUrl(url: string): Promise<string> {
+  let request = videoRequests.get(url)
+  if (!request) {
+    request = fetch(url)
+      .then((response) => {
+        if (!response.ok) throw new Error(`Failed to load ${url}: ${response.status}`)
+        return response.blob()
+      })
+      .then((blob) => {
+        const objectUrl = URL.createObjectURL(blob)
+        videoUrls.set(url, objectUrl)
+        return objectUrl
+      })
+      .catch(() => url)
+    videoRequests.set(url, request)
+  }
+  return request
+}
+
 export function ExplorationItem({
   src,
   reverseSrc,
@@ -110,6 +136,8 @@ export function ExplorationItem({
   // client-side event handlers, so SSR always sees it empty (no mismatch)
   const [shouldLoad, setShouldLoad] = useState(() => eager || readyVideos.has(src))
   const [forwardReady, setForwardReady] = useState(() => readyVideos.has(src))
+  const [forwardUrl, setForwardUrl] = useState(() => videoUrls.get(src))
+  const [reverseUrl, setReverseUrl] = useState(() => videoUrls.get(reverseSrc))
   const [panelOpen, setPanelOpen] = useState(false)
   const [translation, setTranslation] = useState({ x: 0, y: 0 })
   const [isMobile, setIsMobile] = useState(false)
@@ -130,6 +158,20 @@ export function ExplorationItem({
   useEffect(() => {
     if (eager) ensureMediaLoaded()
   }, [eager, ensureMediaLoaded])
+
+  useEffect(() => {
+    if (!shouldLoad) return
+    let cancelled = false
+    loadVideoUrl(src).then((url) => {
+      if (!cancelled) setForwardUrl(url)
+    })
+    loadVideoUrl(reverseSrc).then((url) => {
+      if (!cancelled) setReverseUrl(url)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [shouldLoad, src, reverseSrc])
 
   useEffect(
     () => () => {
@@ -176,7 +218,7 @@ export function ExplorationItem({
   useEffect(() => {
     const video = videoRef.current
     if (video && video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) handleCanPlay()
-  }, [isMobile, shouldLoad, handleCanPlay])
+  }, [isMobile, forwardUrl, handleCanPlay])
 
   const releaseHoverLock = useCallback(() => {
     lockCleanupRef.current?.()
@@ -533,11 +575,11 @@ export function ExplorationItem({
                 />
                 <video
                   ref={videoRef}
-                  src={shouldLoad ? src : undefined}
+                  src={forwardUrl}
                   muted
                   loop
                   playsInline
-                  preload={shouldLoad ? "auto" : "none"}
+                  preload={forwardUrl ? "auto" : "none"}
                   tabIndex={-1}
                   aria-hidden="true"
                   onCanPlay={handleCanPlay}
@@ -546,10 +588,10 @@ export function ExplorationItem({
                 />
                 <video
                   ref={reverseVideoRef}
-                  src={shouldLoad ? reverseSrc : undefined}
+                  src={reverseUrl}
                   muted
                   playsInline
-                  preload={shouldLoad ? "auto" : "none"}
+                  preload={reverseUrl ? "auto" : "none"}
                   tabIndex={-1}
                   aria-hidden="true"
                   className={`pointer-events-none absolute inset-0 h-full w-full outline-none select-none ${reversing ? "visible" : "invisible"}`}
@@ -632,11 +674,11 @@ export function ExplorationItem({
             />
             <video
               ref={videoRef}
-              src={shouldLoad ? src : undefined}
+              src={forwardUrl}
               muted
               loop
               playsInline
-              preload={shouldLoad ? "auto" : "none"}
+              preload={forwardUrl ? "auto" : "none"}
               tabIndex={-1}
               onCanPlay={handleCanPlay}
               onError={onPreloadDone}
@@ -644,10 +686,10 @@ export function ExplorationItem({
             />
             <video
               ref={reverseVideoRef}
-              src={shouldLoad ? reverseSrc : undefined}
+              src={reverseUrl}
               muted
               playsInline
-              preload={shouldLoad ? "auto" : "none"}
+              preload={reverseUrl ? "auto" : "none"}
               tabIndex={-1}
               aria-hidden="true"
               className={`pointer-events-none absolute inset-0 h-full w-full outline-none select-none ${reversing ? "visible" : "invisible"}`}
