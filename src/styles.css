@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* explorations generate their own utilities in route-scoped stylesheets */
+@source not "./explorations";
 
 @custom-variant dark (&:is(.dark, .dark *));
 

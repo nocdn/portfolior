@@ -4,6 +4,12 @@ const urls = [
   { loc: "https://bartoszbak.org", changefreq: "monthly", priority: "1.0" },
   { loc: "https://bartoszbak.org/writing/family-drawer", changefreq: "monthly", priority: "0.8" },
   { loc: "https://bartoszbak.org/writing/otp-api", changefreq: "monthly", priority: "0.8" },
+  { loc: "https://bartoszbak.org/explorations", changefreq: "monthly", priority: "0.6" },
+  {
+    loc: "https://bartoszbak.org/explorations/chatgpt-effort-picker",
+    changefreq: "monthly",
+    priority: "0.6",
+  },
 ]
 
 export const Route = createFileRoute("/sitemap.xml")({

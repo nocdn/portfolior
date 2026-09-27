@@ -55,8 +55,15 @@ const explorations = [
     width: 758,
     height: 640,
     title: "ChatGPT effort picker",
-    description:
-      "Prove that you are worthy to wield higher intelligence, by solving some math problems",
+    description: (
+      <>
+        Prove that you are worthy to wield higher intelligence, by solving some math problems. Try
+        it yourself{" "}
+        <LinkText url="/explorations/chatgpt-effort-picker" className="text-foreground">
+          here
+        </LinkText>
+      </>
+    ),
   },
 ]
 
