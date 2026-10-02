@@ -4,11 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev --port 3000",
-    "build": "BUILD_ID=$(git rev-parse --short HEAD) vite build",
+    "dev": "cf dev",
+    "build": "BUILD_ID=$(git rev-parse --short HEAD) cf build",
     "preview": "vite preview",
-    "deploy": "bun run build && wrangler deploy",
-    "cf-typegen": "wrangler types",
+    "deploy": "bun run build && cf deploy --prebuilt --mode production",
+    "deploy:staging": "BUILD_ID=$(git rev-parse --short HEAD) cf deploy --mode staging",
+    "cf-typegen": "cf workers types",
     "lint": "prettier --check .",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit"
@@ -30,19 +31,19 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.56.0",
+    "@cloudflare/vite-plugin": "^2.0.0-beta.sha-52b0dc0e9",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.6.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.0.1",
+    "cf": "^1.0.0-beta.12",
     "prettier": "^3.9.8",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "vite": "^8.3.0",
-    "vite-tsconfig-paths": "^5.1.4",
-    "wrangler": "^4.135.0"
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

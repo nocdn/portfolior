@@ -19,6 +19,7 @@
 
 # vite / tanstack start
 /dist
+/.cloudflare/
 /worker-configuration.d.ts
 /wrangler
 src/routeTree.gen.ts
