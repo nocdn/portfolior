@@ -8,7 +8,7 @@
     "build": "BUILD_ID=$(git rev-parse --short HEAD) cf build",
     "preview": "vite preview",
     "deploy": "bun run build && cf deploy --prebuilt --mode production",
-    "deploy:staging": "BUILD_ID=$(git rev-parse --short HEAD) cf deploy --mode staging",
+    "deploy:staging": "BUILD_ID=$(git rev-parse --short HEAD) vite build --mode staging && cf deploy --prebuilt --mode staging",
     "cf-typegen": "cf workers types",
     "lint": "prettier --check .",
     "format": "prettier --write .",
