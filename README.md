@@ -24,6 +24,10 @@ cf deploy --prebuilt --mode production --dry-run
 Deployment uses the authenticated Cloudflare CLI (`cf`) and `cloudflare.config.ts`.
 Commit before deploying so the HTML cache's build ID matches the deployed revision.
 
+Cloudflare Workers Builds automatically deploys pushes to `main` from `nocdn/portfolior`.
+The production build runs `bun run typecheck && bun run build`, then deploys that build
+with `bunx cf deploy --prebuilt --mode production`.
+
 ```sh
 # Production: portfolior, bartoszbak.org and www.bartoszbak.org
 bun run deploy

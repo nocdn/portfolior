@@ -16,22 +16,6 @@ const rippleColors = {
 
 const explorations = [
   {
-    src: "/videos/emdashloader.mp4",
-    reverseSrc: "/videos/emdashloader-reverse.mp4",
-    placeholderSrc: "/videos/emdashloader-placeholder.jpg",
-    width: 688,
-    height: 640,
-    title: "EmDash loading stepper",
-    description: (
-      <>
-        An upgrade I made to the playground loading screen, try it live{" "}
-        <LinkText url="https://try.emdashcms.com/" className="text-foreground">
-          here
-        </LinkText>
-      </>
-    ),
-  },
-  {
     src: "/videos/dashboardillustration.mp4",
     reverseSrc: "/videos/dashboardillustration-reverse.mp4",
     placeholderSrc: "/videos/dashboardillustration-placeholder.jpg",
@@ -44,6 +28,22 @@ const explorations = [
         a little less annoying to hit one. Original cloud SVG by{" "}
         <LinkText url="https://x.com/BalintFerenczy" className="text-foreground">
           Bálint Ferenczy
+        </LinkText>
+      </>
+    ),
+  },
+  {
+    src: "/videos/emdashloader.mp4",
+    reverseSrc: "/videos/emdashloader-reverse.mp4",
+    placeholderSrc: "/videos/emdashloader-placeholder.jpg",
+    width: 688,
+    height: 640,
+    title: "EmDash loading stepper",
+    description: (
+      <>
+        An upgrade I made to the playground loading screen, try it live{" "}
+        <LinkText url="https://try.emdashcms.com/" className="text-foreground">
+          here
         </LinkText>
       </>
     ),
