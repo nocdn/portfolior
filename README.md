@@ -14,8 +14,8 @@ Open [http://localhost:3000](http://localhost:3000). The homepage is in `src/rou
 ## Validation
 
 ```sh
-bun run typecheck
 bun run build
+bun run typecheck
 cf deploy --prebuilt --mode production --dry-run
 ```
 
@@ -25,8 +25,9 @@ Deployment uses the authenticated Cloudflare CLI (`cf`) and `cloudflare.config.t
 Commit before deploying so the HTML cache's build ID matches the deployed revision.
 
 Cloudflare Workers Builds automatically deploys pushes to `main` from `nocdn/portfolior`.
-The production build runs `bun run typecheck && bun run build`, then deploys that build
+The production build runs `bun run build && bun run typecheck`, then deploys that build
 with `bunx cf deploy --prebuilt --mode production`.
+Build before typechecking on a fresh checkout so TanStack generates `src/routeTree.gen.ts`.
 
 ```sh
 # Production: portfolior, bartoszbak.org and www.bartoszbak.org
