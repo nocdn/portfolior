@@ -73,10 +73,16 @@ const readyVideos = new Set<string>()
 const videoUrls = new Map<string, string>()
 const videoRequests = new Map<string, Promise<string>>()
 
-function loadVideoUrl(url: string): Promise<string> {
+function loadVideoUrl(url: string, fallbackUrl?: string): Promise<string> {
   let request = videoRequests.get(url)
   if (!request) {
-    request = fetch(url)
+    const sourceUrl =
+      fallbackUrl &&
+      url.endsWith(".webm") &&
+      !document.createElement("video").canPlayType('video/webm; codecs="vp9"')
+        ? fallbackUrl
+        : url
+    request = fetch(sourceUrl)
       .then((response) => {
         if (!response.ok) throw new Error(`Failed to load ${url}: ${response.status}`)
         return response.blob()
@@ -86,7 +92,7 @@ function loadVideoUrl(url: string): Promise<string> {
         videoUrls.set(url, objectUrl)
         return objectUrl
       })
-      .catch(() => url)
+      .catch(() => sourceUrl)
     videoRequests.set(url, request)
   }
   return request
@@ -95,6 +101,8 @@ function loadVideoUrl(url: string): Promise<string> {
 export function ExplorationItem({
   src,
   reverseSrc,
+  fallbackSrc,
+  reverseFallbackSrc,
   placeholderSrc,
   width,
   height,
@@ -107,6 +115,8 @@ export function ExplorationItem({
 }: {
   src: string
   reverseSrc: string
+  fallbackSrc?: string
+  reverseFallbackSrc?: string
   placeholderSrc: string
   width: number
   height: number
@@ -162,16 +172,16 @@ export function ExplorationItem({
   useEffect(() => {
     if (!shouldLoad) return
     let cancelled = false
-    loadVideoUrl(src).then((url) => {
+    loadVideoUrl(src, fallbackSrc).then((url) => {
       if (!cancelled) setForwardUrl(url)
     })
-    loadVideoUrl(reverseSrc).then((url) => {
+    loadVideoUrl(reverseSrc, reverseFallbackSrc).then((url) => {
       if (!cancelled) setReverseUrl(url)
     })
     return () => {
       cancelled = true
     }
-  }, [shouldLoad, src, reverseSrc])
+  }, [shouldLoad, src, reverseSrc, fallbackSrc, reverseFallbackSrc])
 
   useEffect(
     () => () => {

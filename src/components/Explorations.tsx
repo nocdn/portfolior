@@ -5,6 +5,8 @@ import { ExplorationItem } from "./ExplorationItem"
 export type Exploration = {
   src: string
   reverseSrc: string
+  fallbackSrc?: string
+  reverseFallbackSrc?: string
   placeholderSrc: string
   width: number
   height: number
@@ -32,6 +34,8 @@ export function Explorations({ items }: { items: Exploration[] }) {
           key={item.src}
           src={item.src}
           reverseSrc={item.reverseSrc}
+          fallbackSrc={item.fallbackSrc}
+          reverseFallbackSrc={item.reverseFallbackSrc}
           placeholderSrc={item.placeholderSrc}
           width={item.width}
           height={item.height}

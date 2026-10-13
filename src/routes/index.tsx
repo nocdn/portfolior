@@ -16,8 +16,10 @@ const rippleColors = {
 
 const explorations = [
   {
-    src: "/videos/dashboardillustration.mp4",
-    reverseSrc: "/videos/dashboardillustration-reverse.mp4",
+    src: "/videos/dashboardillustration.webm",
+    reverseSrc: "/videos/dashboardillustration-reverse.webm",
+    fallbackSrc: "/videos/dashboardillustration.mp4",
+    reverseFallbackSrc: "/videos/dashboardillustration-reverse.mp4",
     placeholderSrc: "/videos/dashboardillustration-placeholder.jpg",
     width: 948,
     height: 640,
@@ -33,8 +35,10 @@ const explorations = [
     ),
   },
   {
-    src: "/videos/emdashloader.mp4",
-    reverseSrc: "/videos/emdashloader-reverse.mp4",
+    src: "/videos/emdashloader.webm",
+    reverseSrc: "/videos/emdashloader-reverse.webm",
+    fallbackSrc: "/videos/emdashloader.mp4",
+    reverseFallbackSrc: "/videos/emdashloader-reverse.mp4",
     placeholderSrc: "/videos/emdashloader-placeholder.jpg",
     width: 688,
     height: 640,
@@ -49,8 +53,10 @@ const explorations = [
     ),
   },
   {
-    src: "/videos/reasoningeffort.mp4",
-    reverseSrc: "/videos/reasoningeffort-reverse.mp4",
+    src: "/videos/reasoningeffort.webm",
+    reverseSrc: "/videos/reasoningeffort-reverse.webm",
+    fallbackSrc: "/videos/reasoningeffort.mp4",
+    reverseFallbackSrc: "/videos/reasoningeffort-reverse.mp4",
     placeholderSrc: "/videos/reasoningeffort-placeholder.jpg",
     width: 758,
     height: 640,
