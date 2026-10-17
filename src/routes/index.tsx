@@ -78,7 +78,7 @@ const explorations: Exploration[] = [
     height: 1298,
     alt: "An iMessage saying 'I have just had the most stressful day ever.' with a proactive suggestion to attach heart rate data from Health above the keyboard.",
     title: "An unempathetic suggestion",
-    description: "What if apple intelligence was even more proactive, if not a little tone deaf",
+    description: "What if apple intelligence was even more proactive, if not a little tone-deaf",
   },
 ]
 
