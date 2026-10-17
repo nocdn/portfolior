@@ -1,4 +1,6 @@
-import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react"
+import { useCallback, useEffect, useId, useRef, useState } from "react"
+
+import type { Exploration } from "./Explorations"
 
 import {
   AnimatePresence,
@@ -100,10 +102,6 @@ function loadVideoUrl(url: string, fallbackUrl?: string): Promise<string> {
 
 export function ExplorationItem({
   src,
-  reverseSrc,
-  fallbackSrc,
-  reverseFallbackSrc,
-  placeholderSrc,
   width,
   height,
   title,
@@ -112,21 +110,15 @@ export function ExplorationItem({
   onPreloadDone,
   expanded,
   onToggle,
-}: {
-  src: string
-  reverseSrc: string
-  fallbackSrc?: string
-  reverseFallbackSrc?: string
-  placeholderSrc: string
-  width: number
-  height: number
-  title: string
-  description: ReactNode
+  ...media
+}: Exploration & {
   eager: boolean
   onPreloadDone?: () => void
   expanded: boolean
   onToggle: () => void
 }) {
+  const isImage = media.type === "image"
+  const { reverseSrc = "", fallbackSrc, reverseFallbackSrc, placeholderSrc } = isImage ? {} : media
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const reverseVideoRef = useRef<HTMLVideoElement | null>(null)
   const itemRef = useRef<HTMLDivElement | null>(null)
@@ -170,7 +162,7 @@ export function ExplorationItem({
   }, [eager, ensureMediaLoaded])
 
   useEffect(() => {
-    if (!shouldLoad) return
+    if (isImage || !shouldLoad) return
     let cancelled = false
     loadVideoUrl(src, fallbackSrc).then((url) => {
       if (!cancelled) setForwardUrl(url)
@@ -181,7 +173,7 @@ export function ExplorationItem({
     return () => {
       cancelled = true
     }
-  }, [shouldLoad, src, reverseSrc, fallbackSrc, reverseFallbackSrc])
+  }, [isImage, shouldLoad, src, reverseSrc, fallbackSrc, reverseFallbackSrc])
 
   useEffect(
     () => () => {
@@ -575,37 +567,53 @@ export function ExplorationItem({
               className={`${MEDIA_CLASS} w-full`}
             >
               <div className={MEDIA_SURFACE_CLASS}>
-                <img
-                  src={placeholderSrc}
-                  width={width}
-                  height={height}
-                  alt=""
-                  aria-hidden="true"
-                  className={`pointer-events-none h-full w-full select-none ${forwardReady ? "hidden" : ""}`}
-                />
-                <video
-                  ref={videoRef}
-                  src={forwardUrl}
-                  muted
-                  loop
-                  playsInline
-                  preload={forwardUrl ? "auto" : "none"}
-                  tabIndex={-1}
-                  aria-hidden="true"
-                  onCanPlay={handleCanPlay}
-                  onError={onPreloadDone}
-                  className={`h-full w-full outline-none select-none ${reversing ? "invisible" : "visible"}`}
-                />
-                <video
-                  ref={reverseVideoRef}
-                  src={reverseUrl}
-                  muted
-                  playsInline
-                  preload={reverseUrl ? "auto" : "none"}
-                  tabIndex={-1}
-                  aria-hidden="true"
-                  className={`pointer-events-none absolute inset-0 h-full w-full outline-none select-none ${reversing ? "visible" : "invisible"}`}
-                />
+                {media.type === "image" ? (
+                  <img
+                    src={src}
+                    width={width}
+                    height={height}
+                    alt={media.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="pointer-events-none h-full w-full select-none"
+                    onLoad={onPreloadDone}
+                    onError={onPreloadDone}
+                  />
+                ) : (
+                  <>
+                    <img
+                      src={placeholderSrc}
+                      width={width}
+                      height={height}
+                      alt=""
+                      aria-hidden="true"
+                      className={`pointer-events-none h-full w-full select-none ${forwardReady ? "hidden" : ""}`}
+                    />
+                    <video
+                      ref={videoRef}
+                      src={forwardUrl}
+                      muted
+                      loop
+                      playsInline
+                      preload={forwardUrl ? "auto" : "none"}
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      onCanPlay={handleCanPlay}
+                      onError={onPreloadDone}
+                      className={`h-full w-full outline-none select-none ${reversing ? "invisible" : "visible"}`}
+                    />
+                    <video
+                      ref={reverseVideoRef}
+                      src={reverseUrl}
+                      muted
+                      playsInline
+                      preload={reverseUrl ? "auto" : "none"}
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className={`pointer-events-none absolute inset-0 h-full w-full outline-none select-none ${reversing ? "visible" : "invisible"}`}
+                    />
+                  </>
+                )}
               </div>
             </div>
           </button>
@@ -654,7 +662,11 @@ export function ExplorationItem({
       >
         <m.div
           ref={itemRef}
-          style={{ width: width / 2, maxWidth: "100%", aspectRatio: `${width} / ${height}` }}
+          style={{
+            width: (width / height) * 320,
+            maxWidth: "100%",
+            aspectRatio: `${width} / ${height}`,
+          }}
           animate={{
             scale: zoomed ? zoomScale : 1,
             x: zoomed ? translation.x : 0,
@@ -674,36 +686,52 @@ export function ExplorationItem({
           }}
         >
           <div className={MEDIA_SURFACE_CLASS}>
-            <img
-              src={placeholderSrc}
-              width={width}
-              height={height}
-              alt=""
-              aria-hidden="true"
-              className={`pointer-events-none absolute inset-0 h-full w-full transition-[opacity,filter,transform] select-none ${mediaTransitionDuration} ease-[cubic-bezier(0.215,0.61,0.355,1)] ${forwardReady ? "blur-0 scale-100 opacity-0" : "scale-110 opacity-100 blur-[12px]"}`}
-            />
-            <video
-              ref={videoRef}
-              src={forwardUrl}
-              muted
-              loop
-              playsInline
-              preload={forwardUrl ? "auto" : "none"}
-              tabIndex={-1}
-              onCanPlay={handleCanPlay}
-              onError={onPreloadDone}
-              className={`pointer-events-none absolute inset-0 h-full w-full transition-[opacity,filter] outline-none select-none ${mediaTransitionDuration} ease-[cubic-bezier(0.215,0.61,0.355,1)] ${reversing ? "invisible" : "visible"} ${forwardReady ? "blur-0 opacity-100" : "opacity-0 blur-[12px]"}`}
-            />
-            <video
-              ref={reverseVideoRef}
-              src={reverseUrl}
-              muted
-              playsInline
-              preload={reverseUrl ? "auto" : "none"}
-              tabIndex={-1}
-              aria-hidden="true"
-              className={`pointer-events-none absolute inset-0 h-full w-full outline-none select-none ${reversing ? "visible" : "invisible"}`}
-            />
+            {media.type === "image" ? (
+              <img
+                src={src}
+                width={width}
+                height={height}
+                alt={media.alt}
+                loading="lazy"
+                decoding="async"
+                className="pointer-events-none h-full w-full select-none"
+                onLoad={onPreloadDone}
+                onError={onPreloadDone}
+              />
+            ) : (
+              <>
+                <img
+                  src={placeholderSrc}
+                  width={width}
+                  height={height}
+                  alt=""
+                  aria-hidden="true"
+                  className={`pointer-events-none absolute inset-0 h-full w-full transition-[opacity,filter,transform] select-none ${mediaTransitionDuration} ease-[cubic-bezier(0.215,0.61,0.355,1)] ${forwardReady ? "blur-0 scale-100 opacity-0" : "scale-110 opacity-100 blur-[12px]"}`}
+                />
+                <video
+                  ref={videoRef}
+                  src={forwardUrl}
+                  muted
+                  loop
+                  playsInline
+                  preload={forwardUrl ? "auto" : "none"}
+                  tabIndex={-1}
+                  onCanPlay={handleCanPlay}
+                  onError={onPreloadDone}
+                  className={`pointer-events-none absolute inset-0 h-full w-full transition-[opacity,filter] outline-none select-none ${mediaTransitionDuration} ease-[cubic-bezier(0.215,0.61,0.355,1)] ${reversing ? "invisible" : "visible"} ${forwardReady ? "blur-0 opacity-100" : "opacity-0 blur-[12px]"}`}
+                />
+                <video
+                  ref={reverseVideoRef}
+                  src={reverseUrl}
+                  muted
+                  playsInline
+                  preload={reverseUrl ? "auto" : "none"}
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className={`pointer-events-none absolute inset-0 h-full w-full outline-none select-none ${reversing ? "visible" : "invisible"}`}
+                />
+              </>
+            )}
           </div>
         </m.div>
         <m.div

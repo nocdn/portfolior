@@ -14,7 +14,7 @@ export const LinkText = ({
   className?: string
   iconClassName?: string
 }) => {
-  const classes = `inline-flex items-center dark:text-white ${className ?? ""}`
+  const classes = `inline-flex items-center ${className ?? ""}`
   const content = (
     <>
       {children} <ArrowExternalLink className={`ml-0.5 translate-y-px ${iconClassName ?? ""}`} />

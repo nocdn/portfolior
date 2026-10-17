@@ -4,15 +4,20 @@ import { ExplorationItem } from "./ExplorationItem"
 
 export type Exploration = {
   src: string
-  reverseSrc: string
-  fallbackSrc?: string
-  reverseFallbackSrc?: string
-  placeholderSrc: string
   width: number
   height: number
   title: string
   description: ReactNode
-}
+} & (
+  | { type: "image"; alt: string }
+  | {
+      type?: "video"
+      reverseSrc: string
+      fallbackSrc?: string
+      reverseFallbackSrc?: string
+      placeholderSrc: string
+    }
+)
 
 export function Explorations({ items }: { items: Exploration[] }) {
   const [openSrc, setOpenSrc] = useState<string | null>(null)
@@ -32,15 +37,7 @@ export function Explorations({ items }: { items: Exploration[] }) {
       {items.map((item, index) => (
         <ExplorationItem
           key={item.src}
-          src={item.src}
-          reverseSrc={item.reverseSrc}
-          fallbackSrc={item.fallbackSrc}
-          reverseFallbackSrc={item.reverseFallbackSrc}
-          placeholderSrc={item.placeholderSrc}
-          width={item.width}
-          height={item.height}
-          title={item.title}
-          description={item.description}
+          {...item}
           eager={index === 0 || firstReady}
           onPreloadDone={index === 0 ? startNextVideo : undefined}
           expanded={openSrc === item.src}

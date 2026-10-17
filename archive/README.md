@@ -1,4 +1,6 @@
-# Original recordings
+# Original assets
+
+## Recordings
 
 These recordings were copied unchanged from `~/Downloads` on 13 October 2026.
 They are kept here for archival purposes, outside the published `public` assets.
@@ -11,3 +13,15 @@ They are kept here for archival purposes, outside the published `public` assets.
 The homepage WebM files were encoded from the existing edited MP4s in
 `public/videos`, preserving their trims and edits. These archived originals were
 not used for the final WebM conversion.
+
+## Explorations
+
+These files were copied unchanged from `~/Downloads` on 17 October 2026,
+before creating the optimized homepage image. Both originals are kept outside
+the published `public` assets.
+
+- [attach-heart-rate.png](explorations/attach-heart-rate/attach-heart-rate.png): the original image for "An unempathetic suggestion".
+- [share-heart-rate-test.af](explorations/attach-heart-rate/share-heart-rate-test.af): the accompanying design source file.
+
+The homepage uses `public/images/attach-heart-rate.webp`, a lossless WebP
+conversion at the original 1179 × 1298 resolution, with transparency preserved.

@@ -1,6 +1,6 @@
 import { ArticleHeading } from "@/components/ArticleHeading"
 import { EmailCopy } from "@/components/EmailCopy"
-import { Explorations } from "@/components/Explorations"
+import { Explorations, type Exploration } from "@/components/Explorations"
 import { HoverLink } from "@/components/HoverLink"
 import Link from "@/components/link"
 import { LinkText } from "@/components/LinkText"
@@ -14,7 +14,7 @@ const rippleColors = {
   objective: { body: "#E42655", heading: "#B71C43", muted: "#F27698" },
 } satisfies Record<string, RippleColors>
 
-const explorations = [
+const explorations: Exploration[] = [
   {
     src: "/videos/dashboardillustration.webm",
     reverseSrc: "/videos/dashboardillustration-reverse.webm",
@@ -45,7 +45,7 @@ const explorations = [
     title: "EmDash loading stepper",
     description: (
       <>
-        An upgrade I made to the playground loading screen, try it live{" "}
+        An upgrade I made to the CMS&apos; playground loading screen, try it live{" "}
         <LinkText url="https://try.emdashcms.com/" className="text-foreground">
           here
         </LinkText>
@@ -70,6 +70,15 @@ const explorations = [
         </LinkText>
       </>
     ),
+  },
+  {
+    type: "image",
+    src: "/images/attach-heart-rate.webp",
+    width: 1179,
+    height: 1298,
+    alt: "An iMessage saying 'I have just had the most stressful day ever.' with a proactive suggestion to attach heart rate data from Health above the keyboard.",
+    title: "An unempathetic suggestion",
+    description: "What if apple intelligence was even more proactive, if not a little tone deaf",
   },
 ]
 
