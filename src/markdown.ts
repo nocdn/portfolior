@@ -33,6 +33,8 @@ You can contact me via [email](mailto:contact@bartoszbak.org), or [LinkedIn](htt
 
 ## Explorations
 
+Random ideas and some work
+
 - [Dashboard illustration](/videos/dashboardillustration.webm) - Added interactivity with the signature glow colour to dashboard's 404 pages, to make it a little less annoying to hit one. Original cloud SVG by [Bálint Ferenczy](https://x.com/BalintFerenczy)
 - [EmDash loading stepper](/videos/emdashloader.webm) - An upgrade I made to the CMS' playground loading screen, try it live [here](https://try.emdashcms.com/)
 - [ChatGPT effort picker](/videos/reasoningeffort.webm) - Prove that you are worthy to wield higher intelligence, by solving some math problems. Try it yourself [here](/explorations/chatgpt-effort-picker)

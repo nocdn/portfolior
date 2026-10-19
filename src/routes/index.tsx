@@ -194,7 +194,7 @@ function Home() {
         <div className="flex flex-col gap-6">
           <div>
             <h2 className="text-[17px] font-medium tracking-tight md:text-[16px]">Explorations</h2>
-            <p className="text-muted-foreground hidden md:block">Hover to play</p>
+            <p className="text-muted-foreground hidden md:block">Random ideas and some work</p>
             <p className="text-muted-foreground md:hidden">Click for context</p>
           </div>
           <div className="flex flex-col items-start gap-6">
