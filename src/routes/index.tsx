@@ -126,8 +126,8 @@ function Home() {
           <p className="text-muted-foreground">Intern at Cloudflare</p>
         </div>
 
-        <div className="flex flex-col gap-6">
-          <div className="text-paragraph leading-[1.7]">
+        <div className="body-copy flex flex-col gap-6">
+          <p className="text-paragraph">
             I am currently on the UI platform team at{" "}
             <HoverLink
               text="Cloudflare"
@@ -137,8 +137,8 @@ function Home() {
             />
             , where I work on the Dashboard, and the ways that people interact with the products.
             Along with the team, I aim to make it a delightful and thoughtful experience.
-          </div>
-          <div className="text-paragraph leading-[1.7]">
+          </p>
+          <p className="text-paragraph">
             I study computer science at the University of York, and I was previously a software
             development intern at{" "}
             <HoverLink
@@ -148,8 +148,8 @@ function Home() {
               onPointerEnter={handleRipple("objective")}
             />
             .
-          </div>
-          <div className="text-paragraph leading-[1.7]">
+          </p>
+          <p className="text-paragraph">
             You can contact me via <EmailCopy />, or{" "}
             <HoverLink
               text="LinkedIn"
@@ -158,7 +158,7 @@ function Home() {
             />
             , or find me on <HoverLink text="X" href="https://x.com/nocdns" hoverColor="#000000" />{" "}
             and <HoverLink text="GitHub" href="https://github.com/nocdn" hoverColor="#0FBF3E" />.
-          </div>
+          </p>
         </div>
 
         <div className="flex flex-col gap-6">

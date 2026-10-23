@@ -2,11 +2,10 @@ import Link from "@/components/link"
 import { ChevronLeft } from "lucide-react"
 import type { ReactNode } from "react"
 
-// Article body type matches the homepage about text:
-// Inter, 16px, weight 450, relaxed leading, paragraph color.
+// Homepage paragraphs and article bodies share the body-copy typography rule.
 export function WritingShell({ children }: { children: ReactNode }) {
   return (
-    <div className="font-inter flex w-full flex-col items-center py-20 font-[450] antialiased">
+    <div className="font-inter selection-warm flex w-full flex-col items-center py-20 font-[450] antialiased">
       <div className="mb-20 flex w-full max-w-2xl justify-between">
         <Link
           href="/"
@@ -19,7 +18,7 @@ export function WritingShell({ children }: { children: ReactNode }) {
           Back
         </Link>
       </div>
-      <div className="w-full max-w-2xl text-[17px] leading-[1.7] md:text-[16px]">{children}</div>
+      <div className="body-copy w-full max-w-2xl">{children}</div>
     </div>
   )
 }

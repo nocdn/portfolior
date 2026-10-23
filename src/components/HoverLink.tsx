@@ -22,7 +22,7 @@ export function HoverLink({
       href={href}
       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       style={{ "--hover-color": hoverColor } as CSSProperties}
-      className={`underline [text-decoration-color:color-mix(in_srgb,currentColor_35%,transparent)] underline-offset-[3px] transition-colors duration-100 [text-decoration-skip-ink:auto] hover:text-(--hover-color) hover:decoration-(--hover-color) ${className}`}
+      className={`inline-underline transition-colors duration-100 hover:text-(--hover-color) hover:decoration-(--hover-color) ${className}`}
       onPointerEnter={onPointerEnter}
     >
       {text}

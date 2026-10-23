@@ -79,7 +79,7 @@ import useMeasure from "react-use-measure"\`\`\`
 
 \`\`\`tsx
 const [view, setView] = useState(0);
-const [elementRef, bounds] = useMeasure();\`\`\`
+const [elementRef, bounds] = useMeasure({ offsetSize: true });\`\`\`
 
 The \`view\` state tracks which content is currently displayed, starting at index 0. The \`useMeasure\` hook returns two things: \`elementRef\` (a ref to attach to the element we want to measure) and \`bounds\` (an object containing the element's dimensions, including height, width, and position).
 
@@ -96,9 +96,9 @@ Moving onto the most important part of the component, an animated container whic
     bounce: 0,
     duration: 0.27,
   }}
-  className="overflow-hidden rounded-[2rem] border border-gray-200 bg-white"
+  className="border-shadow dark:bg-card mt-auto max-w-80 shrink-0 overflow-hidden rounded-4xl"
 >
-  <div className="p-6" ref={elementRef}>
+  <div className="relative px-6 pt-6 pb-6 antialiased" ref={elementRef}>
     <AnimatePresence initial={false} mode="popLayout" custom={view}>
       <motion.div
         initial={{ opacity: 0, scale: 0.96, filter: "blur(2px)" }}

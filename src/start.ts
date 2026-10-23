@@ -26,8 +26,12 @@ const contentNegotiation = createMiddleware().server(async ({ next, request }) =
   // deleted asset hashes) — old entries just become unreachable.
   // Browsers get max-age=60 (returning visitors refresh within a minute of a
   // release); shared caches get s-maxage for the long tail.
+  // Development HTML must stay fresh as modules change during hot reload.
   const cache =
-    request.method === "GET" && !wantsMarkdown && typeof caches !== "undefined"
+    import.meta.env.PROD &&
+    request.method === "GET" &&
+    !wantsMarkdown &&
+    typeof caches !== "undefined"
       ? ((caches as unknown as { default?: Cache }).default ?? null)
       : null
   const keyUrl = new URL(request.url)
@@ -52,6 +56,7 @@ const contentNegotiation = createMiddleware().server(async ({ next, request }) =
 
   const upstreamBody = result.response.body
   const isHtml = (result.response.headers.get("content-type") ?? "").includes("text/html")
+  if (import.meta.env.DEV && isHtml) headers.set("Cache-Control", "no-store")
 
   if (!cache || result.response.status !== 200 || !upstreamBody || !isHtml) {
     return new Response(result.response.body, {

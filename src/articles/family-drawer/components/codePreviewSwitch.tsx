@@ -26,12 +26,12 @@ export function CodePreviewSwitch({
     <div className="border-shadow flex flex-col rounded-xl">
       <div
         id="header"
-        className="flex h-18 items-center justify-between gap-3 border-b border-gray-200 px-4 dark:border-white/8"
+        className="flex h-18 shrink-0 items-center justify-between gap-3 border-b border-gray-200 px-4 dark:border-white/8"
       >
         <button
           onClick={() => setSelected("preview")}
           className={cn(
-            "w-full cursor-pointer rounded-full py-2 transition-all duration-100 select-none active:scale-99",
+            "w-full cursor-pointer rounded-full py-2 transition-[background-color,color,scale] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] select-none active:scale-99",
             selected === "preview"
               ? "bg-[#323137] text-white"
               : "bg-[#E3E3E3] dark:bg-white/8 dark:text-gray-400"
@@ -42,7 +42,7 @@ export function CodePreviewSwitch({
         <button
           onClick={() => setSelected("code")}
           className={cn(
-            "w-full cursor-pointer rounded-full py-2 transition-all duration-100 select-none active:scale-99",
+            "w-full cursor-pointer rounded-full py-2 transition-[background-color,color,scale] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] select-none active:scale-99",
             selected === "code"
               ? "bg-[#323137] text-white"
               : "bg-[#E3E3E3] dark:bg-white/8 dark:text-gray-400"
@@ -51,19 +51,18 @@ export function CodePreviewSwitch({
           Code
         </button>
       </div>
-      <div id="content" className="overflow-auto" style={{ height: height }}>
+      <div id="content" style={{ minHeight: height }}>
         {selected === "preview" ? (
-          <div className={cn("h-full", previewClassName)}>{children}</div>
+          <div className={cn("min-h-[inherit]", previewClassName)}>{children}</div>
         ) : (
-          <>
-            <div
-              className={cn(
-                "font-ioskeley-mono h-full overflow-auto p-4 text-sm [&_pre]:m-0",
-                codeClassName
-              )}
-              dangerouslySetInnerHTML={{ __html: highlightedHtml }}
-            />
-          </>
+          <div
+            className={cn(
+              "font-ioskeley-mono overflow-auto p-4 text-sm [&_pre]:m-0",
+              codeClassName
+            )}
+            style={{ height }}
+            dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+          />
         )}
       </div>
     </div>

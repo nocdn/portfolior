@@ -148,6 +148,19 @@
   }
 }
 
+/* Shared paragraph typography for the homepage and article bodies. */
+@utility body-copy {
+  @apply font-inter text-[17px] leading-[1.7] font-[450] tracking-normal antialiased md:text-[16px];
+}
+
+@utility inline-underline {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset: 3px;
+  text-decoration-skip-ink: auto;
+}
+
 /* Syntax highlighting (TanStack Highlight): token colors per color scheme.
    Generated with createThemeCss({ light: githubLight, dark: githubDark }). */
 :root {
@@ -364,10 +377,7 @@ pre.th-code {
    inner [torph-slot] > span, covered too. */
 .email-torph [torph-item],
 .email-torph [torph-slot] > span {
-  text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
-  text-underline-offset: 3px;
-  text-decoration-skip-ink: auto;
+  @apply inline-underline;
   transition: text-decoration-color 100ms;
 }
 

@@ -41,8 +41,8 @@ export function FamilyDrawerBody() {
             playsInline
             loop
             preload="metadata"
-            width={886}
-            height={1118}
+            width={672}
+            height={848}
             className="border-shadow h-auto w-1/2 rounded-[9px] bg-[#BFBCBF] [corner-shape:squircle] supports-[corner-shape:squircle]:rounded-2xl"
           >
             <source src="/videos/articles/family-drawer.mp4" type="video/mp4" />
@@ -59,7 +59,7 @@ export function FamilyDrawerBody() {
         </p>
         <CodePreviewSwitch
           code={initialCode}
-          previewClassName="flex flex-col items-center justify-end pb-4"
+          previewClassName="flex flex-col items-center justify-end py-4"
         >
           <InitialDrawer />
         </CodePreviewSwitch>
@@ -118,7 +118,7 @@ import useMeasure from "react-use-measure"`}</CodeBlock>
           lang="tsx"
           className="border-shadow max-w-2xl rounded-[9.5px] p-3"
         >{`const [view, setView] = useState(0);
-const [elementRef, bounds] = useMeasure();`}</CodeBlock>
+const [elementRef, bounds] = useMeasure({ offsetSize: true });`}</CodeBlock>
         <p className="text-paragraph max-w-2xl">
           The <span className="code-inline">view</span>{" "}
           <InlineDefinition
@@ -168,9 +168,9 @@ const [elementRef, bounds] = useMeasure();`}</CodeBlock>
     bounce: 0,
     duration: 0.27,
   }}
-  className="overflow-hidden rounded-[2rem] border border-gray-200 bg-white"
+  className="border-shadow dark:bg-card mt-auto max-w-80 shrink-0 overflow-hidden rounded-4xl"
 >
-  <div className="p-6" ref={elementRef}>
+  <div className="relative px-6 pt-6 pb-6 antialiased" ref={elementRef}>
     <AnimatePresence initial={false} mode="popLayout" custom={view}>
       <motion.div
         initial={{ opacity: 0, scale: 0.96, filter: "blur(2px)" }}
@@ -247,8 +247,8 @@ const [elementRef, bounds] = useMeasure();`}</CodeBlock>
         </p>
         <CodePreviewSwitch
           code={finishedCode}
-          height="480px"
-          previewClassName="flex flex-col items-center justify-end pb-4"
+          height="512px"
+          previewClassName="flex flex-col items-center justify-end py-7"
         >
           <FinishedDrawer />
         </CodePreviewSwitch>

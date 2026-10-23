@@ -21,7 +21,7 @@ export function InlineDefinition({
 
   const drawerContent = (
     <>
-      <p className="text-[15px] font-medium text-gray-600 dark:text-gray-300">{title}</p>
+      <p className="text-[15px] text-gray-600 dark:text-gray-300">{title}</p>
       {readMoreURL && (
         <a
           href={readMoreURL}
@@ -38,7 +38,7 @@ export function InlineDefinition({
 
   const popoverContent = (
     <>
-      <p className="text-[15px] font-medium text-gray-300">{title}</p>
+      <p className="text-[15px] text-gray-300">{title}</p>
       {readMoreURL && (
         <a
           href={readMoreURL}
@@ -56,14 +56,12 @@ export function InlineDefinition({
   if (isMobile) {
     return (
       <Drawer.Root open={open} onOpenChange={setOpen}>
-        <Drawer.Trigger className="cursor-help underline decoration-gray-500/50 decoration-dotted underline-offset-2">
-          {children}
-        </Drawer.Trigger>
+        <Drawer.Trigger className="inline-underline cursor-help">{children}</Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay className="fixed inset-0 bg-black/40" />
           <Drawer.Content className="fixed right-0 bottom-0 left-0 outline-none">
             <Drawer.Title className="sr-only">{title}</Drawer.Title>
-            <div className="rounded-t-2xl bg-[#FCFCFC] px-4 py-4 font-medium dark:bg-[#323137]">
+            <div className="font-inter rounded-t-2xl bg-[#FCFCFC] px-4 py-4 font-normal dark:bg-[#323137]">
               <div className="mx-auto mb-4 h-1 w-12 rounded-full bg-gray-300 dark:bg-gray-500" />
               {drawerContent}
             </div>
@@ -75,11 +73,7 @@ export function InlineDefinition({
 
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
-      <Popover.Trigger
-        className="cursor-help underline decoration-gray-500/50 decoration-dotted underline-offset-2"
-        openOnHover
-        delay={15}
-      >
+      <Popover.Trigger className="inline-underline cursor-help" openOnHover delay={15}>
         {children}
       </Popover.Trigger>
       <AnimatePresence>
@@ -87,7 +81,7 @@ export function InlineDefinition({
           <Popover.Portal>
             <Popover.Positioner sideOffset={8} collisionPadding={16} sticky>
               <Popover.Popup
-                className="max-w-lg rounded-2xl bg-[#323137] px-3 py-2 text-base font-medium text-gray-300 shadow-2xl [corner-shape:squircle] data-[side=bottom]:origin-top data-[side=left]:origin-right data-[side=right]:origin-left data-[side=top]:origin-bottom"
+                className="font-inter max-w-lg rounded-2xl bg-[#323137] px-3 py-2 text-base font-normal text-gray-300 shadow-2xl [corner-shape:squircle] data-[side=bottom]:origin-top data-[side=left]:origin-right data-[side=right]:origin-left data-[side=top]:origin-bottom"
                 render={
                   <motion.div
                     initial={{ opacity: 0, scale: 0.92, filter: "blur(2px)" }}
